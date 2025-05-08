@@ -31,7 +31,7 @@
             this.NombreUsuariolbl = new System.Windows.Forms.Label();
             this.Contraseñalbl = new System.Windows.Forms.Label();
             this.NombreUsuariotxt = new System.Windows.Forms.TextBox();
-            this.Contraseñatxt = new System.Windows.Forms.TextBox();
+            this.Contraseniatxt = new System.Windows.Forms.TextBox();
             this.IniciarSesionbtn = new System.Windows.Forms.Button();
             this.crearCuentaBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             this.Contraseñalbl.Size = new System.Drawing.Size(61, 13);
             this.Contraseñalbl.TabIndex = 2;
             this.Contraseñalbl.Text = "Contraseña";
+            this.Contraseñalbl.Click += new System.EventHandler(this.Contraseñalbl_Click);
             // 
             // NombreUsuariotxt
             // 
@@ -61,13 +62,15 @@
             this.NombreUsuariotxt.Name = "NombreUsuariotxt";
             this.NombreUsuariotxt.Size = new System.Drawing.Size(100, 20);
             this.NombreUsuariotxt.TabIndex = 3;
+            this.NombreUsuariotxt.TextChanged += new System.EventHandler(this.NombreUsuariotxt_TextChanged);
             // 
-            // Contraseñatxt
+            // Contraseniatxt
             // 
-            this.Contraseñatxt.Location = new System.Drawing.Point(328, 159);
-            this.Contraseñatxt.Name = "Contraseñatxt";
-            this.Contraseñatxt.Size = new System.Drawing.Size(100, 20);
-            this.Contraseñatxt.TabIndex = 4;
+            this.Contraseniatxt.Location = new System.Drawing.Point(328, 159);
+            this.Contraseniatxt.Name = "Contraseniatxt";
+            this.Contraseniatxt.Size = new System.Drawing.Size(100, 20);
+            this.Contraseniatxt.TabIndex = 4;
+            this.Contraseniatxt.TextChanged += new System.EventHandler(this.Contraseñatxt_TextChanged);
             // 
             // IniciarSesionbtn
             // 
@@ -77,6 +80,7 @@
             this.IniciarSesionbtn.TabIndex = 5;
             this.IniciarSesionbtn.Text = "Iniciar Sesión";
             this.IniciarSesionbtn.UseVisualStyleBackColor = true;
+            this.IniciarSesionbtn.Click += new System.EventHandler(this.IniciarSesionbtn_Click);
             // 
             // crearCuentaBtn
             // 
@@ -86,6 +90,7 @@
             this.crearCuentaBtn.TabIndex = 6;
             this.crearCuentaBtn.Text = "Crear cuenta";
             this.crearCuentaBtn.UseVisualStyleBackColor = true;
+            this.crearCuentaBtn.Click += new System.EventHandler(this.crearCuentaBtn_Click);
             // 
             // LoginForm
             // 
@@ -94,12 +99,13 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crearCuentaBtn);
             this.Controls.Add(this.IniciarSesionbtn);
-            this.Controls.Add(this.Contraseñatxt);
+            this.Controls.Add(this.Contraseniatxt);
             this.Controls.Add(this.NombreUsuariotxt);
             this.Controls.Add(this.Contraseñalbl);
             this.Controls.Add(this.NombreUsuariolbl);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,7 +116,7 @@
         private System.Windows.Forms.Label NombreUsuariolbl;
         private System.Windows.Forms.Label Contraseñalbl;
         private System.Windows.Forms.TextBox NombreUsuariotxt;
-        private System.Windows.Forms.TextBox Contraseñatxt;
+        private System.Windows.Forms.TextBox Contraseniatxt;
         private System.Windows.Forms.Button IniciarSesionbtn;
         private System.Windows.Forms.Button crearCuentaBtn;
     }

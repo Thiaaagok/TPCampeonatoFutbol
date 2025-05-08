@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace TPCampeonatoFutbol
 {
-    public partial class Form1 : Form
+    public partial class RegisterForm : Form
     {
-        public Form1()
+        public RegisterForm()
         {
             InitializeComponent();
-        }
-
-private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
         }
     }
 }

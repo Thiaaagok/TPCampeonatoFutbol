@@ -21,5 +21,35 @@ namespace TPCampeonatoFutbol
         {
 
         }
+
+        private void crearCuentaBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IniciarSesionbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Contraseñatxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NombreUsuariotxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Contraseñalbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
