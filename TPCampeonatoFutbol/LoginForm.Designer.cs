@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.NombreUsuariolbl = new System.Windows.Forms.Label();
-            this.Contraseñalbl = new System.Windows.Forms.Label();
             this.NombreUsuariotxt = new System.Windows.Forms.TextBox();
             this.Contraseniatxt = new System.Windows.Forms.TextBox();
             this.IniciarSesionbtn = new System.Windows.Forms.Button();
             this.crearCuentaBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelDummy = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreUsuariolbl
@@ -41,71 +45,103 @@
             this.NombreUsuariolbl.AutoSize = true;
             this.NombreUsuariolbl.Location = new System.Drawing.Point(325, 99);
             this.NombreUsuariolbl.Name = "NombreUsuariolbl";
-            this.NombreUsuariolbl.Size = new System.Drawing.Size(98, 13);
+            this.NombreUsuariolbl.Size = new System.Drawing.Size(0, 13);
             this.NombreUsuariolbl.TabIndex = 0;
-            this.NombreUsuariolbl.Text = "Nombre de Usuario";
-            this.NombreUsuariolbl.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // Contraseñalbl
-            // 
-            this.Contraseñalbl.AutoSize = true;
-            this.Contraseñalbl.Location = new System.Drawing.Point(325, 143);
-            this.Contraseñalbl.Name = "Contraseñalbl";
-            this.Contraseñalbl.Size = new System.Drawing.Size(61, 13);
-            this.Contraseñalbl.TabIndex = 2;
-            this.Contraseñalbl.Text = "Contraseña";
-            this.Contraseñalbl.Click += new System.EventHandler(this.Contraseñalbl_Click);
             // 
             // NombreUsuariotxt
             // 
-            this.NombreUsuariotxt.Location = new System.Drawing.Point(328, 115);
+            this.NombreUsuariotxt.Location = new System.Drawing.Point(314, 154);
+            this.NombreUsuariotxt.Multiline = true;
             this.NombreUsuariotxt.Name = "NombreUsuariotxt";
-            this.NombreUsuariotxt.Size = new System.Drawing.Size(100, 20);
+            this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 30);
             this.NombreUsuariotxt.TabIndex = 3;
-            this.NombreUsuariotxt.TextChanged += new System.EventHandler(this.NombreUsuariotxt_TextChanged);
+            this.NombreUsuariotxt.Text = "Usuario";
+            this.NombreUsuariotxt.Enter += new System.EventHandler(this.NombreUsuariotxt_Enter);
+            this.NombreUsuariotxt.Leave += new System.EventHandler(this.NombreUsuariotxt_Leave);
             // 
             // Contraseniatxt
             // 
-            this.Contraseniatxt.Location = new System.Drawing.Point(328, 159);
+            this.Contraseniatxt.Location = new System.Drawing.Point(314, 230);
+            this.Contraseniatxt.Multiline = true;
             this.Contraseniatxt.Name = "Contraseniatxt";
-            this.Contraseniatxt.Size = new System.Drawing.Size(100, 20);
+            this.Contraseniatxt.Size = new System.Drawing.Size(408, 30);
             this.Contraseniatxt.TabIndex = 4;
-            this.Contraseniatxt.TextChanged += new System.EventHandler(this.Contraseñatxt_TextChanged);
+            this.Contraseniatxt.Text = "Contraseña";
+            this.Contraseniatxt.Enter += new System.EventHandler(this.Contraseniatxt_Enter);
+            this.Contraseniatxt.Leave += new System.EventHandler(this.Contraseniatxt_Leave);
             // 
             // IniciarSesionbtn
             // 
-            this.IniciarSesionbtn.Location = new System.Drawing.Point(328, 194);
+            this.IniciarSesionbtn.Location = new System.Drawing.Point(307, 308);
             this.IniciarSesionbtn.Name = "IniciarSesionbtn";
             this.IniciarSesionbtn.Size = new System.Drawing.Size(100, 23);
             this.IniciarSesionbtn.TabIndex = 5;
             this.IniciarSesionbtn.Text = "Iniciar Sesión";
             this.IniciarSesionbtn.UseVisualStyleBackColor = true;
-            this.IniciarSesionbtn.Click += new System.EventHandler(this.IniciarSesionbtn_Click);
             // 
             // crearCuentaBtn
             // 
-            this.crearCuentaBtn.Location = new System.Drawing.Point(208, 194);
+            this.crearCuentaBtn.Location = new System.Drawing.Point(307, 351);
             this.crearCuentaBtn.Name = "crearCuentaBtn";
-            this.crearCuentaBtn.Size = new System.Drawing.Size(114, 23);
+            this.crearCuentaBtn.Size = new System.Drawing.Size(100, 23);
             this.crearCuentaBtn.TabIndex = 6;
             this.crearCuentaBtn.Text = "Crear cuenta";
             this.crearCuentaBtn.UseVisualStyleBackColor = true;
-            this.crearCuentaBtn.Click += new System.EventHandler(this.crearCuentaBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.usuariologo;
+            this.pictureBox1.Location = new System.Drawing.Point(-9, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(309, 253);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelDummy
+            // 
+            this.labelDummy.AutoSize = true;
+            this.labelDummy.Location = new System.Drawing.Point(5, 21);
+            this.labelDummy.Name = "labelDummy";
+            this.labelDummy.Size = new System.Drawing.Size(0, 13);
+            this.labelDummy.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Location = new System.Drawing.Point(314, 190);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(419, 2);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Location = new System.Drawing.Point(314, 270);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(419, 2);
+            this.panel2.TabIndex = 10;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.labelDummy);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.crearCuentaBtn);
             this.Controls.Add(this.IniciarSesionbtn);
             this.Controls.Add(this.Contraseniatxt);
             this.Controls.Add(this.NombreUsuariotxt);
-            this.Controls.Add(this.Contraseñalbl);
             this.Controls.Add(this.NombreUsuariolbl);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "tet";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            
+
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,10 +150,13 @@
         #endregion
 
         private System.Windows.Forms.Label NombreUsuariolbl;
-        private System.Windows.Forms.Label Contraseñalbl;
         private System.Windows.Forms.TextBox NombreUsuariotxt;
         private System.Windows.Forms.TextBox Contraseniatxt;
         private System.Windows.Forms.Button IniciarSesionbtn;
         private System.Windows.Forms.Button crearCuentaBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelDummy;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
