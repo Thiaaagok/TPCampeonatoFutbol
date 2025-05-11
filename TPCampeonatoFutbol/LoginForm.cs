@@ -15,11 +15,17 @@ namespace TPCampeonatoFutbol
         public LoginForm()
         {
             InitializeComponent();
+            AsignarDiseños();
+        }
 
+        private void AsignarDiseños()
+        {
+            // diseño formulari
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            //diseño nombre usuario txt
             NombreUsuariotxt.TabStop = false;
             NombreUsuariotxt.BackColor = Color.FromArgb(39, 57, 80);
             NombreUsuariotxt.BorderStyle = BorderStyle.None;
@@ -27,6 +33,7 @@ namespace TPCampeonatoFutbol
             NombreUsuariotxt.ForeColor = Color.Silver;
             NombreUsuariotxt.Size = new Size(408, 30);
 
+            //diseño contraseña txt
             Contraseniatxt.TabStop = false;
             Contraseniatxt.BackColor = Color.FromArgb(39, 57, 80);
             Contraseniatxt.BorderStyle = BorderStyle.None;
@@ -34,6 +41,7 @@ namespace TPCampeonatoFutbol
             Contraseniatxt.ForeColor = Color.Silver;
             Contraseniatxt.Size = new Size(408, 30);
 
+            //diseño iniciar sesión boton
             IniciarSesionbtn.BackColor = Color.FromArgb(33, 53, 73);
             IniciarSesionbtn.FlatStyle = FlatStyle.Flat;
             IniciarSesionbtn.FlatAppearance.BorderColor = Color.FromArgb(85, 159, 127);
@@ -42,6 +50,7 @@ namespace TPCampeonatoFutbol
             IniciarSesionbtn.ForeColor = Color.LightGray;
             IniciarSesionbtn.Size = new Size(408, 40);
 
+            //diseño crear cuenta boton
             crearCuentaBtn.BackColor = Color.FromArgb(33, 53, 73);
             crearCuentaBtn.FlatStyle = FlatStyle.Flat;
             crearCuentaBtn.FlatAppearance.BorderColor = Color.FromArgb(85, 159, 127);
