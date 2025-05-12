@@ -75,6 +75,7 @@
             this.IniciarSesionbtn.TabIndex = 5;
             this.IniciarSesionbtn.Text = "Iniciar Sesión";
             this.IniciarSesionbtn.UseVisualStyleBackColor = true;
+            this.IniciarSesionbtn.Click += new System.EventHandler(this.IniciarSesionbtn_Click);
             // 
             // crearCuentaBtn
             // 

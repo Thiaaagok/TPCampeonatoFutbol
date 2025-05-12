@@ -61,7 +61,7 @@ namespace TPCampeonatoFutbol
 
         private void Register()
         {
-            bool usuarioCorrecto = false;
+            bool usuarioCorrecto = true;
             try
             {
                 using (StreamReader sr = new StreamReader("usuarios.txt"))
@@ -90,6 +90,11 @@ namespace TPCampeonatoFutbol
                         {
                             sr.WriteLine($"{NombreUsuariotxt.Text},{Contraseniatxt.Text}");
                         }
+
+                        MessageBox.Show("Usuario Creado");
+                        this.Hide();
+                        LoginForm login = new LoginForm();
+                        login.Show();
                     }
                     else
                     {
