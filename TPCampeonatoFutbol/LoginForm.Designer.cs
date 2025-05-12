@@ -33,10 +33,12 @@
             this.Contraseniatxt = new System.Windows.Forms.TextBox();
             this.IniciarSesionbtn = new System.Windows.Forms.Button();
             this.crearCuentaBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelDummy = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,20 +57,15 @@
             this.NombreUsuariotxt.Name = "NombreUsuariotxt";
             this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 30);
             this.NombreUsuariotxt.TabIndex = 3;
-            this.NombreUsuariotxt.Text = "Usuario";
-            this.NombreUsuariotxt.Enter += new System.EventHandler(this.NombreUsuariotxt_Enter);
-            this.NombreUsuariotxt.Leave += new System.EventHandler(this.NombreUsuariotxt_Leave);
             // 
             // Contraseniatxt
             // 
             this.Contraseniatxt.Location = new System.Drawing.Point(314, 230);
-            this.Contraseniatxt.Multiline = true;
             this.Contraseniatxt.Name = "Contraseniatxt";
-            this.Contraseniatxt.Size = new System.Drawing.Size(408, 30);
+            this.Contraseniatxt.PasswordChar = '*';
+            this.Contraseniatxt.Size = new System.Drawing.Size(408, 20);
             this.Contraseniatxt.TabIndex = 4;
-            this.Contraseniatxt.Text = "Contraseña";
-            this.Contraseniatxt.Enter += new System.EventHandler(this.Contraseniatxt_Enter);
-            this.Contraseniatxt.Leave += new System.EventHandler(this.Contraseniatxt_Leave);
+            this.Contraseniatxt.UseSystemPasswordChar = true;
             // 
             // IniciarSesionbtn
             // 
@@ -87,15 +84,7 @@
             this.crearCuentaBtn.TabIndex = 6;
             this.crearCuentaBtn.Text = "Crear cuenta";
             this.crearCuentaBtn.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.usuariologo;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 253);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.crearCuentaBtn.Click += new System.EventHandler(this.crearCuentaBtn_Click);
             // 
             // labelDummy
             // 
@@ -121,12 +110,41 @@
             this.panel2.Size = new System.Drawing.Size(419, 2);
             this.panel2.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(311, 138);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Usuario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(311, 214);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Contraseña";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.usuariologo;
+            this.pictureBox1.Location = new System.Drawing.Point(-9, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(309, 253);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelDummy);
@@ -139,8 +157,6 @@
             this.Name = "LoginForm";
             this.Text = "tet";
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,9 +170,11 @@
         private System.Windows.Forms.TextBox Contraseniatxt;
         private System.Windows.Forms.Button IniciarSesionbtn;
         private System.Windows.Forms.Button crearCuentaBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelDummy;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

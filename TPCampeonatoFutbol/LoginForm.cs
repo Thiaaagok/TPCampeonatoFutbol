@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace TPCampeonatoFutbol
         {
             InitializeComponent();
             AsignarDiseños();
+            CrearArchivo("usuarios.txt");
         }
 
         private void AsignarDiseños()
@@ -60,42 +62,75 @@ namespace TPCampeonatoFutbol
             crearCuentaBtn.Size = new Size(208, 40);
         }
 
-        private void NombreUsuariotxt_Enter(object sender, EventArgs e)
+        private void Login()
         {
-            if (NombreUsuariotxt.Text == "Usuario")
+            bool loginCorrecto = false;
+            try
             {
-                NombreUsuariotxt.Text = "";
-                NombreUsuariotxt.ForeColor = Color.LightGray;
+                using (StreamReader sr = new StreamReader("usuarios.txt"))
+                {
+                    string linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] partes = linea.Split(',');
+                        string usuario = partes[0];
+                        string contrasenia = partes[1];
+                        if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
+                        {
+                            loginCorrecto = true;
+                            this.Hide();
+                            Form1 form1 = new Form1();
+                            form1.Show();
+                            break;
+                        }
+
+                    }
+                    if (!loginCorrecto)
+                    {
+                        MessageBox.Show("Usuario o Contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Archivo no encontrado");
             }
         }
 
-        private void NombreUsuariotxt_Leave(object sender, EventArgs e)
+        private void IniciarSesionbtn_Click(object sender, EventArgs e)
         {
-            if (NombreUsuariotxt.Text == "")
+            if (NombreUsuariotxt.Text != "" && Contraseniatxt.Text != "")
             {
-                NombreUsuariotxt.Text = "Usuario";
-                NombreUsuariotxt.ForeColor = Color.Silver;
+                Login();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, completar los campos correctamente");
             }
         }
 
-        private void Contraseniatxt_Enter(object sender, EventArgs e)
+        private void CrearArchivo(string RutaArchivo)
         {
-            if (Contraseniatxt.Text == "Contraseña")
+            try
             {
-                Contraseniatxt.Text = "";
-                Contraseniatxt.ForeColor = Color.LightGray;
-                Contraseniatxt.UseSystemPasswordChar = true;
+                if (!VerificarArchivo(RutaArchivo))
+                {
+                    using (File.CreateText(RutaArchivo))
+                    {
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void Contraseniatxt_Leave(object sender, EventArgs e)
+        private bool VerificarArchivo(string RutaArchivo)
         {
-            if (Contraseniatxt.Text == "")
-            {
-                Contraseniatxt.Text = "Contraseña";
-                Contraseniatxt.ForeColor = Color.Silver;
-                Contraseniatxt.UseSystemPasswordChar = false;
-            }
+            return File.Exists(RutaArchivo);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -103,5 +138,11 @@ namespace TPCampeonatoFutbol
             labelDummy.Focus();
         }
 
+        private void crearCuentaBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+        }
     }
 }
