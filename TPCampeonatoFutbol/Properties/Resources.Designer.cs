@@ -63,9 +63,19 @@ namespace TPCampeonatoFutbol.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap usuariologo {
+        internal static System.Drawing.Bitmap Logo_Campeonato__1_ {
             get {
-                object obj = ResourceManager.GetObject("usuariologo", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo_Campeonato__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_usuario {
+            get {
+                object obj = ResourceManager.GetObject("logo_usuario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

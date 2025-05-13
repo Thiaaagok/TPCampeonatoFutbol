@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.NombreUsuariolbl = new System.Windows.Forms.Label();
             this.NombreUsuariotxt = new System.Windows.Forms.TextBox();
             this.Contraseniatxt = new System.Windows.Forms.TextBox();
@@ -131,10 +132,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.usuariologo;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, 78);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(26, 108);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 253);
+            this.pictureBox1.Size = new System.Drawing.Size(212, 204);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 

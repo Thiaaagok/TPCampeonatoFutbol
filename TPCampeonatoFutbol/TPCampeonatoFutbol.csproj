@@ -46,12 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Campeonato.cs" />
+    <Compile Include="Modelos\Campeonato.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMDI.Designer.cs">
+      <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
@@ -59,27 +65,21 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs" />
-    <Compile Include="Persona.cs" />
-    <Compile Include="Equipo.cs" />
-    <Compile Include="EstadisticasEquipos.cs" />
-    <Compile Include="Expulsion.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GolesEquipo.cs" />
-    <Compile Include="Jugador.cs" />
-    <Compile Include="Partido.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Modelos\Persona.cs" />
+    <Compile Include="Modelos\Equipo.cs" />
+    <Compile Include="Modelos\EstadisticasEquipos.cs" />
+    <Compile Include="Modelos\Expulsion.cs" />
+    <Compile Include="Modelos\GolesEquipo.cs" />
+    <Compile Include="Modelos\Jugador.cs" />
+    <Compile Include="Modelos\Partido.cs" />
+    <Compile Include="Modelos\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMDI.resx">
+      <DependentUpon>MainMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +112,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuariologo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo Campeonato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo Campeonato %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-usuario %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-usuario %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
