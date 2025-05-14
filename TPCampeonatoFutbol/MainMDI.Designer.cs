@@ -43,8 +43,6 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip.SuspendLayout();
-            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,7 +132,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.Logo_Campeonato__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(332, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(333, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(202, 189);
             this.pictureBox1.TabIndex = 4;
@@ -152,10 +150,6 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainMDI";
             this.Text = "MainMDI";
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

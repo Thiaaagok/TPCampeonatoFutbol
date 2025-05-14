@@ -119,5 +119,6 @@ namespace TPCampeonatoFutbol
                 MessageBox.Show("Por favor, completar los campos correctamente");
             }
         }
+
     }
 }

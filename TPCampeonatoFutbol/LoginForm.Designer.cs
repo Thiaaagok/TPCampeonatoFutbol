@@ -107,7 +107,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Location = new System.Drawing.Point(314, 270);
+            this.panel2.Location = new System.Drawing.Point(314, 256);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 2);
             this.panel2.TabIndex = 10;
@@ -115,6 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(311, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
@@ -124,6 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(311, 214);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);

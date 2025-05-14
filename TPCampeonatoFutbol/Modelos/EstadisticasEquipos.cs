@@ -8,5 +8,6 @@ namespace TPCampeonatoFutbol
         Equipo Equipo { get; set; }
         List<GolesEquipo> GolesEquipo { get; set; }
         List<Expulsion> Expulsiones { get; set; }
+
     }
 }

@@ -22,7 +22,7 @@ namespace TPCampeonatoFutbol
 
         private void AsignarDiseños()
         {
-            // diseño formulari
+            // diseño formulario
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;

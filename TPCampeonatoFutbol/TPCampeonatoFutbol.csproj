@@ -59,6 +59,7 @@
     <Compile Include="MainMDI.Designer.cs">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +74,6 @@
     <Compile Include="Modelos\GolesEquipo.cs" />
     <Compile Include="Modelos\Jugador.cs" />
     <Compile Include="Modelos\Partido.cs" />
-    <Compile Include="Modelos\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -117,9 +117,6 @@
     <None Include="Resources\Logo Campeonato.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo-usuario.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Logo Campeonato %281%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-usuario %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
