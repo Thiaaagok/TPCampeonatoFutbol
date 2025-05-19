@@ -17,6 +17,9 @@ namespace TPCampeonatoFutbol
         public MainMDI()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -94,9 +97,10 @@ namespace TPCampeonatoFutbol
             }
         }
 
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void equiposToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Equipos equipos = new Equipos();
+            equipos.Show();
         }
     }
 }

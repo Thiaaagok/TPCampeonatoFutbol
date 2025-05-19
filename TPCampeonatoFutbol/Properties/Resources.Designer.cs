@@ -79,5 +79,15 @@ namespace TPCampeonatoFutbol.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nouvelle_icone_grise {
+            get {
+                object obj = ResourceManager.GetObject("nouvelle_icone_grise", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

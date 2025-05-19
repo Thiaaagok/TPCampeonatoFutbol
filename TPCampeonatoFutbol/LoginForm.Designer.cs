@@ -56,7 +56,7 @@
             this.NombreUsuariotxt.Location = new System.Drawing.Point(314, 154);
             this.NombreUsuariotxt.Multiline = true;
             this.NombreUsuariotxt.Name = "NombreUsuariotxt";
-            this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 30);
+            this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 19);
             this.NombreUsuariotxt.TabIndex = 3;
             // 
             // Contraseniatxt
@@ -99,7 +99,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Location = new System.Drawing.Point(314, 190);
+            this.panel1.Location = new System.Drawing.Point(314, 179);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 2);
             this.panel1.TabIndex = 9;

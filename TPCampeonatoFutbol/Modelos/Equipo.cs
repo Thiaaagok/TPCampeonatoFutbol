@@ -3,9 +3,29 @@ using System.Collections.Generic;
 
 namespace TPCampeonatoFutbol
 {
-    internal class Equipo
+    public class Equipo
     {
-        string nombre {  get; set; }
+        public string Nombre {  get; set; }
+
+        public string NombreCorto { get; set; }
+
+        public string Ciudad { get; set; }
+
+        public string Estadio { get; set; }
+
+        public int CapacidadEstadio { get; set; }
+
+        public int AnioFundacion { get; set; }
+
+        public Equipo(string nombre, string nombreCorto, string ciudad, string estadio, int capacidadEstadio, int anioFundacion)
+        {
+            Nombre = nombre;
+            NombreCorto = nombreCorto;
+            Ciudad = ciudad;
+            Estadio = estadio;
+            CapacidadEstadio = capacidadEstadio;
+            AnioFundacion = anioFundacion;
+        }
     }
 
     internal class PlantelEquipo
