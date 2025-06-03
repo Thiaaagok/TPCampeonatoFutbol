@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
     public partial class RegisterForm : Form
     {
+        ManejoArchivos manejoArchivos = new ManejoArchivos();
         public RegisterForm()
         {
             InitializeComponent();
@@ -57,55 +59,56 @@ namespace TPCampeonatoFutbol
             CrearCuentaBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 118, 126);
             CrearCuentaBtn.ForeColor = Color.LightGray;
             CrearCuentaBtn.Size = new Size(208, 40);
+
+            iniciarSesionBtn.BackColor = Color.FromArgb(33, 53, 73);
+            iniciarSesionBtn.FlatStyle = FlatStyle.Flat;
+            iniciarSesionBtn.FlatAppearance.BorderColor = Color.FromArgb(85, 159, 127);
+            iniciarSesionBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20);
+            iniciarSesionBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 118, 126);
+            iniciarSesionBtn.ForeColor = Color.LightGray;
+            iniciarSesionBtn.Size = new Size(150, 40);
         }
 
         private void Register()
         {
-            bool usuarioCorrecto = true;
-            try
+            string ruta = "usuarios.txt";
+            string usuarioNuevo = NombreUsuariotxt.Text;
+            string contraseniaNueva = Contraseniatxt.Text;
+            string repetirContrasenia = repetirContraseniatxt.Text;
+
+            if (string.IsNullOrEmpty(usuarioNuevo) || string.IsNullOrEmpty(contraseniaNueva))
             {
-                using (StreamReader sr = new StreamReader("usuarios.txt"))
-                {
-                    string linea;
-                    while ((linea = sr.ReadLine()) != null)
-                    {
-                        string[] partes = linea.Split(',');
-                        string usuario = partes[0];
-                        string contrasenia = partes[1];
-                        if (usuario == NombreUsuariotxt.Text)
-                        {
-                            usuarioCorrecto = false;
-                            MessageBox.Show("El nombre de usuario ingresado ya existe. Intenta con uno diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
-
-                    }
-                }
-
-                if (usuarioCorrecto)
-                {
-                    if(Contraseniatxt.Text == repetirContraseniatxt.Text)
-                    {
-                        using (StreamWriter sr = new StreamWriter("usuarios.txt"))
-                        {
-                            sr.WriteLine($"{NombreUsuariotxt.Text},{Contraseniatxt.Text}");
-                        }
-
-                        MessageBox.Show("Usuario Creado");
-                        this.Hide();
-                        LoginForm login = new LoginForm();
-                        login.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Las contraseñas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                MessageBox.Show("Usuario y contraseña no pueden estar vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            catch (FileNotFoundException)
+
+            var usuarios = manejoArchivos.ObtenerTodos(ruta);
+            bool usuarioExiste = usuarios.Any(linea =>
             {
-                MessageBox.Show("Archivo no encontrado");
+                var partes = linea.Split(',');
+                return partes.Length >= 1 && partes[0] == usuarioNuevo;
+            });
+
+            if (usuarioExiste)
+            {
+                MessageBox.Show("El nombre de usuario ingresado ya existe. Intenta con uno diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (contraseniaNueva != repetirContrasenia)
+            {
+                MessageBox.Show("Las contraseñas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            string nuevoRegistro = $"{usuarioNuevo},{contraseniaNueva}";
+            manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
+
+            MessageBox.Show("Usuario creado exitosamente.");
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.Show();
         }
 
         private void CrearCuentaBtn_Click(object sender, EventArgs e)
@@ -120,5 +123,16 @@ namespace TPCampeonatoFutbol
             }
         }
 
+        private void iniciarSesionBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.Show();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

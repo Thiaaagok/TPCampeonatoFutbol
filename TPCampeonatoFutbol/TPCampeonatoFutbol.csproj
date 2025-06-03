@@ -46,25 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrearEquipoForm.cs">
+    <Compile Include="Formularios\equipos\CrearEquipoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearEquipoForm.Designer.cs">
+    <Compile Include="Formularios\equipos\CrearEquipoForm.Designer.cs">
       <DependentUpon>CrearEquipoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Equipos.cs">
+    <Compile Include="Formularios\equipos\Equipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Equipos.Designer.cs">
+    <Compile Include="Formularios\equipos\Equipos.Designer.cs">
       <DependentUpon>Equipos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\Campeonato.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Formularios\login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Formularios\login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\login\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\login\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\ManejoArchivos.cs" />
+    <Compile Include="Modelos\Campeonato.cs" />
     <Compile Include="MainMDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +79,6 @@
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="RegisterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Persona.cs" />
     <Compile Include="Modelos\Equipo.cs" />
@@ -87,11 +88,17 @@
     <Compile Include="Modelos\Jugador.cs" />
     <Compile Include="Modelos\Partido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Equipos.resx">
+    <EmbeddedResource Include="Formularios\equipos\CrearEquipoForm.resx">
+      <DependentUpon>CrearEquipoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\equipos\Equipos.resx">
       <DependentUpon>Equipos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Formularios\login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\login\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMDI.resx">
       <DependentUpon>MainMDI.cs</DependentUpon>
@@ -106,9 +113,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegisterForm.resx">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nouvelle-icone-grise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cruz-roja.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cruz-roja.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,16 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
     public partial class LoginForm : Form
     {
+        ManejoArchivos manejoArchivos = new ManejoArchivos();
         public LoginForm()
         {
             InitializeComponent();
             AsignarDiseños();
-            CrearArchivo("usuarios.txt");
         }
 
         private void AsignarDiseños()
@@ -60,6 +61,8 @@ namespace TPCampeonatoFutbol
             crearCuentaBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 118, 126);
             crearCuentaBtn.ForeColor = Color.LightGray;
             crearCuentaBtn.Size = new Size(208, 40);
+
+            cerrarAplicacionBtn.BackColor = Color.FromArgb(39, 57, 80);
         }
 
         private void Login()
@@ -67,33 +70,34 @@ namespace TPCampeonatoFutbol
             bool loginCorrecto = false;
             try
             {
-                using (StreamReader sr = new StreamReader("usuarios.txt"))
-                {
-                    string linea;
-                    while ((linea = sr.ReadLine()) != null)
-                    {
-                        string[] partes = linea.Split(',');
-                        string usuario = partes[0];
-                        string contrasenia = partes[1];
-                        if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
-                        {
-                            loginCorrecto = true;
-                            this.Hide();
-                            MainMDI home = new MainMDI();
-                            home.Show();
-                            break;
-                        }
+                List<string> lineas = manejoArchivos.ObtenerTodos("usuarios.txt");
 
-                    }
-                    if (!loginCorrecto)
+                foreach (var linea in lineas)
+                {
+                    string[] partes = linea.Split(',');
+                    if (partes.Length < 2) continue;
+
+                    string usuario = partes[0];
+                    string contrasenia = partes[1];
+
+                    if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
                     {
-                        MessageBox.Show("Usuario o Contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        loginCorrecto = true;
+                        this.Hide();
+                        MainMDI home = new MainMDI();
+                        home.Show();
+                        break;
                     }
                 }
+
+                if (!loginCorrecto)
+                {
+                    MessageBox.Show("Usuario o Contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (FileNotFoundException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Archivo no encontrado");
+                MessageBox.Show("Error al intentar iniciar sesión: " + ex.Message);
             }
         }
 
@@ -108,31 +112,6 @@ namespace TPCampeonatoFutbol
                 MessageBox.Show("Por favor, completar los campos correctamente");
             }
         }
-
-        private void CrearArchivo(string RutaArchivo)
-        {
-            try
-            {
-                if (!VerificarArchivo(RutaArchivo))
-                {
-                    using (File.CreateText(RutaArchivo))
-                    {
-
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private bool VerificarArchivo(string RutaArchivo)
-        {
-            return File.Exists(RutaArchivo);
-        }
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
             labelDummy.Focus();
@@ -143,6 +122,11 @@ namespace TPCampeonatoFutbol
             this.Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -38,13 +38,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.repetirContraseniatxt = new System.Windows.Forms.TextBox();
+            this.iniciarSesionBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cerrarAplicacionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CrearCuentaBtn
             // 
-            this.CrearCuentaBtn.Location = new System.Drawing.Point(423, 305);
+            this.CrearCuentaBtn.Location = new System.Drawing.Point(431, 301);
             this.CrearCuentaBtn.Name = "CrearCuentaBtn";
             this.CrearCuentaBtn.Size = new System.Drawing.Size(100, 23);
             this.CrearCuentaBtn.TabIndex = 11;
@@ -132,6 +134,16 @@
             this.repetirContraseniatxt.TabIndex = 19;
             this.repetirContraseniatxt.UseSystemPasswordChar = true;
             // 
+            // iniciarSesionBtn
+            // 
+            this.iniciarSesionBtn.Location = new System.Drawing.Point(431, 346);
+            this.iniciarSesionBtn.Name = "iniciarSesionBtn";
+            this.iniciarSesionBtn.Size = new System.Drawing.Size(118, 27);
+            this.iniciarSesionBtn.TabIndex = 22;
+            this.iniciarSesionBtn.Text = "Volver a iniciar sesión";
+            this.iniciarSesionBtn.UseVisualStyleBackColor = true;
+            this.iniciarSesionBtn.Click += new System.EventHandler(this.iniciarSesionBtn_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TPCampeonatoFutbol.Properties.Resources.logo_usuario;
@@ -141,11 +153,25 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.Crimson;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(764, 0);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(38, 40);
+            this.cerrarAplicacionBtn.TabIndex = 24;
+            this.cerrarAplicacionBtn.Text = "X";
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = true;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cerrarAplicacionBtn);
+            this.Controls.Add(this.iniciarSesionBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.repetirContraseniatxt);
@@ -177,5 +203,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox repetirContraseniatxt;
+        private System.Windows.Forms.Button iniciarSesionBtn;
+        private System.Windows.Forms.Button cerrarAplicacionBtn;
     }
 }
