@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +50,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Formularios\equipos\CrearEquipoForm.cs">
@@ -52,11 +59,23 @@
     <Compile Include="Formularios\equipos\CrearEquipoForm.Designer.cs">
       <DependentUpon>CrearEquipoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\equipos\EditarEquipoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\equipos\EditarEquipoForm.Designer.cs">
+      <DependentUpon>EditarEquipoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\equipos\Equipos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\equipos\Equipos.Designer.cs">
       <DependentUpon>Equipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\jugadores\CrearJugadorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\jugadores\CrearJugadorForm.Designer.cs">
+      <DependentUpon>CrearJugadorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\login\LoginForm.cs">
       <SubType>Form</SubType>
@@ -88,11 +107,23 @@
     <Compile Include="Modelos\Jugador.cs" />
     <Compile Include="Modelos\Partido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\kindpng_2162479 %281%29 %286%29.png" />
+    <None Include="Resources\kindpng_2162479 %281%29 %285%29.png" />
+    <None Include="Resources\kindpng_2162479 %281%29 %284%29.png" />
+    <None Include="Resources\kindpng_2162479 %281%29 %283%29.png" />
+    <None Include="Resources\kindpng_2162479 %281%29 %281%29.png" />
     <EmbeddedResource Include="Formularios\equipos\CrearEquipoForm.resx">
       <DependentUpon>CrearEquipoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\equipos\EditarEquipoForm.resx">
+      <DependentUpon>EditarEquipoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\equipos\Equipos.resx">
       <DependentUpon>Equipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\jugadores\CrearJugadorForm.resx">
+      <DependentUpon>CrearJugadorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -113,6 +144,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,10 +188,12 @@
     <None Include="Resources\nouvelle-icone-grise.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cruz-roja.bmp" />
+    <None Include="Resources\cruz-roja.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cruz-roja.png" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

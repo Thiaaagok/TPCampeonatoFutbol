@@ -18,7 +18,21 @@ namespace TPCampeonatoFutbol.Funciones
                 {
                     using (var sw = File.CreateText(ruta))
                     {
-
+                        switch (ruta)
+                        {
+                            case "jugadores.txt":
+                                sw.WriteLine("Nombre,Apellido,Edad,Dni,FechaNacimiento,LugarNacimiento,Equipo,Rol");
+                                break;
+                            case "equipos.txt":
+                                sw.WriteLine("ID,Nombre,Fundación,Estadio");
+                                break;
+                            case "usuarios.txt":
+                                sw.WriteLine("ID,Nombre,Fundación,Estadio");
+                                break;
+                            default:
+                                sw.WriteLine("Encabezado");
+                                break;
+                        }
                     }
                 }
             }
@@ -92,7 +106,7 @@ namespace TPCampeonatoFutbol.Funciones
 
                 if (lineas.Count == 0)
                 {
-                    MessageBox.Show("El archivo no tiene encabezado.");
+                    CrearArchivo(ruta);
                     return;
                 }
 
@@ -104,6 +118,57 @@ namespace TPCampeonatoFutbol.Funciones
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar el nuevo registro: " + ex.Message);
+            }
+        }
+
+        public void EditarRegistro<T>(string ruta, Predicate<T> coincide, T nuevoObjeto, Func<T, string> convertirALinea, Func<string, T> convertirDesdeLinea)
+        {
+            try
+            {
+                if (!File.Exists(ruta))
+                {
+                    MessageBox.Show("El archivo no existe.");
+                    return;
+                }
+
+                var lineas = File.ReadAllLines(ruta).ToList();
+
+                if (lineas.Count == 0)
+                {
+                    MessageBox.Show("El archivo está vacío.");
+                    return;
+                }
+
+                var encabezado = lineas[0];
+                var nuevasLineas = new List<string> { encabezado };
+
+                bool modificado = false;
+
+                foreach (var linea in lineas.Skip(1))
+                {
+                    var objeto = convertirDesdeLinea(linea);
+                    if (!modificado && coincide(objeto))
+                    {
+                        nuevasLineas.Add(convertirALinea(nuevoObjeto));
+                        modificado = true;
+                    }
+                    else
+                    {
+                        nuevasLineas.Add(linea);
+                    }
+                }
+
+                if (!modificado)
+                {
+                    MessageBox.Show("No se encontró el registro a modificar.");
+                    return;
+                }
+
+                File.WriteAllLines(ruta, nuevasLineas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar el archivo: " + ex.Message);
             }
         }
     }    

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
@@ -24,10 +25,10 @@ namespace TPCampeonatoFutbol
         private void crearEquipobtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nombretxt.Text) ||
-                    string.IsNullOrWhiteSpace(nombrecortotxt.Text) ||
-                    anioFundacionNumber.Value <= 0 ||
-                    string.IsNullOrWhiteSpace(estadiotxt.Text) ||
-                    capacidadEstadioNumber.Value <= 0)
+                string.IsNullOrWhiteSpace(nombrecortotxt.Text) ||
+                anioFundacionNumber.Value <= 0 ||
+                string.IsNullOrWhiteSpace(estadiotxt.Text) ||
+                capacidadEstadioNumber.Value <= 0)
             {
                 MessageBox.Show("Por favor, completa todos los campos correctamente.");
                 return;
@@ -42,13 +43,11 @@ namespace TPCampeonatoFutbol
                 estadiotxt.Text,
                 capacidadEstadio,
                 anio);
-            using (StreamWriter sr = new StreamWriter("equipos.txt", append: true))
-            {
-                sr.WriteLine($"{EquipoCreado.Nombre},{EquipoCreado.NombreCorto},{EquipoCreado.Ciudad},{EquipoCreado.Estadio},{EquipoCreado.CapacidadEstadio},{EquipoCreado.AnioFundacion}");
-            }
+            string nuevaLinea = $"{EquipoCreado.Nombre},{EquipoCreado.NombreCorto},{EquipoCreado.Ciudad},{EquipoCreado.Estadio},{EquipoCreado.CapacidadEstadio},{EquipoCreado.AnioFundacion}";
+            ManejoArchivos manejoArchivos = new ManejoArchivos();
+            manejoArchivos.GuardarNuevo("equipos.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
     }
 }

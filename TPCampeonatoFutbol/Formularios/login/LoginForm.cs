@@ -62,7 +62,6 @@ namespace TPCampeonatoFutbol
             crearCuentaBtn.ForeColor = Color.LightGray;
             crearCuentaBtn.Size = new Size(208, 40);
 
-            cerrarAplicacionBtn.BackColor = Color.FromArgb(39, 57, 80);
         }
 
         private void Login()
@@ -83,9 +82,6 @@ namespace TPCampeonatoFutbol
                     if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
                     {
                         loginCorrecto = true;
-                        this.Hide();
-                        MainMDI home = new MainMDI();
-                        home.Show();
                         break;
                     }
                 }
@@ -93,6 +89,12 @@ namespace TPCampeonatoFutbol
                 if (!loginCorrecto)
                 {
                     MessageBox.Show("Usuario o Contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.Hide();
+                    MainMDI home = new MainMDI();
+                    home.Show();
                 }
             }
             catch (Exception ex)
@@ -125,6 +127,11 @@ namespace TPCampeonatoFutbol
         }
 
         private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cerrarAplicacionBtn_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }

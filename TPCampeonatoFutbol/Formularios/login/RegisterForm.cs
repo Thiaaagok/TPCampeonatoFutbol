@@ -134,5 +134,10 @@ namespace TPCampeonatoFutbol
         {
             Application.Exit();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

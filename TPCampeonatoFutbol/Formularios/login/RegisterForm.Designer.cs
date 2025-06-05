@@ -40,7 +40,7 @@
             this.repetirContraseniatxt = new System.Windows.Forms.TextBox();
             this.iniciarSesionBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cerrarAplicacionBtn = new System.Windows.Forms.Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,24 +153,32 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // cerrarAplicacionBtn
+            // iconButton1
             // 
-            this.cerrarAplicacionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.Crimson;
-            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(764, 0);
-            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
-            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(38, 40);
-            this.cerrarAplicacionBtn.TabIndex = 24;
-            this.cerrarAplicacionBtn.Text = "X";
-            this.cerrarAplicacionBtn.UseVisualStyleBackColor = true;
-            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            this.iconButton1.BackColor = System.Drawing.Color.AliceBlue;
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.iconButton1.IconColor = System.Drawing.Color.Red;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 25;
+            this.iconButton1.Location = new System.Drawing.Point(768, 2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(29, 32);
+            this.iconButton1.TabIndex = 25;
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cerrarAplicacionBtn);
+            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.iniciarSesionBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
@@ -204,6 +212,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox repetirContraseniatxt;
         private System.Windows.Forms.Button iniciarSesionBtn;
-        private System.Windows.Forms.Button cerrarAplicacionBtn;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

@@ -39,8 +39,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cerrarAplicacionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +133,26 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Contraseña";
             // 
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
+            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
+            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cerrarAplicacionBtn.IconSize = 25;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(768, 2);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
+            this.cerrarAplicacionBtn.TabIndex = 13;
+            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click_1);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -141,18 +161,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(212, 204);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // cerrarAplicacionBtn
-            // 
-            this.cerrarAplicacionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.Crimson;
-            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(762, 1);
-            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
-            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(38, 40);
-            this.cerrarAplicacionBtn.TabIndex = 25;
-            this.cerrarAplicacionBtn.Text = "X";
-            this.cerrarAplicacionBtn.UseVisualStyleBackColor = true;
-            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
             // 
             // LoginForm
             // 
@@ -194,6 +202,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button cerrarAplicacionBtn;
+        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
     }
 }
