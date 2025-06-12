@@ -17,9 +17,11 @@ namespace TPCampeonatoFutbol
 
         public int AnioFundacion { get; set; }
 
+        public List<Jugador> Jugadores { get; set; }
+
         public Equipo()
         {
-            
+            Jugadores = new List<Jugador>();
         }
 
         public Equipo(string nombre, string nombreCorto, string ciudad, string estadio, int capacidadEstadio, int anioFundacion)

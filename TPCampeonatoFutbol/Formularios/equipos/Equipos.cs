@@ -96,9 +96,14 @@ namespace TPCampeonatoFutbol
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             CrearEquipoForm crForm = new CrearEquipoForm();
-            crForm.ShowDialog();
 
-            ObtenerEquipos();
+
+            if (crForm.ShowDialog() == DialogResult.OK)
+            {
+                ObtenerEquipos();
+                dataGridViewEquipos.DataSource = null;
+                dataGridViewEquipos.DataSource = equipos;
+            }
         }
 
         private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
@@ -150,6 +155,13 @@ namespace TPCampeonatoFutbol
         private void volverBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            ObtenerEquipos();
+            dataGridViewEquipos.DataSource = null;
+            dataGridViewEquipos.DataSource = equipos;
         }
     }
 }

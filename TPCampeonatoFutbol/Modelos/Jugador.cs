@@ -7,14 +7,13 @@ namespace TPCampeonatoFutbol
     {
         public Rol Rol { get; set; }
 
-        public Equipo Equipo { get; set; }
+        public string Equipo { get; set; }
 
         public Jugador()
         {
 
         }
-
-        public Jugador(string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, Equipo equipo, Rol rol)
+        public Jugador(string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
         {
             Nombre = nombre;
             Apellido = apellido;

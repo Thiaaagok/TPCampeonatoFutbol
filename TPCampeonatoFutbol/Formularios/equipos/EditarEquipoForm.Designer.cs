@@ -43,12 +43,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.delanteroNombre = new System.Windows.Forms.Label();
+            this.DelanteroLabel = new System.Windows.Forms.Label();
             this.ExtremoDerechoLabel = new System.Windows.Forms.Label();
             this.ExtremoIzquierdoLabel = new System.Windows.Forms.Label();
             this.MediocentroIzquierdoLabel = new System.Windows.Forms.Label();
             this.MediocentroLabel = new System.Windows.Forms.Label();
-            this.medioCentroDerechoLabel = new System.Windows.Forms.Label();
+            this.MedioCentroDerechoLabel = new System.Windows.Forms.Label();
             this.LateralIzquierdoLabel = new System.Windows.Forms.Label();
             this.DefensacentralIzquierdaLabel = new System.Windows.Forms.Label();
             this.DefensacentralDerechoLabel = new System.Windows.Forms.Label();
@@ -235,11 +235,11 @@
             // 
             // delanteroNombre
             // 
-            this.delanteroNombre.AutoSize = true;
-            this.delanteroNombre.Location = new System.Drawing.Point(693, 134);
-            this.delanteroNombre.Name = "delanteroNombre";
-            this.delanteroNombre.Size = new System.Drawing.Size(0, 13);
-            this.delanteroNombre.TabIndex = 45;
+            this.DelanteroLabel.AutoSize = true;
+            this.DelanteroLabel.Location = new System.Drawing.Point(693, 134);
+            this.DelanteroLabel.Name = "DelanteroLabel";
+            this.DelanteroLabel.Size = new System.Drawing.Size(0, 13);
+            this.DelanteroLabel.TabIndex = 45;
             // 
             // ExtremoDerechoLabel
             // 
@@ -275,11 +275,11 @@
             // 
             // medioCentroDerechoLabel
             // 
-            this.medioCentroDerechoLabel.AutoSize = true;
-            this.medioCentroDerechoLabel.Location = new System.Drawing.Point(802, 339);
-            this.medioCentroDerechoLabel.Name = "medioCentroDerechoLabel";
-            this.medioCentroDerechoLabel.Size = new System.Drawing.Size(0, 13);
-            this.medioCentroDerechoLabel.TabIndex = 50;
+            this.MedioCentroDerechoLabel.AutoSize = true;
+            this.MedioCentroDerechoLabel.Location = new System.Drawing.Point(802, 339);
+            this.MedioCentroDerechoLabel.Name = "MedioCentroDerechoLabel";
+            this.MedioCentroDerechoLabel.Size = new System.Drawing.Size(0, 13);
+            this.MedioCentroDerechoLabel.TabIndex = 50;
             // 
             // LateralIzquierdoLabel
             // 
@@ -536,12 +536,12 @@
             this.Controls.Add(this.DefensacentralDerechoLabel);
             this.Controls.Add(this.DefensacentralIzquierdaLabel);
             this.Controls.Add(this.LateralIzquierdoLabel);
-            this.Controls.Add(this.medioCentroDerechoLabel);
+            this.Controls.Add(this.MedioCentroDerechoLabel);
             this.Controls.Add(this.MediocentroLabel);
             this.Controls.Add(this.MediocentroIzquierdoLabel);
             this.Controls.Add(this.ExtremoIzquierdoLabel);
             this.Controls.Add(this.ExtremoDerechoLabel);
-            this.Controls.Add(this.delanteroNombre);
+            this.Controls.Add(this.DelanteroLabel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Suplente1Box);
@@ -632,12 +632,12 @@
         private System.Windows.Forms.PictureBox Suplente1Box;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label delanteroNombre;
+        private System.Windows.Forms.Label DelanteroLabel;
         private System.Windows.Forms.Label ExtremoDerechoLabel;
         private System.Windows.Forms.Label ExtremoIzquierdoLabel;
         private System.Windows.Forms.Label MediocentroIzquierdoLabel;
         private System.Windows.Forms.Label MediocentroLabel;
-        private System.Windows.Forms.Label medioCentroDerechoLabel;
+        private System.Windows.Forms.Label MedioCentroDerechoLabel;
         private System.Windows.Forms.Label LateralIzquierdoLabel;
         private System.Windows.Forms.Label DefensacentralIzquierdaLabel;
         private System.Windows.Forms.Label DefensacentralDerechoLabel;

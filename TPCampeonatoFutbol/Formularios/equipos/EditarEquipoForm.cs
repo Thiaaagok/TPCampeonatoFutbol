@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.jugadores;
+using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol.Formularios.equipos
 {
@@ -28,6 +29,7 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             estadiotxt.Text = equipo.Estadio;
             capacidadEstadioNumber.Value = equipo.CapacidadEstadio;
             anioFundacionNumber.Value = equipo.AnioFundacion;
+            obtenerJugadores();
         }
 
         private void editarEquipoBtn_Click(object sender, EventArgs e)
@@ -55,6 +57,42 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             this.Close();
         }
 
+        private void obtenerJugadores()
+        {
+            ManejoArchivos manejoArchivos = new ManejoArchivos();
+            equipoOriginal.Jugadores.Clear();
+            try
+            {
+                List<string> lineas = manejoArchivos.ObtenerTodos("jugadores.txt");
+
+                foreach (var linea in lineas)
+                {
+                    string[] partes = linea.Split(',');
+                    if (partes[6] == equipoOriginal.Nombre)
+                    {
+                        Rol rol = new Rol(partes[8], partes[7]);
+                        Jugador jugador = new Jugador(partes[0], partes[1], Convert.ToInt32(partes[2]), Convert.ToInt32(partes[3]), Convert.ToDateTime(partes[4]), partes[5], partes[6], rol);
+                        var box = this.Controls.Find(jugador.Rol.Descripcion + "Box", true).FirstOrDefault();
+                        var label = this.Controls.Find(jugador.Rol.Descripcion + "Label", true).FirstOrDefault();
+
+                        if (box is PictureBox picturebox)
+                        {
+                            picturebox.Image = Properties.Resources.imagenJugador;
+                        }
+
+                        if (label is Label labelControl)
+                        {
+                            labelControl.Text = $"{jugador.Nombre}";
+                        }
+                        equipoOriginal.Jugadores.Add(jugador);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar obtener equipos: " + ex.Message);
+            }
+        }
         private void nuevoJugador(string posicion)
         {
             CrearJugadorForm crearJugadorForm = new CrearJugadorForm(equipoOriginal,posicion);

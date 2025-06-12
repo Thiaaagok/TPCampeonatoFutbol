@@ -48,9 +48,9 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
                dni,
                fechaNacimiento.Value,
                lugarNacimientotxt.Text,
-               equipo,
+               equipo.Nombre,
                rolSeleccionado);
-            string nuevaLinea = $"{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.Equipo.Nombre},{NuevoJugador.Rol.Codigo}";
+            string nuevaLinea = $"{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.Equipo},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
             ManejoArchivos manejoArchivos = new ManejoArchivos();
             manejoArchivos.GuardarNuevo("jugadores.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;

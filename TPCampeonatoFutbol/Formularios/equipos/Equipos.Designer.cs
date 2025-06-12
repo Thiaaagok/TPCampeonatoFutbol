@@ -83,6 +83,7 @@
             this.RefreshButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RefreshButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // NuevoButton
             // 

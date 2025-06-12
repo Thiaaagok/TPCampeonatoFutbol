@@ -21,7 +21,7 @@ namespace TPCampeonatoFutbol.Funciones
                         switch (ruta)
                         {
                             case "jugadores.txt":
-                                sw.WriteLine("Nombre,Apellido,Edad,Dni,FechaNacimiento,LugarNacimiento,Equipo,Rol");
+                                sw.WriteLine("Nombre,Apellido,Edad,Dni,FechaNacimiento,LugarNacimiento,Equipo,RolCodigo,RolDescripcion");
                                 break;
                             case "equipos.txt":
                                 sw.WriteLine("ID,Nombre,Fundación,Estadio");
