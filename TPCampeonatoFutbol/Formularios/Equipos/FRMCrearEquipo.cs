@@ -12,15 +12,18 @@ using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
-    public partial class CrearEquipoForm : Form
+    public partial class FRMCrearEquipo : Form
     {
 
-        public CrearEquipoForm()
+        public FRMCrearEquipo()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        public Equipo EquipoCreado { get; private set; }
+        public CLSEquipo EquipoCreado { get; private set; }
 
         private void crearEquipobtn_Click(object sender, EventArgs e)
         {
@@ -36,7 +39,7 @@ namespace TPCampeonatoFutbol
 
             Int32 anio = Convert.ToInt32(anioFundacionNumber.Value);
             Int32 capacidadEstadio = Convert.ToInt32(capacidadEstadioNumber.Value);
-            EquipoCreado = new Equipo(
+            EquipoCreado = new CLSEquipo(
                 nombretxt.Text,
                 nombrecortotxt.Text,
                 ciudadtxt.Text,
@@ -47,6 +50,12 @@ namespace TPCampeonatoFutbol
             ManejoArchivos manejoArchivos = new ManejoArchivos();
             manejoArchivos.GuardarNuevo("equipos.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

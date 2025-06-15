@@ -12,12 +12,12 @@ using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol.Formularios.equipos
 {
-    public partial class EditarEquipoForm : Form
+    public partial class FRMEditarEquipo : Form
     {
-        private Equipo equipoOriginal = new Equipo();
-        public Equipo EquipoEditado { get; private set; }
+        private CLSEquipo equipoOriginal = new CLSEquipo();
+        public CLSEquipo EquipoEditado { get; private set; }
 
-        public EditarEquipoForm(Equipo equipo)
+        public FRMEditarEquipo(CLSEquipo equipo)
         {
             InitializeComponent();
             equipoOriginal = equipo;
@@ -30,6 +30,9 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             capacidadEstadioNumber.Value = equipo.CapacidadEstadio;
             anioFundacionNumber.Value = equipo.AnioFundacion;
             obtenerJugadores();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void editarEquipoBtn_Click(object sender, EventArgs e)
@@ -44,7 +47,7 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 return;
             }
 
-            EquipoEditado = new Equipo(
+            EquipoEditado = new CLSEquipo(
                 nombretxt.Text,
                 nombrecortotxt.Text,
                 ciudadtxt.Text,
@@ -71,20 +74,27 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                     if (partes[6] == equipoOriginal.Nombre)
                     {
                         Rol rol = new Rol(partes[8], partes[7]);
-                        Jugador jugador = new Jugador(partes[0], partes[1], Convert.ToInt32(partes[2]), Convert.ToInt32(partes[3]), Convert.ToDateTime(partes[4]), partes[5], partes[6], rol);
-                        var box = this.Controls.Find(jugador.Rol.Descripcion + "Box", true).FirstOrDefault();
-                        var label = this.Controls.Find(jugador.Rol.Descripcion + "Label", true).FirstOrDefault();
+                        CLSJugador jugador = new CLSJugador(partes[0], partes[1], Convert.ToInt32(partes[2]), Convert.ToInt32(partes[3]), Convert.ToDateTime(partes[4]), partes[5], partes[6], rol);
+                        var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
+                        var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
 
                         if (box is PictureBox picturebox)
                         {
                             picturebox.Image = Properties.Resources.imagenJugador;
+                            picturebox.Click += (sender, e) =>
+                            {
+
+                            };
                         }
 
                         if (label is Label labelControl)
                         {
                             labelControl.Text = $"{jugador.Nombre}";
+                            labelControl.TextAlign = ContentAlignment.TopRight;
                         }
                         equipoOriginal.Jugadores.Add(jugador);
+
+                       
                     }
                 }
             }
@@ -95,22 +105,10 @@ namespace TPCampeonatoFutbol.Formularios.equipos
         }
         private void nuevoJugador(string posicion)
         {
-            CrearJugadorForm crearJugadorForm = new CrearJugadorForm(equipoOriginal,posicion);
+            FRMCrearJugador crearJugadorForm = new FRMCrearJugador(equipoOriginal,posicion);
             if (crearJugadorForm.ShowDialog() == DialogResult.OK)
             {
-                var nuevoJugador = crearJugadorForm.NuevoJugador;
-                var box = this.Controls.Find(nuevoJugador.Rol.Descripcion + "Box", true).FirstOrDefault();
-                var label = this.Controls.Find(nuevoJugador.Rol.Descripcion + "Label", true).FirstOrDefault();
-
-                if (box is PictureBox picturebox)
-                {
-                    picturebox.Image = Properties.Resources.imagenJugador;
-                }
-
-                if (label is Label labelControl)
-                {
-                    labelControl.Text = $"{nuevoJugador.Nombre}";
-                }
+                obtenerJugadores();
             }
         }
 
@@ -199,5 +197,15 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             nuevoJugador("Suplente5");
         }
 
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Hide();
+        }
+
+        private void MediocentroDerechoBox_Click_1(object sender, EventArgs e)
+        {
+            nuevoJugador("MedioCentroDerecho");
+        }
     }
 }

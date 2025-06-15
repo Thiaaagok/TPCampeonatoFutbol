@@ -12,46 +12,79 @@ using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
-    public partial class RegisterForm : Form
+    public partial class FRMRegister : Form
     {
-        ManejoArchivos manejoArchivos = new ManejoArchivos();
-        public RegisterForm()
+        private ManejoArchivos manejoArchivos = new ManejoArchivos();
+
+        public FRMRegister()
         {
             InitializeComponent();
             AsignarDiseños();
         }
 
+        private void CrearCuentaBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(NombreUsuariotxt.Text) &&
+                !string.IsNullOrWhiteSpace(Contraseniatxt.Text) &&
+                !string.IsNullOrWhiteSpace(repetirContraseniatxt.Text))
+            {
+                Register();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, completar los campos correctamente");
+            }
+        }
+
+        private void iniciarSesionBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FRMLogin login = new FRMLogin();
+            login.Show();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Aplica el diseño personalizado a los controles del formulario.
+        /// </summary>
         private void AsignarDiseños()
         {
-            // diseño formulario
+            // Diseño formulario
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            //diseño nombre usuario txt
-            NombreUsuariotxt.TabStop = false;
+            // Diseño textbox NombreUsuario
             NombreUsuariotxt.BackColor = Color.FromArgb(39, 57, 80);
             NombreUsuariotxt.BorderStyle = BorderStyle.None;
             NombreUsuariotxt.Font = new Font("Century Gothic", 12F);
             NombreUsuariotxt.ForeColor = Color.Silver;
             NombreUsuariotxt.Size = new Size(408, 30);
 
-            //diseño contraseña txt
-            Contraseniatxt.TabStop = false;
+            // Diseño textbox Contraseña
             Contraseniatxt.BackColor = Color.FromArgb(39, 57, 80);
             Contraseniatxt.BorderStyle = BorderStyle.None;
             Contraseniatxt.Font = new Font("Century Gothic", 12F);
             Contraseniatxt.ForeColor = Color.Silver;
             Contraseniatxt.Size = new Size(408, 30);
 
-            repetirContraseniatxt.TabStop = false;
+            // Diseño textbox Repetir contraseña
             repetirContraseniatxt.BackColor = Color.FromArgb(39, 57, 80);
             repetirContraseniatxt.BorderStyle = BorderStyle.None;
             repetirContraseniatxt.Font = new Font("Century Gothic", 12F);
             repetirContraseniatxt.ForeColor = Color.Silver;
             repetirContraseniatxt.Size = new Size(408, 30);
 
-            //diseño crear cuenta boton
+            // Diseño botón Crear cuenta
             CrearCuentaBtn.BackColor = Color.FromArgb(33, 53, 73);
             CrearCuentaBtn.FlatStyle = FlatStyle.Flat;
             CrearCuentaBtn.FlatAppearance.BorderColor = Color.FromArgb(85, 159, 127);
@@ -60,6 +93,7 @@ namespace TPCampeonatoFutbol
             CrearCuentaBtn.ForeColor = Color.LightGray;
             CrearCuentaBtn.Size = new Size(208, 40);
 
+            // Diseño botón Iniciar sesión
             iniciarSesionBtn.BackColor = Color.FromArgb(33, 53, 73);
             iniciarSesionBtn.FlatStyle = FlatStyle.Flat;
             iniciarSesionBtn.FlatAppearance.BorderColor = Color.FromArgb(85, 159, 127);
@@ -69,6 +103,9 @@ namespace TPCampeonatoFutbol
             iniciarSesionBtn.Size = new Size(150, 40);
         }
 
+        /// <summary>
+        /// Crea un nuevo usuario si los datos son válidos.
+        /// </summary>
         private void Register()
         {
             string ruta = "usuarios.txt";
@@ -76,6 +113,7 @@ namespace TPCampeonatoFutbol
             string contraseniaNueva = Contraseniatxt.Text;
             string repetirContrasenia = repetirContraseniatxt.Text;
 
+            // Validaciones
             if (string.IsNullOrEmpty(usuarioNuevo) || string.IsNullOrEmpty(contraseniaNueva))
             {
                 MessageBox.Show("Usuario y contraseña no pueden estar vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -101,43 +139,14 @@ namespace TPCampeonatoFutbol
                 return;
             }
 
-
+            // Registro exitoso
             string nuevoRegistro = $"{usuarioNuevo},{contraseniaNueva}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
             MessageBox.Show("Usuario creado exitosamente.");
             this.Hide();
-            LoginForm login = new LoginForm();
+            FRMLogin login = new FRMLogin();
             login.Show();
-        }
-
-        private void CrearCuentaBtn_Click(object sender, EventArgs e)
-        {
-            if (NombreUsuariotxt.Text != "" && Contraseniatxt.Text != "" && repetirContraseniatxt.Text != "")
-            {
-                Register();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, completar los campos correctamente");
-            }
-        }
-
-        private void iniciarSesionBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LoginForm login = new LoginForm();
-            login.Show();
-        }
-
-        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

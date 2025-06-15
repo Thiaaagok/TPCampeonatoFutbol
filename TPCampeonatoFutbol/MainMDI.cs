@@ -99,7 +99,7 @@ namespace TPCampeonatoFutbol
 
         private void equiposToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Equipos equipos = new Equipos();
+            FRMEquipos equipos = new FRMEquipos();
             equipos.Show();
         }
     }

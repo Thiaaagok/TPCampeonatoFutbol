@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol.Formularios.equipos
 {
-    partial class EditarEquipoForm
+    partial class FRMEditarEquipo
     {
         /// <summary>
         /// Required designer variable.
@@ -75,6 +75,7 @@
             this.ExtremoIzquierdoBox = new System.Windows.Forms.PictureBox();
             this.DelanteroBox = new System.Windows.Forms.PictureBox();
             this.ExtremoDerechoBox = new System.Windows.Forms.PictureBox();
+            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.anioFundacionNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.capacidadEstadioNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Suplente1Box)).BeginInit();
@@ -106,6 +107,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label6.Location = new System.Drawing.Point(12, 143);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
@@ -173,6 +175,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label5.Location = new System.Drawing.Point(10, 321);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 13);
@@ -182,6 +185,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Location = new System.Drawing.Point(10, 257);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
@@ -191,7 +195,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 201);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(10, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 17;
@@ -200,6 +205,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label2.Location = new System.Drawing.Point(9, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
@@ -209,6 +215,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Location = new System.Drawing.Point(9, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -218,6 +225,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label8.Location = new System.Drawing.Point(523, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
@@ -227,139 +235,183 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label9.Location = new System.Drawing.Point(1234, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 44;
             this.label9.Text = "SUPLENTES";
             // 
-            // delanteroNombre
+            // DelanteroLabel
             // 
             this.DelanteroLabel.AutoSize = true;
-            this.DelanteroLabel.Location = new System.Drawing.Point(693, 134);
+            this.DelanteroLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.DelanteroLabel.Location = new System.Drawing.Point(694, 134);
             this.DelanteroLabel.Name = "DelanteroLabel";
-            this.DelanteroLabel.Size = new System.Drawing.Size(0, 13);
+            this.DelanteroLabel.Size = new System.Drawing.Size(53, 13);
             this.DelanteroLabel.TabIndex = 45;
+            this.DelanteroLabel.Text = "Delantero";
+            this.DelanteroLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ExtremoDerechoLabel
             // 
             this.ExtremoDerechoLabel.AutoSize = true;
-            this.ExtremoDerechoLabel.Location = new System.Drawing.Point(854, 181);
+            this.ExtremoDerechoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.ExtremoDerechoLabel.Location = new System.Drawing.Point(861, 177);
             this.ExtremoDerechoLabel.Name = "ExtremoDerechoLabel";
-            this.ExtremoDerechoLabel.Size = new System.Drawing.Size(0, 13);
+            this.ExtremoDerechoLabel.Size = new System.Drawing.Size(89, 13);
             this.ExtremoDerechoLabel.TabIndex = 46;
+            this.ExtremoDerechoLabel.Text = "Extremo Derecho";
+            this.ExtremoDerechoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ExtremoIzquierdoLabel
             // 
             this.ExtremoIzquierdoLabel.AutoSize = true;
-            this.ExtremoIzquierdoLabel.Location = new System.Drawing.Point(513, 177);
+            this.ExtremoIzquierdoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.ExtremoIzquierdoLabel.Location = new System.Drawing.Point(511, 177);
             this.ExtremoIzquierdoLabel.Name = "ExtremoIzquierdoLabel";
-            this.ExtremoIzquierdoLabel.Size = new System.Drawing.Size(0, 13);
+            this.ExtremoIzquierdoLabel.Size = new System.Drawing.Size(91, 13);
             this.ExtremoIzquierdoLabel.TabIndex = 47;
+            this.ExtremoIzquierdoLabel.Text = "Extremo Izquierdo";
+            this.ExtremoIzquierdoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MediocentroIzquierdoLabel
             // 
             this.MediocentroIzquierdoLabel.AutoSize = true;
-            this.MediocentroIzquierdoLabel.Location = new System.Drawing.Point(560, 339);
+            this.MediocentroIzquierdoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MediocentroIzquierdoLabel.Location = new System.Drawing.Point(557, 335);
             this.MediocentroIzquierdoLabel.Name = "MediocentroIzquierdoLabel";
-            this.MediocentroIzquierdoLabel.Size = new System.Drawing.Size(0, 13);
+            this.MediocentroIzquierdoLabel.Size = new System.Drawing.Size(112, 13);
             this.MediocentroIzquierdoLabel.TabIndex = 48;
+            this.MediocentroIzquierdoLabel.Text = "Mediocentro Izquierdo";
+            this.MediocentroIzquierdoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MediocentroLabel
             // 
             this.MediocentroLabel.AutoSize = true;
-            this.MediocentroLabel.Location = new System.Drawing.Point(693, 427);
+            this.MediocentroLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MediocentroLabel.Location = new System.Drawing.Point(694, 421);
             this.MediocentroLabel.Name = "MediocentroLabel";
-            this.MediocentroLabel.Size = new System.Drawing.Size(0, 13);
+            this.MediocentroLabel.Size = new System.Drawing.Size(84, 13);
             this.MediocentroLabel.TabIndex = 49;
+            this.MediocentroLabel.Text = "Mediocentro PO";
+            this.MediocentroLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // medioCentroDerechoLabel
+            // MedioCentroDerechoLabel
             // 
             this.MedioCentroDerechoLabel.AutoSize = true;
-            this.MedioCentroDerechoLabel.Location = new System.Drawing.Point(802, 339);
+            this.MedioCentroDerechoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MedioCentroDerechoLabel.Location = new System.Drawing.Point(803, 335);
             this.MedioCentroDerechoLabel.Name = "MedioCentroDerechoLabel";
-            this.MedioCentroDerechoLabel.Size = new System.Drawing.Size(0, 13);
+            this.MedioCentroDerechoLabel.Size = new System.Drawing.Size(110, 13);
             this.MedioCentroDerechoLabel.TabIndex = 50;
+            this.MedioCentroDerechoLabel.Text = "Mediocentro Derecho";
+            this.MedioCentroDerechoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // LateralIzquierdoLabel
             // 
             this.LateralIzquierdoLabel.AutoSize = true;
-            this.LateralIzquierdoLabel.Location = new System.Drawing.Point(379, 468);
+            this.LateralIzquierdoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LateralIzquierdoLabel.Location = new System.Drawing.Point(373, 468);
             this.LateralIzquierdoLabel.Name = "LateralIzquierdoLabel";
-            this.LateralIzquierdoLabel.Size = new System.Drawing.Size(0, 13);
+            this.LateralIzquierdoLabel.Size = new System.Drawing.Size(85, 13);
             this.LateralIzquierdoLabel.TabIndex = 51;
+            this.LateralIzquierdoLabel.Text = "Lateral Izquierdo";
+            this.LateralIzquierdoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DefensacentralIzquierdaLabel
             // 
             this.DefensacentralIzquierdaLabel.AutoSize = true;
-            this.DefensacentralIzquierdaLabel.Location = new System.Drawing.Point(560, 584);
+            this.DefensacentralIzquierdaLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.DefensacentralIzquierdaLabel.Location = new System.Drawing.Point(557, 578);
             this.DefensacentralIzquierdaLabel.Name = "DefensacentralIzquierdaLabel";
-            this.DefensacentralIzquierdaLabel.Size = new System.Drawing.Size(0, 13);
+            this.DefensacentralIzquierdaLabel.Size = new System.Drawing.Size(129, 13);
             this.DefensacentralIzquierdaLabel.TabIndex = 52;
+            this.DefensacentralIzquierdaLabel.Text = "Defensa Central Izquierda";
+            this.DefensacentralIzquierdaLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DefensacentralDerechoLabel
             // 
             this.DefensacentralDerechoLabel.AutoSize = true;
-            this.DefensacentralDerechoLabel.Location = new System.Drawing.Point(802, 584);
+            this.DefensacentralDerechoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.DefensacentralDerechoLabel.Location = new System.Drawing.Point(803, 578);
             this.DefensacentralDerechoLabel.Name = "DefensacentralDerechoLabel";
-            this.DefensacentralDerechoLabel.Size = new System.Drawing.Size(0, 13);
+            this.DefensacentralDerechoLabel.Size = new System.Drawing.Size(127, 13);
             this.DefensacentralDerechoLabel.TabIndex = 53;
+            this.DefensacentralDerechoLabel.Text = "Defensa Central Derecha";
+            this.DefensacentralDerechoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // LateralDerechoLabel
             // 
             this.LateralDerechoLabel.AutoSize = true;
-            this.LateralDerechoLabel.Location = new System.Drawing.Point(981, 468);
+            this.LateralDerechoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LateralDerechoLabel.Location = new System.Drawing.Point(985, 468);
             this.LateralDerechoLabel.Name = "LateralDerechoLabel";
-            this.LateralDerechoLabel.Size = new System.Drawing.Size(0, 13);
+            this.LateralDerechoLabel.Size = new System.Drawing.Size(83, 13);
             this.LateralDerechoLabel.TabIndex = 54;
+            this.LateralDerechoLabel.Text = "Lateral Derecho";
+            this.LateralDerechoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ArqueroLabel
             // 
             this.ArqueroLabel.AutoSize = true;
-            this.ArqueroLabel.Location = new System.Drawing.Point(693, 706);
+            this.ArqueroLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.ArqueroLabel.Location = new System.Drawing.Point(694, 706);
             this.ArqueroLabel.Name = "ArqueroLabel";
-            this.ArqueroLabel.Size = new System.Drawing.Size(0, 13);
+            this.ArqueroLabel.Size = new System.Drawing.Size(44, 13);
             this.ArqueroLabel.TabIndex = 55;
+            this.ArqueroLabel.Text = "Arquero";
+            this.ArqueroLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Suplente1Label
             // 
             this.Suplente1Label.AutoSize = true;
+            this.Suplente1Label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Suplente1Label.Location = new System.Drawing.Point(1253, 118);
             this.Suplente1Label.Name = "Suplente1Label";
-            this.Suplente1Label.Size = new System.Drawing.Size(0, 13);
+            this.Suplente1Label.Size = new System.Drawing.Size(58, 13);
             this.Suplente1Label.TabIndex = 56;
+            this.Suplente1Label.Text = "Suplente 1";
             // 
             // Suplente2Label
             // 
             this.Suplente2Label.AutoSize = true;
+            this.Suplente2Label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Suplente2Label.Location = new System.Drawing.Point(1253, 245);
             this.Suplente2Label.Name = "Suplente2Label";
-            this.Suplente2Label.Size = new System.Drawing.Size(0, 13);
+            this.Suplente2Label.Size = new System.Drawing.Size(58, 13);
             this.Suplente2Label.TabIndex = 57;
+            this.Suplente2Label.Text = "Suplente 2";
             // 
             // Suplente3Label
             // 
             this.Suplente3Label.AutoSize = true;
+            this.Suplente3Label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Suplente3Label.Location = new System.Drawing.Point(1253, 372);
             this.Suplente3Label.Name = "Suplente3Label";
-            this.Suplente3Label.Size = new System.Drawing.Size(0, 13);
+            this.Suplente3Label.Size = new System.Drawing.Size(58, 13);
             this.Suplente3Label.TabIndex = 58;
+            this.Suplente3Label.Text = "Suplente 3";
             // 
             // Suplente4Label
             // 
             this.Suplente4Label.AutoSize = true;
+            this.Suplente4Label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Suplente4Label.Location = new System.Drawing.Point(1253, 505);
             this.Suplente4Label.Name = "Suplente4Label";
-            this.Suplente4Label.Size = new System.Drawing.Size(0, 13);
+            this.Suplente4Label.Size = new System.Drawing.Size(58, 13);
             this.Suplente4Label.TabIndex = 59;
+            this.Suplente4Label.Text = "Suplente 4";
             // 
             // Suplente5Label
             // 
             this.Suplente5Label.AutoSize = true;
+            this.Suplente5Label.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Suplente5Label.Location = new System.Drawing.Point(1253, 622);
             this.Suplente5Label.Name = "Suplente5Label";
-            this.Suplente5Label.Size = new System.Drawing.Size(0, 13);
+            this.Suplente5Label.Size = new System.Drawing.Size(58, 13);
             this.Suplente5Label.TabIndex = 60;
+            this.Suplente5Label.Text = "Suplente 5";
             // 
             // Suplente1Box
             // 
@@ -434,7 +486,7 @@
             // DefensacentralDerechoBox
             // 
             this.DefensacentralDerechoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.DefensacentralDerechoBox.Location = new System.Drawing.Point(783, 456);
+            this.DefensacentralDerechoBox.Location = new System.Drawing.Point(793, 456);
             this.DefensacentralDerechoBox.Name = "DefensacentralDerechoBox";
             this.DefensacentralDerechoBox.Size = new System.Drawing.Size(76, 119);
             this.DefensacentralDerechoBox.TabIndex = 34;
@@ -469,6 +521,7 @@
             this.MediocentroDerechoBox.Size = new System.Drawing.Size(76, 119);
             this.MediocentroDerechoBox.TabIndex = 31;
             this.MediocentroDerechoBox.TabStop = false;
+            this.MediocentroDerechoBox.Click += new System.EventHandler(this.MediocentroDerechoBox_Click_1);
             // 
             // MediocentroBox
             // 
@@ -521,11 +574,32 @@
             this.ExtremoDerechoBox.TabStop = false;
             this.ExtremoDerechoBox.Click += new System.EventHandler(this.ExtremoDerechoBox_Click);
             // 
-            // EditarEquipoForm
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
+            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
+            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cerrarAplicacionBtn.IconSize = 25;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(1327, -1);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
+            this.cerrarAplicacionBtn.TabIndex = 61;
+            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            // 
+            // FRMEditarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 723);
+            this.Controls.Add(this.cerrarAplicacionBtn);
             this.Controls.Add(this.Suplente5Label);
             this.Controls.Add(this.Suplente4Label);
             this.Controls.Add(this.Suplente3Label);
@@ -573,7 +647,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "EditarEquipoForm";
+            this.Name = "FRMEditarEquipo";
             this.Text = "EditarEquipoForm";
             this.Load += new System.EventHandler(this.EditarEquipoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anioFundacionNumber)).EndInit();
@@ -648,5 +722,6 @@
         private System.Windows.Forms.Label Suplente3Label;
         private System.Windows.Forms.Label Suplente4Label;
         private System.Windows.Forms.Label Suplente5Label;
+        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
     }
 }

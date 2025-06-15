@@ -3,17 +3,29 @@ using System.Collections.Generic;
 
 namespace TPCampeonatoFutbol
 {
-    public class Jugador: Persona
+    public class CLSJugador: CLSPersona
     {
-        public Rol Rol { get; set; }
+        private Rol _Rol;
 
-        public string Equipo { get; set; }
+        public Rol Rol
+        {
+            get { return _Rol; }
+            set { _Rol = value; }
+        }
 
-        public Jugador()
+        private string _Equipo;
+
+        public string Equipo
+        {
+            get { return _Equipo; }
+            set { _Equipo = value; }
+        }
+
+        public CLSJugador()
         {
 
         }
-        public Jugador(string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
+        public CLSJugador(string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
         {
             Nombre = nombre;
             Apellido = apellido;

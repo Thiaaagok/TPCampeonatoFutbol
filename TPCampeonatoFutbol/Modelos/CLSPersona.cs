@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TPCampeonatoFutbol
 {
-    public abstract class Persona
+    public abstract class CLSPersona
     {
 
         private int _Edad;

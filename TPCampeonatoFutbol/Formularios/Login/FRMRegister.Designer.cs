@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    partial class RegisterForm
+    partial class FRMRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(333, 75);
+            this.label1.Location = new System.Drawing.Point(333, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 17;
@@ -101,10 +101,9 @@
             // 
             // NombreUsuariotxt
             // 
-            this.NombreUsuariotxt.Location = new System.Drawing.Point(336, 91);
-            this.NombreUsuariotxt.Multiline = true;
+            this.NombreUsuariotxt.Location = new System.Drawing.Point(336, 101);
             this.NombreUsuariotxt.Name = "NombreUsuariotxt";
-            this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 30);
+            this.NombreUsuariotxt.Size = new System.Drawing.Size(408, 20);
             this.NombreUsuariotxt.TabIndex = 13;
             // 
             // label3
@@ -177,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.iniciarSesionBtn);

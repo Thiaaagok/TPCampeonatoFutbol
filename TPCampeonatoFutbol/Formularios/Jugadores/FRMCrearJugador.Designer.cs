@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol.Formularios.jugadores
 {
-    partial class CrearJugadorForm
+    partial class FRMCrearJugador
     {
         /// <summary>
         /// Required designer variable.

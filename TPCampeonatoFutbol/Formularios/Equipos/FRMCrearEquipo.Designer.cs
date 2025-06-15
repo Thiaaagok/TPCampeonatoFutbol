@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    partial class CrearEquipoForm
+    partial class FRMCrearEquipo
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.anioFundacionNumber = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.ciudadtxt = new System.Windows.Forms.TextBox();
+            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.capacidadEstadioNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anioFundacionNumber)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Location = new System.Drawing.Point(44, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -57,6 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label2.Location = new System.Drawing.Point(44, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
@@ -66,7 +69,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 213);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(45, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 2;
@@ -75,6 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Location = new System.Drawing.Point(45, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
@@ -84,6 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label5.Location = new System.Drawing.Point(45, 333);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 13);
@@ -151,6 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label6.Location = new System.Drawing.Point(47, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
@@ -165,11 +172,32 @@
             this.ciudadtxt.Size = new System.Drawing.Size(273, 35);
             this.ciudadtxt.TabIndex = 14;
             // 
-            // CrearEquipoForm
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
+            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
+            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cerrarAplicacionBtn.IconSize = 25;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(362, 0);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
+            this.cerrarAplicacionBtn.TabIndex = 15;
+            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            // 
+            // FRMCrearEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 426);
+            this.Controls.Add(this.cerrarAplicacionBtn);
             this.Controls.Add(this.ciudadtxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.anioFundacionNumber);
@@ -183,7 +211,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CrearEquipoForm";
+            this.Name = "FRMCrearEquipo";
             this.Text = "CrearEquipoForm";
             ((System.ComponentModel.ISupportInitialize)(this.capacidadEstadioNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anioFundacionNumber)).EndInit();
@@ -207,5 +235,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ciudadtxt;
         private System.Windows.Forms.NumericUpDown anioFundacionNumber;
+        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
     }
 }

@@ -46,7 +46,7 @@ namespace TPCampeonatoFutbol.Funciones
         {
             try
             {
-                if (!File.Exists(ruta)) return new List<string>();
+                if (!File.Exists(ruta)) CrearArchivo(ruta);
                 using (var sr = new StreamReader(ruta))
                 {
                     var lineas = new List<string>();

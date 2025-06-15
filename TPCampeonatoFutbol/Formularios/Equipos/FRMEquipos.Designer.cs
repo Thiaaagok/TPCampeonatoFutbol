@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    partial class Equipos
+    partial class FRMEquipos
     {
         /// <summary>
         /// Required designer variable.

@@ -13,14 +13,17 @@ using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol
 {
-    public partial class Equipos : Form
+    public partial class FRMEquipos : Form
     {
-        List<Equipo> equipos = new List<Equipo>();
+        List<CLSEquipo> equipos = new List<CLSEquipo>();
         ManejoArchivos manejoArchivos = new ManejoArchivos();
-        public Equipos()
+        public FRMEquipos()
         {
             InitializeComponent();
             ObtenerEquipos();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void ObtenerEquipos()
@@ -33,7 +36,7 @@ namespace TPCampeonatoFutbol
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    Equipo equipo = new Equipo(partes[0], partes[1], partes[2], partes[3], Convert.ToInt32(partes[4]), Convert.ToInt32(partes[5]));
+                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], Convert.ToInt32(partes[4]), Convert.ToInt32(partes[5]));
                     equipos.Add(equipo);
                 }
             }
@@ -95,7 +98,7 @@ namespace TPCampeonatoFutbol
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
-            CrearEquipoForm crForm = new CrearEquipoForm();
+            FRMCrearEquipo crForm = new FRMCrearEquipo();
 
 
             if (crForm.ShowDialog() == DialogResult.OK)
@@ -115,9 +118,9 @@ namespace TPCampeonatoFutbol
         {
             if (e.RowIndex >= 0)
             {
-                var equipoSeleccionado = (Equipo)dataGridViewEquipos.Rows[e.RowIndex].DataBoundItem;
+                var equipoSeleccionado = (CLSEquipo)dataGridViewEquipos.Rows[e.RowIndex].DataBoundItem;
 
-                EditarEquipoForm editarEquipoForm = new EditarEquipoForm(equipoSeleccionado);
+                FRMEditarEquipo editarEquipoForm = new FRMEditarEquipo(equipoSeleccionado);
                 if (editarEquipoForm.ShowDialog() == DialogResult.OK)
                 {
                     var equipoEditado = editarEquipoForm.EquipoEditado;
@@ -129,11 +132,11 @@ namespace TPCampeonatoFutbol
             }
         }
 
-        public void EditarEquipo(string ruta, Equipo equipoEditado)
+        public void EditarEquipo(string ruta, CLSEquipo equipoEditado)
         {
             ManejoArchivos archivos = new ManejoArchivos();
 
-            archivos.EditarRegistro<Equipo>(
+            archivos.EditarRegistro<CLSEquipo>(
                 ruta,
                 e => e.Nombre == equipoEditado.Nombre,
                 equipoEditado,
@@ -141,7 +144,7 @@ namespace TPCampeonatoFutbol
                 linea =>
                 {
                     var partes = linea.Split(',');
-                    return new Equipo(
+                    return new CLSEquipo(
                         partes[0],
                         partes[1],
                         partes[2],

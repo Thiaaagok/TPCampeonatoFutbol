@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    partial class LoginForm
+    partial class FRMLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMLogin));
             this.NombreUsuariolbl = new System.Windows.Forms.Label();
             this.NombreUsuariotxt = new System.Windows.Forms.TextBox();
             this.Contraseniatxt = new System.Windows.Forms.TextBox();
@@ -62,6 +62,7 @@
             // 
             // Contraseniatxt
             // 
+            this.Contraseniatxt.AcceptsTab = true;
             this.Contraseniatxt.Location = new System.Drawing.Point(314, 230);
             this.Contraseniatxt.Name = "Contraseniatxt";
             this.Contraseniatxt.PasswordChar = '*';
@@ -181,8 +182,7 @@
             this.Controls.Add(this.NombreUsuariotxt);
             this.Controls.Add(this.NombreUsuariolbl);
             this.Name = "LoginForm";
-            this.Text = "tet";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

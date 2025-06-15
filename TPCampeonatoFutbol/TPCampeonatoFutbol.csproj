@@ -53,59 +53,64 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\equipos\CrearEquipoForm.cs">
+    <Compile Include="Formularios\Equipos\FRMCrearEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\equipos\CrearEquipoForm.Designer.cs">
-      <DependentUpon>CrearEquipoForm.cs</DependentUpon>
+    <Compile Include="Formularios\Equipos\FRMCrearEquipo.Designer.cs">
+      <DependentUpon>FRMCrearEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\equipos\EditarEquipoForm.cs">
+    <Compile Include="Formularios\Equipos\FRMEditarEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\equipos\EditarEquipoForm.Designer.cs">
-      <DependentUpon>EditarEquipoForm.cs</DependentUpon>
+    <Compile Include="Formularios\Equipos\FRMEditarEquipo.Designer.cs">
+      <DependentUpon>FRMEditarEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\equipos\Equipos.cs">
+    <Compile Include="Formularios\Equipos\FRMEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\equipos\Equipos.Designer.cs">
-      <DependentUpon>Equipos.cs</DependentUpon>
+    <Compile Include="Formularios\Equipos\FRMEquipos.Designer.cs">
+      <DependentUpon>FRMEquipos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\jugadores\CrearJugadorForm.cs">
+    <Compile Include="Formularios\Jugadores\FRMCrearJugador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\jugadores\CrearJugadorForm.Designer.cs">
-      <DependentUpon>CrearJugadorForm.cs</DependentUpon>
+    <Compile Include="Formularios\Jugadores\FRMCrearJugador.Designer.cs">
+      <DependentUpon>FRMCrearJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\login\LoginForm.cs">
+    <Compile Include="Formularios\Jugadores\FRMEditarJugador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\login\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Formularios\Jugadores\FRMEditarJugador.Designer.cs">
+      <DependentUpon>FRMEditarJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\login\RegisterForm.cs">
+    <Compile Include="Formularios\Login\FRMLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\login\RegisterForm.Designer.cs">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
+    <Compile Include="Formularios\Login\FRMLogin.Designer.cs">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Login\FRMRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login\FRMRegister.Designer.cs">
+      <DependentUpon>FRMRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Funciones\ManejoArchivos.cs" />
-    <Compile Include="Modelos\Campeonato.cs" />
+    <Compile Include="Modelos\CLSCampeonato.cs" />
     <Compile Include="MainMDI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMDI.Designer.cs">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\CLSFecha.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Modelos\Usuario.cs" />
-    <Compile Include="Modelos\Persona.cs" />
-    <Compile Include="Modelos\Equipo.cs" />
-    <Compile Include="Modelos\EstadisticasEquipos.cs" />
-    <Compile Include="Modelos\Expulsion.cs" />
-    <Compile Include="Modelos\GolesEquipo.cs" />
-    <Compile Include="Modelos\Jugador.cs" />
-    <Compile Include="Modelos\Partido.cs" />
+    <Compile Include="Modelos\CLSPersona.cs" />
+    <Compile Include="Modelos\CLSEquipo.cs" />
+    <Compile Include="Modelos\CLSExpulsion.cs" />
+    <Compile Include="Modelos\CLSGolesEquipo.cs" />
+    <Compile Include="Modelos\CLSJugador.cs" />
+    <Compile Include="Modelos\CLSPartido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\image.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %286%29.png" />
@@ -113,23 +118,26 @@
     <None Include="Resources\kindpng_2162479 %281%29 %284%29.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %283%29.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %281%29.png" />
-    <EmbeddedResource Include="Formularios\equipos\CrearEquipoForm.resx">
-      <DependentUpon>CrearEquipoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Equipos\FRMCrearEquipo.resx">
+      <DependentUpon>FRMCrearEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\equipos\EditarEquipoForm.resx">
-      <DependentUpon>EditarEquipoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Equipos\FRMEditarEquipo.resx">
+      <DependentUpon>FRMEditarEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\equipos\Equipos.resx">
-      <DependentUpon>Equipos.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Equipos\FRMEquipos.resx">
+      <DependentUpon>FRMEquipos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\jugadores\CrearJugadorForm.resx">
-      <DependentUpon>CrearJugadorForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Jugadores\FRMCrearJugador.resx">
+      <DependentUpon>FRMCrearJugador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\login\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Jugadores\FRMEditarJugador.resx">
+      <DependentUpon>FRMEditarJugador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\login\RegisterForm.resx">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Login\FRMLogin.resx">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Login\FRMRegister.resx">
+      <DependentUpon>FRMRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMDI.resx">
       <DependentUpon>MainMDI.cs</DependentUpon>

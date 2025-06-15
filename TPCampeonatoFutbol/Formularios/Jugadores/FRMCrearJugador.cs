@@ -11,20 +11,20 @@ using TPCampeonatoFutbol.Funciones;
 
 namespace TPCampeonatoFutbol.Formularios.jugadores
 {
-    public partial class CrearJugadorForm : Form
+    public partial class FRMCrearJugador : Form
     {
-        Equipo equipo = new Equipo();
-        Rol rolSeleccionado;
-        public CrearJugadorForm(Equipo equipo,string rolDescripcion)
+        CLSEquipo equipo = new CLSEquipo();
+        Rol rolSeleccionado = new Rol();
+        public FRMCrearJugador(CLSEquipo equipo,string rolDescripcion)
         {
             InitializeComponent();
             this.equipo = equipo;
             rolSeleccionado = Rol.ObtenerRoles()
-            .FirstOrDefault(r => r.Descripcion.Equals(rolDescripcion, StringComparison.OrdinalIgnoreCase));
+            .FirstOrDefault(r => r.Codigo == rolDescripcion);
 
         }
 
-        public Jugador NuevoJugador { get; private set; }
+        public CLSJugador NuevoJugador { get; private set; }
 
         private void crearJugadorBtn_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
 
             Int32 dni = Convert.ToInt32(dniNumeric.Value);
             Int32 edad = Convert.ToInt32(edadNumeric.Value);
-            NuevoJugador = new Jugador(
+            NuevoJugador = new CLSJugador(
                nombretxt.Text,
                apellidotxt.Text,
                edad,
