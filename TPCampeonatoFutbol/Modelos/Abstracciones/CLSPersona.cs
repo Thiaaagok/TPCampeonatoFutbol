@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol
 {
-    public abstract class CLSPersona
+    public abstract class CLSPersona: IPersona
     {
 
         private int _Edad;

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol
 {
-    public class CLSEquipo
+    public class CLSEquipo: IEquipo
     {
         private string _Nombre;
 

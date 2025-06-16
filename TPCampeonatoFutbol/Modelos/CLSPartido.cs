@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol
 {
-    public class CLSPartido
+    public class CLSPartido: IPartido
     {
         private DateTime _dia;
         public DateTime Dia

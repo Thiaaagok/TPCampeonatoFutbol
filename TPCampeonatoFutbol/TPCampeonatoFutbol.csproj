@@ -95,7 +95,7 @@
     <Compile Include="Formularios\Login\FRMRegister.Designer.cs">
       <DependentUpon>FRMRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funciones\ManejoArchivos.cs" />
+    <Compile Include="Modelos\Abstracciones\CLSPersona.cs" />
     <Compile Include="Modelos\CLSCampeonato.cs" />
     <Compile Include="MainMDI.cs">
       <SubType>Form</SubType>
@@ -104,8 +104,13 @@
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\CLSFecha.cs" />
+    <Compile Include="Modelos\Funciones\EstadisticasService.cs" />
+    <Compile Include="Modelos\Funciones\GeneradorDeFixture.cs" />
+    <Compile Include="Modelos\Funciones\ManejoArchivos.cs" />
+    <Compile Include="Modelos\Interfaces\IEquipo.cs" />
+    <Compile Include="Modelos\Interfaces\IPartido.cs" />
+    <Compile Include="Modelos\Interfaces\IPersona.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Modelos\CLSPersona.cs" />
     <Compile Include="Modelos\CLSEquipo.cs" />
     <Compile Include="Modelos\CLSExpulsion.cs" />
     <Compile Include="Modelos\CLSGolesEquipo.cs" />
@@ -203,5 +208,6 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

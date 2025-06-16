@@ -12,15 +12,52 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
 {
     public partial class FRMEditarJugador : Form
     {
-        CLSJugador jugadorEditar { get; set; }
-        public FRMEditarJugador(CLSJugador jugadorEditar)
+        private CLSJugador jugadorEditar;
+        public CLSJugador JugadorEditado { get; private set; }
+
+        public FRMEditarJugador(CLSJugador jugador)
         {
             InitializeComponent();
-            this.jugadorEditar = jugadorEditar;
+            jugadorEditar = jugador;
+            SetearPropiedades();
         }
+
         private void SetearPropiedades()
         {
+            nombretxt.Text = jugadorEditar.Nombre;
+            apellidotxt.Text = jugadorEditar.Apellido;
+            dniNumeric.Value = jugadorEditar.Dni;
+            edadNumeric.Value = jugadorEditar.Edad;
+            lugarNacimientotxt.Text = jugadorEditar.LugarNacimiento;
+            fechaNacimiento.Value = jugadorEditar.FechaNacimiento;
+        }
 
+        private void editarJugadorBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(nombretxt.Text) ||
+                string.IsNullOrWhiteSpace(apellidotxt.Text) ||
+                dniNumeric.Value <= 0 ||
+                edadNumeric.Value <= 0 ||
+                string.IsNullOrWhiteSpace(lugarNacimientotxt.Text) ||
+                fechaNacimiento.Value == null)
+            {
+                MessageBox.Show("Por favor, completa todos los campos correctamente.");
+                return;
+            }
+
+            jugadorEditar.Nombre = nombretxt.Text;
+            jugadorEditar.Apellido = apellidotxt.Text;
+            jugadorEditar.Dni = Convert.ToInt32(dniNumeric.Value);
+            jugadorEditar.Edad = Convert.ToInt32(edadNumeric.Value);
+            jugadorEditar.LugarNacimiento = lugarNacimientotxt.Text;
+            jugadorEditar.FechaNacimiento = fechaNacimiento.Value;
+
+
+            JugadorEditado = jugadorEditar;
+
+            MessageBox.Show("Jugador editado correctamente.");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
