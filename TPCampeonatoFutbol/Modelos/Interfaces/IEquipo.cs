@@ -8,8 +8,9 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
 {
     public interface IEquipo
     {
-        string Nombre { get; }
-        string Ciudad { get; }
-        List<CLSJugador> Jugadores { get; }
+        string Id { get; set; }
+        string Nombre { get; set; }
+        string Ciudad { get; set; }
+        List<CLSJugador> Jugadores { get; set; }
     }
 }

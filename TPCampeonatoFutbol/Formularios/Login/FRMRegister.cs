@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos.Funciones;
 
 namespace TPCampeonatoFutbol
 {
@@ -140,7 +141,9 @@ namespace TPCampeonatoFutbol
             }
 
             // Registro exitoso
-            string nuevoRegistro = $"{usuarioNuevo},{contraseniaNueva}";
+            Util util = new Util();
+            string Id = util.GenerarId();
+            string nuevoRegistro = $"{Id},{usuarioNuevo},{contraseniaNueva}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
             MessageBox.Show("Usuario creado exitosamente.");

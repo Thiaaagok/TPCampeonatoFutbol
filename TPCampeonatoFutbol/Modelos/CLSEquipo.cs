@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Modelos.Funciones;
 using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol
 {
     public class CLSEquipo: IEquipo
     {
+
+        private string _Id;
+
+        public string Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
         private string _Nombre;
 
         public string Nombre
@@ -71,11 +81,22 @@ namespace TPCampeonatoFutbol
 
         public CLSEquipo()
         {
+            Util util = new Util();
+            Id = util.GenerarId();
             Jugadores = new List<CLSJugador>();
         }
 
-        public CLSEquipo(string nombre, string nombreCorto, string ciudad, string estadio, int capacidadEstadio, int anioFundacion)
+        public CLSEquipo(string id, string nombre, string nombreCorto, string ciudad, string estadio, int capacidadEstadio, int anioFundacion)
         {
+            if(id == null)
+            {
+                Util util = new Util();
+                Id = util.GenerarId();
+            }
+            else
+            {
+                Id = id;
+            }
             Nombre = nombre;
             NombreCorto = nombreCorto;
             Ciudad = ciudad;

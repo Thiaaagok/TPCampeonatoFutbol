@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Modelos.Funciones;
 
 namespace TPCampeonatoFutbol
 {
     public class CLSJugador: CLSPersona
     {
+        private string _Id;
+
+        public string Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
         private Rol _Rol;
 
         public Rol Rol
@@ -23,10 +32,20 @@ namespace TPCampeonatoFutbol
 
         public CLSJugador()
         {
-
+            Util util = new Util();
+            Id = util.GenerarId();
         }
-        public CLSJugador(string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
+        public CLSJugador(string id,string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
         {
+            if (id == null)
+            {
+                Util util = new Util();
+                Id = util.GenerarId();
+            }
+            else
+            {
+                Id = id;
+            }
             Nombre = nombre;
             Apellido = apellido;
             Edad = edad;

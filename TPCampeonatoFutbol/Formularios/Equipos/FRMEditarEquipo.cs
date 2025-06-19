@@ -48,6 +48,7 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             }
 
             EquipoEditado = new CLSEquipo(
+                equipoOriginal.Id,
                 nombretxt.Text,
                 nombrecortotxt.Text,
                 ciudadtxt.Text,
@@ -71,10 +72,10 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    if (partes[6] == equipoOriginal.Nombre)
+                    if (partes[7] == equipoOriginal.Nombre)
                     {
-                        Rol rol = new Rol(partes[8], partes[7]);
-                        CLSJugador jugador = new CLSJugador(partes[0], partes[1], Convert.ToInt32(partes[2]), Convert.ToInt32(partes[3]), Convert.ToDateTime(partes[4]), partes[5], partes[6], rol);
+                        Rol rol = new Rol(partes[9], partes[8]);
+                        CLSJugador jugador = new CLSJugador(partes[0],partes[1], partes[2], Convert.ToInt32(partes[3]), Convert.ToInt32(partes[4]), Convert.ToDateTime(partes[5]), partes[6], partes[7], rol);
                         var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
                         var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
 

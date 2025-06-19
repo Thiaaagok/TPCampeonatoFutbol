@@ -53,6 +53,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Campeonato\Campeonato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Campeonato\Campeonato.Designer.cs">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Campeonato\Fechas\Fechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Campeonato\Fechas\Fechas.Designer.cs">
+      <DependentUpon>Fechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Campeonato\Tabla\Tabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Campeonato\Tabla\Tabla.Designer.cs">
+      <DependentUpon>Tabla.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Equipos\FRMCrearEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +125,7 @@
     <Compile Include="Modelos\Funciones\EstadisticasService.cs" />
     <Compile Include="Modelos\Funciones\GeneradorDeFixture.cs" />
     <Compile Include="Modelos\Funciones\ManejoArchivos.cs" />
+    <Compile Include="Modelos\Funciones\Util.cs" />
     <Compile Include="Modelos\Interfaces\IEquipo.cs" />
     <Compile Include="Modelos\Interfaces\IPartido.cs" />
     <Compile Include="Modelos\Interfaces\IPersona.cs" />
@@ -123,6 +142,15 @@
     <None Include="Resources\kindpng_2162479 %281%29 %284%29.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %283%29.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %281%29.png" />
+    <EmbeddedResource Include="Formularios\Campeonato\Campeonato.resx">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Campeonato\Fechas\Fechas.resx">
+      <DependentUpon>Fechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Campeonato\Tabla\Tabla.resx">
+      <DependentUpon>Tabla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Equipos\FRMCrearEquipo.resx">
       <DependentUpon>FRMCrearEquipo.cs</DependentUpon>
     </EmbeddedResource>

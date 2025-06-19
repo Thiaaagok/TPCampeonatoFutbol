@@ -114,10 +114,10 @@ namespace TPCampeonatoFutbol
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    if (partes.Length < 2) continue;
+                    if (partes.Length < 3) continue;
 
-                    string usuario = partes[0];
-                    string contrasenia = partes[1];
+                    string usuario = partes[1];
+                    string contrasenia = partes[2];
 
                     if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
                     {

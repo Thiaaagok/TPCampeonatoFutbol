@@ -42,6 +42,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             Int32 dni = Convert.ToInt32(dniNumeric.Value);
             Int32 edad = Convert.ToInt32(edadNumeric.Value);
             NuevoJugador = new CLSJugador(
+               null,
                nombretxt.Text,
                apellidotxt.Text,
                edad,
@@ -50,7 +51,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
                lugarNacimientotxt.Text,
                equipo.Nombre,
                rolSeleccionado);
-            string nuevaLinea = $"{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.Equipo},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
+            string nuevaLinea = $"{NuevoJugador.Id},{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.Equipo},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
             ManejoArchivos manejoArchivos = new ManejoArchivos();
             manejoArchivos.GuardarNuevo("jugadores.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;

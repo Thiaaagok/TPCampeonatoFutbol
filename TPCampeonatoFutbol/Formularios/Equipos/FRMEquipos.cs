@@ -36,7 +36,7 @@ namespace TPCampeonatoFutbol
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], Convert.ToInt32(partes[4]), Convert.ToInt32(partes[5]));
+                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], partes[4], Convert.ToInt32(partes[5]), Convert.ToInt32(partes[6]));
                     equipos.Add(equipo);
                 }
             }
@@ -56,6 +56,7 @@ namespace TPCampeonatoFutbol
 
             dataGridViewEquipos.Columns.Clear();
 
+            dataGridViewEquipos.Columns.Add(CrearColumna("Id", "Id"));
             dataGridViewEquipos.Columns.Add(CrearColumna("Nombre", "Nombre completo"));
             dataGridViewEquipos.Columns.Add(CrearColumna("NombreCorto", "Alias"));
             dataGridViewEquipos.Columns.Add(CrearColumna("Ciudad", "Ciudad de origen"));
@@ -98,9 +99,14 @@ namespace TPCampeonatoFutbol
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+
+            if(equipos.Count == 10)
+            {
+                MessageBox.Show("Limite de equipos alcanzado, elimine uno para continuar");
+                return;
+            }
+
             FRMCrearEquipo crForm = new FRMCrearEquipo();
-
-
             if (crForm.ShowDialog() == DialogResult.OK)
             {
                 ObtenerEquipos();
@@ -149,8 +155,9 @@ namespace TPCampeonatoFutbol
                         partes[1],
                         partes[2],
                         partes[3],
-                        int.Parse(partes[4]),
-                        int.Parse(partes[5])
+                        partes[4],
+                        int.Parse(partes[5]),
+                        int.Parse(partes[6])
                     );
                 });
         }

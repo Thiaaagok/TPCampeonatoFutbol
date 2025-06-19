@@ -40,13 +40,14 @@ namespace TPCampeonatoFutbol
             Int32 anio = Convert.ToInt32(anioFundacionNumber.Value);
             Int32 capacidadEstadio = Convert.ToInt32(capacidadEstadioNumber.Value);
             EquipoCreado = new CLSEquipo(
+                null,
                 nombretxt.Text,
                 nombrecortotxt.Text,
                 ciudadtxt.Text,
                 estadiotxt.Text,
                 capacidadEstadio,
                 anio);
-            string nuevaLinea = $"{EquipoCreado.Nombre},{EquipoCreado.NombreCorto},{EquipoCreado.Ciudad},{EquipoCreado.Estadio},{EquipoCreado.CapacidadEstadio},{EquipoCreado.AnioFundacion}";
+            string nuevaLinea = $"{EquipoCreado.Id},{EquipoCreado.Nombre},{EquipoCreado.NombreCorto},{EquipoCreado.Ciudad},{EquipoCreado.Estadio},{EquipoCreado.CapacidadEstadio},{EquipoCreado.AnioFundacion}";
             ManejoArchivos manejoArchivos = new ManejoArchivos();
             manejoArchivos.GuardarNuevo("equipos.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;

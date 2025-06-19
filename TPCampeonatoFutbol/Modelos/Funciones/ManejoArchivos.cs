@@ -24,10 +24,10 @@ namespace TPCampeonatoFutbol.Funciones
                                 sw.WriteLine("Nombre,Apellido,Edad,Dni,FechaNacimiento,LugarNacimiento,Equipo,RolCodigo,RolDescripcion");
                                 break;
                             case "equipos.txt":
-                                sw.WriteLine("ID,Nombre,Fundación,Estadio");
+                                sw.WriteLine("ID,Nombre,Fundación,Estadio,Capacidad,AnioNacimiento");
                                 break;
                             case "usuarios.txt":
-                                sw.WriteLine("ID,Nombre,Fundación,Estadio");
+                                sw.WriteLine("ID,Nombre,Contrasenia");
                                 break;
                             default:
                                 sw.WriteLine("Encabezado");
