@@ -122,19 +122,26 @@ namespace TPCampeonatoFutbol
 
         private void dataGridViewEquipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                var equipoSeleccionado = (CLSEquipo)dataGridViewEquipos.Rows[e.RowIndex].DataBoundItem;
-
-                FRMEditarEquipo editarEquipoForm = new FRMEditarEquipo(equipoSeleccionado);
-                if (editarEquipoForm.ShowDialog() == DialogResult.OK)
+                if (e.RowIndex >= 0)
                 {
-                    var equipoEditado = editarEquipoForm.EquipoEditado;
-                    EditarEquipo("Equipos.txt", equipoEditado);
-                    ObtenerEquipos();
-                    dataGridViewEquipos.DataSource = null;
-                    dataGridViewEquipos.DataSource = equipos;
+                    var equipoSeleccionado = (CLSEquipo)dataGridViewEquipos.Rows[e.RowIndex].DataBoundItem;
+
+                    FRMEditarEquipo editarEquipoForm = new FRMEditarEquipo(equipoSeleccionado);
+                    if (editarEquipoForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var equipoEditado = editarEquipoForm.EquipoEditado;
+                        EditarEquipo("Equipos.txt", equipoEditado);
+                        ObtenerEquipos();
+                        dataGridViewEquipos.DataSource = null;
+                        dataGridViewEquipos.DataSource = equipos;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
             }
         }
 

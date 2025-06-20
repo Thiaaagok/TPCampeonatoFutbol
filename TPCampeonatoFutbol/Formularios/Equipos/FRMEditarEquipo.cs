@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.jugadores;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos.Funciones;
 
 namespace TPCampeonatoFutbol.Formularios.equipos
 {
@@ -81,10 +82,12 @@ namespace TPCampeonatoFutbol.Formularios.equipos
 
                         if (box is PictureBox picturebox)
                         {
+                            Util util = new Util();
+                            util.RemoverEventosClick(picturebox);
                             picturebox.Image = Properties.Resources.imagenJugador;
                             picturebox.Click += (sender, e) =>
                             {
-
+                                editarJugador(jugador);
                             };
                         }
 
@@ -112,6 +115,15 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 obtenerJugadores();
             }
         }
+        private void editarJugador(CLSJugador jugador)
+        {
+            FRMEditarJugador EditarJugador = new FRMEditarJugador(jugador);
+            if (EditarJugador.ShowDialog() == DialogResult.OK)
+            {
+                obtenerJugadores();
+            }
+        }
+
 
         private void EditarEquipoForm_Load(object sender, EventArgs e)
         {
@@ -208,5 +220,6 @@ namespace TPCampeonatoFutbol.Formularios.equipos
         {
             nuevoJugador("MedioCentroDerecho");
         }
+
     }
 }
