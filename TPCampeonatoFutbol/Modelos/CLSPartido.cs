@@ -13,8 +13,8 @@ namespace TPCampeonatoFutbol
             set { _dia = value; }
         }
 
-        private DateTime _hora;
-        public DateTime Hora
+        private TimeSpan _hora;
+        public TimeSpan Hora
         {
             get { return _hora; }
             set { _hora = value; }
@@ -39,6 +39,13 @@ namespace TPCampeonatoFutbol
         {
             get { return _goles; }
             set { _goles = value; }
+        }
+
+        private CLSExpulsion _Expulsiones;
+        public CLSExpulsion Expulsiones
+        {
+            get { return _Expulsiones; }
+            set { _Expulsiones = value; }
         }
 
         private CLSEquipo _local;

@@ -10,7 +10,11 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
     {
         string Id { get; set; }
         string Nombre { get; set; }
+        string NombreCorto { get; set; }
         string Ciudad { get; set; }
+        string Estadio { get; set; }
+        int CapacidadEstadio { get; set; }
+        int AnioFundacion { get; set; }
         List<CLSJugador> Jugadores { get; set; }
     }
 }

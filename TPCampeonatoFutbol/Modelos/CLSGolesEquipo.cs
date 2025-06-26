@@ -4,9 +4,9 @@ namespace TPCampeonatoFutbol
 {
     public class CLSGolesEquipo
     {
-        private DateTime _Hora;
+        private TimeSpan _Hora;
 
-        public DateTime Hora
+        public TimeSpan Hora
         {
             get { return _Hora; }
             set { _Hora = value; }

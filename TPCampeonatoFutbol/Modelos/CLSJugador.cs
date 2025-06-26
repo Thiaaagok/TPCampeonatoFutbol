@@ -14,9 +14,9 @@ namespace TPCampeonatoFutbol
             set { _Id = value; }
         }
 
-        private Rol _Rol;
+        private CLSRol _Rol;
 
-        public Rol Rol
+        public CLSRol Rol
         {
             get { return _Rol; }
             set { _Rol = value; }
@@ -35,7 +35,7 @@ namespace TPCampeonatoFutbol
             Util util = new Util();
             Id = util.GenerarId();
         }
-        public CLSJugador(string id,string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, Rol rol)
+        public CLSJugador(string id,string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, CLSRol rol)
         {
             if (id == null)
             {
@@ -57,43 +57,43 @@ namespace TPCampeonatoFutbol
         }
     }
 
-    public class Rol
+    public class CLSRol
     {
         public string Descripcion {  get; set; }
 
         public string Codigo { get; set; }
 
-        public Rol()
+        public CLSRol()
         {
             
         }
 
-        public Rol(string descripcion, string codigo)
+        public CLSRol(string descripcion, string codigo)
         {
            Descripcion = descripcion;
            Codigo = codigo;
         }
 
-        public static List<Rol> ObtenerRoles()
+        public static List<CLSRol> ObtenerRoles()
         {
-            return new List<Rol>
+            return new List<CLSRol>
             {
-                new Rol("Delantero", "Delantero"),
-                new Rol("Extremo Izquierdo", "ExtremoIzquierdo"),
-                new Rol("Extremo Derecho", "ExtremoDerecho"),
-                new Rol("Medio Centro Izquierdo", "MediocentroIzquierdo"),
-                new Rol("Mediocentro", "Mediocentro"),
-                new Rol("Medio Centro Derecho", "MediocentroDerecho"),
-                new Rol("Lateral Izquierdo", "LateralIzquierdo"),
-                new Rol("Defensa Central Izquierdo", "DefensacentralIzquierdo"),
-                new Rol("Defensa Central Derecho", "DefensacentralDerecho"),
-                new Rol("Lateral Derecho", "LateralDerecho"),
-                new Rol("Arquero", "Arquero"),
-                new Rol("Suplente 1", "Suplente1"),
-                new Rol("Suplente 2", "Suplente2"),
-                new Rol("Suplente 3", "Suplente3"),
-                new Rol("Suplente 4", "Suplente4"),
-                new Rol("Suplente 5", "Suplente5"),
+                new CLSRol("Delantero", "Delantero"),
+                new CLSRol("Extremo Izquierdo", "ExtremoIzquierdo"),
+                new CLSRol("Extremo Derecho", "ExtremoDerecho"),
+                new CLSRol("Medio Centro Izquierdo", "MediocentroIzquierdo"),
+                new CLSRol("Mediocentro", "Mediocentro"),
+                new CLSRol("Medio Centro Derecho", "MediocentroDerecho"),
+                new CLSRol("Lateral Izquierdo", "LateralIzquierdo"),
+                new CLSRol("Defensa Central Izquierdo", "DefensacentralIzquierdo"),
+                new CLSRol("Defensa Central Derecho", "DefensacentralDerecho"),
+                new CLSRol("Lateral Derecho", "LateralDerecho"),
+                new CLSRol("Arquero", "Arquero"),
+                new CLSRol("Suplente 1", "Suplente1"),
+                new CLSRol("Suplente 2", "Suplente2"),
+                new CLSRol("Suplente 3", "Suplente3"),
+                new CLSRol("Suplente 4", "Suplente4"),
+                new CLSRol("Suplente 5", "Suplente5"),
             };
         }
 

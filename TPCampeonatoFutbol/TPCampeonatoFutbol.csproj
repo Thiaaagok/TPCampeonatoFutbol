@@ -121,12 +121,14 @@
     <Compile Include="MainMDI.Designer.cs">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\CLSEstadisticasCampeonato.cs" />
     <Compile Include="Modelos\CLSFecha.cs" />
     <Compile Include="Modelos\Funciones\EstadisticasService.cs" />
     <Compile Include="Modelos\Funciones\GeneradorDeFixture.cs" />
     <Compile Include="Modelos\Funciones\ManejoArchivos.cs" />
     <Compile Include="Modelos\Funciones\Util.cs" />
     <Compile Include="Modelos\Interfaces\IEquipo.cs" />
+    <Compile Include="Modelos\Interfaces\IEstadisticasCampeonato.cs" />
     <Compile Include="Modelos\Interfaces\IPartido.cs" />
     <Compile Include="Modelos\Interfaces\IPersona.cs" />
     <Compile Include="Program.cs" />

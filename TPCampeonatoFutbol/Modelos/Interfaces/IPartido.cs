@@ -8,10 +8,12 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
 {
     public interface IPartido
     {
+        DateTime Dia { get; set; }
+        TimeSpan Hora { get; set; }
+        string Estadio { get; set; }
+        CLSPersona Arbitro { get; set; }
+        CLSGolesEquipo Goles { get; set; }
         CLSEquipo Local { get; set; }
         CLSEquipo Visitante { get; set; }
-        DateTime Dia { get; set; }
-        DateTime Hora { get; set; }
-        string Estadio { get; set; }
     }
 }

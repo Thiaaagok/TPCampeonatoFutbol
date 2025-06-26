@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    internal class CLSExpulsion
+    public class CLSExpulsion
     {
         string Causa {  get; set; }
 
