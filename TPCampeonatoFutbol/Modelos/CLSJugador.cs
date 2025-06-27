@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos.Funciones;
 
 namespace TPCampeonatoFutbol
 {
     public class CLSJugador: CLSPersona
     {
+        string rutaArchivos = "jugadores.txt";
+
         private string _Id;
 
         public string Id
@@ -22,12 +25,12 @@ namespace TPCampeonatoFutbol
             set { _Rol = value; }
         }
 
-        private string _Equipo;
+        private string _EquipoId;
 
-        public string Equipo
+        public string EquipoId
         {
-            get { return _Equipo; }
-            set { _Equipo = value; }
+            get { return _EquipoId; }
+            set { _EquipoId = value; }
         }
 
         public CLSJugador()
@@ -35,7 +38,7 @@ namespace TPCampeonatoFutbol
             Util util = new Util();
             Id = util.GenerarId();
         }
-        public CLSJugador(string id,string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipo, CLSRol rol)
+        public CLSJugador(string id,string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, string equipoId, CLSRol rol)
         {
             if (id == null)
             {
@@ -52,8 +55,36 @@ namespace TPCampeonatoFutbol
             Dni = dni;
             FechaNacimiento = fechaNacimiento;
             LugarNacimiento = lugarNacimiento;
-            Equipo = equipo;
+            EquipoId = equipoId;
             Rol = rol;
+        }
+
+        public void editarJugador(CLSJugador jugadorEditado)
+        {
+            ManejoArchivos archivos = new ManejoArchivos();
+
+            archivos.EditarRegistro<CLSJugador>(
+                rutaArchivos, 
+                j => j.Id == jugadorEditado.Id,
+                jugadorEditado,
+                jugador => $"{jugador.Id},{jugador.Nombre},{jugador.Apellido},{jugador.Edad},{jugador.Dni},{jugador.FechaNacimiento:dd/MM/yyyy HH:mm:ss},{jugador.LugarNacimiento},{jugador.EquipoId},{jugador.Rol.Codigo},{jugador.Rol.Descripcion}",
+                linea =>
+                {
+                    var partes = linea.Split(',');
+
+                    return new CLSJugador(
+                        partes[0],                             
+                        partes[1],                              
+                        partes[2],                              
+                        int.Parse(partes[3]),                   
+                        int.Parse(partes[4]),                   
+                        DateTime.ParseExact(partes[5], "dd/MM/yyyy HH:mm:ss", null), 
+                        partes[6],                              
+                        partes[7],                             
+                        new CLSRol(partes[8], partes[9])        
+                    );
+                }
+            );
         }
     }
 

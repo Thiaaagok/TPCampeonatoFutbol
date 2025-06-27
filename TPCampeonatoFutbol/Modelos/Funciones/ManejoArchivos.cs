@@ -151,12 +151,14 @@ namespace TPCampeonatoFutbol.Funciones
                     {
                         nuevasLineas.Add(convertirALinea(nuevoObjeto));
                         modificado = true;
+                        MessageBox.Show("Registro editado correctamente.");
                     }
                     else
                     {
                         nuevasLineas.Add(linea);
                     }
                 }
+
 
                 if (!modificado)
                 {

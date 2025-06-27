@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Modelos.Funciones;
 
 namespace TPCampeonatoFutbol
@@ -128,22 +129,21 @@ namespace TPCampeonatoFutbol
                 return partes.Length >= 1 && partes[0] == usuarioNuevo;
             });
 
-            if (usuarioExiste)
-            {
-                MessageBox.Show("El nombre de usuario ingresado ya existe. Intenta con uno diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             if (contraseniaNueva != repetirContrasenia)
             {
                 MessageBox.Show("Las contraseñas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (usuarioExiste)
+            {
+                MessageBox.Show("El nombre de usuario ingresado ya existe. Intenta con uno diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Registro exitoso
-            Util util = new Util();
-            string Id = util.GenerarId();
-            string nuevoRegistro = $"{Id},{usuarioNuevo},{contraseniaNueva}";
+            CLSUsuario nuevoUsuario = new CLSUsuario(null,usuarioNuevo,contraseniaNueva);
+            string nuevoRegistro = $"{nuevoUsuario.Id},{nuevoUsuario.Usuario},{nuevoUsuario.Contrasenia}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
             MessageBox.Show("Usuario creado exitosamente.");

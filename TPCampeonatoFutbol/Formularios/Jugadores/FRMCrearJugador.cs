@@ -14,12 +14,12 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
     public partial class FRMCrearJugador : Form
     {
         CLSEquipo equipo = new CLSEquipo();
-        Rol rolSeleccionado = new Rol();
+        CLSRol rolSeleccionado = new CLSRol();
         public FRMCrearJugador(CLSEquipo equipo,string rolDescripcion)
         {
             InitializeComponent();
             this.equipo = equipo;
-            rolSeleccionado = Rol.ObtenerRoles()
+            rolSeleccionado = CLSRol.ObtenerRoles()
             .FirstOrDefault(r => r.Codigo == rolDescripcion);
 
         }
@@ -49,9 +49,9 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
                dni,
                fechaNacimiento.Value,
                lugarNacimientotxt.Text,
-               equipo.Nombre,
+               equipo.Id,
                rolSeleccionado);
-            string nuevaLinea = $"{NuevoJugador.Id},{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.Equipo},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
+            string nuevaLinea = $"{NuevoJugador.Id},{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.EquipoId},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
             ManejoArchivos manejoArchivos = new ManejoArchivos();
             manejoArchivos.GuardarNuevo("jugadores.txt", nuevaLinea);
             this.DialogResult = DialogResult.OK;

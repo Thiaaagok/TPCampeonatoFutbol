@@ -50,7 +50,7 @@
             this.MediocentroLabel = new System.Windows.Forms.Label();
             this.MedioCentroDerechoLabel = new System.Windows.Forms.Label();
             this.LateralIzquierdoLabel = new System.Windows.Forms.Label();
-            this.DefensacentralIzquierdaLabel = new System.Windows.Forms.Label();
+            this.DefensacentralIzquierdoLabel = new System.Windows.Forms.Label();
             this.DefensacentralDerechoLabel = new System.Windows.Forms.Label();
             this.LateralDerechoLabel = new System.Windows.Forms.Label();
             this.ArqueroLabel = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.ArqueroBox = new System.Windows.Forms.PictureBox();
             this.LateralDerechoBox = new System.Windows.Forms.PictureBox();
             this.DefensacentralDerechoBox = new System.Windows.Forms.PictureBox();
-            this.DefensacentralIzquierdaBox = new System.Windows.Forms.PictureBox();
+            this.DefensacentralIzquierdoBox = new System.Windows.Forms.PictureBox();
             this.LateralIzquierdoBox = new System.Windows.Forms.PictureBox();
             this.MediocentroDerechoBox = new System.Windows.Forms.PictureBox();
             this.MediocentroBox = new System.Windows.Forms.PictureBox();
@@ -86,7 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ArqueroBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LateralDerechoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefensacentralDerechoBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DefensacentralIzquierdaBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DefensacentralIzquierdoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LateralIzquierdoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MediocentroDerechoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MediocentroBox)).BeginInit();
@@ -319,16 +319,16 @@
             this.LateralIzquierdoLabel.Text = "Lateral Izquierdo";
             this.LateralIzquierdoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // DefensacentralIzquierdaLabel
+            // DefensacentralIzquierdoLabel
             // 
-            this.DefensacentralIzquierdaLabel.AutoSize = true;
-            this.DefensacentralIzquierdaLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.DefensacentralIzquierdaLabel.Location = new System.Drawing.Point(557, 578);
-            this.DefensacentralIzquierdaLabel.Name = "DefensacentralIzquierdaLabel";
-            this.DefensacentralIzquierdaLabel.Size = new System.Drawing.Size(129, 13);
-            this.DefensacentralIzquierdaLabel.TabIndex = 52;
-            this.DefensacentralIzquierdaLabel.Text = "Defensa Central Izquierda";
-            this.DefensacentralIzquierdaLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DefensacentralIzquierdoLabel.AutoSize = true;
+            this.DefensacentralIzquierdoLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.DefensacentralIzquierdoLabel.Location = new System.Drawing.Point(557, 578);
+            this.DefensacentralIzquierdoLabel.Name = "DefensacentralIzquierdoLabel";
+            this.DefensacentralIzquierdoLabel.Size = new System.Drawing.Size(129, 13);
+            this.DefensacentralIzquierdoLabel.TabIndex = 52;
+            this.DefensacentralIzquierdoLabel.Text = "Defensa Central Izquierda";
+            this.DefensacentralIzquierdoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DefensacentralDerechoLabel
             // 
@@ -493,15 +493,15 @@
             this.DefensacentralDerechoBox.TabStop = false;
             this.DefensacentralDerechoBox.Click += new System.EventHandler(this.DefensacentralDerechoBox_Click);
             // 
-            // DefensacentralIzquierdaBox
+            // DefensacentralIzquierdoBox
             // 
-            this.DefensacentralIzquierdaBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.DefensacentralIzquierdaBox.Location = new System.Drawing.Point(545, 456);
-            this.DefensacentralIzquierdaBox.Name = "DefensacentralIzquierdaBox";
-            this.DefensacentralIzquierdaBox.Size = new System.Drawing.Size(76, 119);
-            this.DefensacentralIzquierdaBox.TabIndex = 33;
-            this.DefensacentralIzquierdaBox.TabStop = false;
-            this.DefensacentralIzquierdaBox.Click += new System.EventHandler(this.DefensacentralIzquierdaBox_Click);
+            this.DefensacentralIzquierdoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
+            this.DefensacentralIzquierdoBox.Location = new System.Drawing.Point(545, 456);
+            this.DefensacentralIzquierdoBox.Name = "DefensacentralIzquierdoBox";
+            this.DefensacentralIzquierdoBox.Size = new System.Drawing.Size(76, 119);
+            this.DefensacentralIzquierdoBox.TabIndex = 33;
+            this.DefensacentralIzquierdoBox.TabStop = false;
+            this.DefensacentralIzquierdoBox.Click += new System.EventHandler(this.DefensacentralIzquierdaBox_Click);
             // 
             // LateralIzquierdoBox
             // 
@@ -608,7 +608,7 @@
             this.Controls.Add(this.ArqueroLabel);
             this.Controls.Add(this.LateralDerechoLabel);
             this.Controls.Add(this.DefensacentralDerechoLabel);
-            this.Controls.Add(this.DefensacentralIzquierdaLabel);
+            this.Controls.Add(this.DefensacentralIzquierdoLabel);
             this.Controls.Add(this.LateralIzquierdoLabel);
             this.Controls.Add(this.MedioCentroDerechoLabel);
             this.Controls.Add(this.MediocentroLabel);
@@ -626,7 +626,7 @@
             this.Controls.Add(this.ArqueroBox);
             this.Controls.Add(this.LateralDerechoBox);
             this.Controls.Add(this.DefensacentralDerechoBox);
-            this.Controls.Add(this.DefensacentralIzquierdaBox);
+            this.Controls.Add(this.DefensacentralIzquierdoBox);
             this.Controls.Add(this.LateralIzquierdoBox);
             this.Controls.Add(this.MediocentroDerechoBox);
             this.Controls.Add(this.MediocentroBox);
@@ -660,7 +660,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ArqueroBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LateralDerechoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefensacentralDerechoBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DefensacentralIzquierdaBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DefensacentralIzquierdoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LateralIzquierdoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MediocentroDerechoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MediocentroBox)).EndInit();
@@ -695,7 +695,7 @@
         private System.Windows.Forms.PictureBox MediocentroBox;
         private System.Windows.Forms.PictureBox MediocentroDerechoBox;
         private System.Windows.Forms.PictureBox LateralIzquierdoBox;
-        private System.Windows.Forms.PictureBox DefensacentralIzquierdaBox;
+        private System.Windows.Forms.PictureBox DefensacentralIzquierdoBox;
         private System.Windows.Forms.PictureBox DefensacentralDerechoBox;
         private System.Windows.Forms.PictureBox LateralDerechoBox;
         private System.Windows.Forms.PictureBox ArqueroBox;
@@ -713,7 +713,7 @@
         private System.Windows.Forms.Label MediocentroLabel;
         private System.Windows.Forms.Label MedioCentroDerechoLabel;
         private System.Windows.Forms.Label LateralIzquierdoLabel;
-        private System.Windows.Forms.Label DefensacentralIzquierdaLabel;
+        private System.Windows.Forms.Label DefensacentralIzquierdoLabel;
         private System.Windows.Forms.Label DefensacentralDerechoLabel;
         private System.Windows.Forms.Label LateralDerechoLabel;
         private System.Windows.Forms.Label ArqueroLabel;

@@ -13,7 +13,6 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
     public partial class FRMEditarJugador : Form
     {
         private CLSJugador jugadorEditar;
-        public CLSJugador JugadorEditado { get; private set; }
 
         public FRMEditarJugador(CLSJugador jugador)
         {
@@ -31,8 +30,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             lugarNacimientotxt.Text = jugadorEditar.LugarNacimiento;
             fechaNacimiento.Value = jugadorEditar.FechaNacimiento;
         }
-
-        private void editarJugadorBtn_Click(object sender, EventArgs e)
+        private void editarJugadorBtn_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nombretxt.Text) ||
                 string.IsNullOrWhiteSpace(apellidotxt.Text) ||
@@ -52,10 +50,8 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             jugadorEditar.LugarNacimiento = lugarNacimientotxt.Text;
             jugadorEditar.FechaNacimiento = fechaNacimiento.Value;
 
+            jugadorEditar.editarJugador(jugadorEditar);
 
-            JugadorEditado = jugadorEditar;
-
-            MessageBox.Show("Jugador editado correctamente.");
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

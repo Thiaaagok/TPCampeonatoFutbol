@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos;
 
 namespace TPCampeonatoFutbol
 {
@@ -114,12 +115,9 @@ namespace TPCampeonatoFutbol
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    if (partes.Length < 3) continue;
-
-                    string usuario = partes[1];
-                    string contrasenia = partes[2];
-
-                    if (usuario == NombreUsuariotxt.Text && contrasenia == Contraseniatxt.Text)
+                    CLSUsuario usuarioVerificar = new CLSUsuario(partes[0], partes[1], partes[2]);
+                    if (usuarioVerificar.Usuario == NombreUsuariotxt.Text &&
+                        usuarioVerificar.Contrasenia == Contraseniatxt.Text)
                     {
                         loginCorrecto = true;
                         break;

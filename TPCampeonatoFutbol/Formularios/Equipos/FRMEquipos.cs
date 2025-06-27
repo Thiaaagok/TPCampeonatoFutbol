@@ -20,7 +20,6 @@ namespace TPCampeonatoFutbol
         public FRMEquipos()
         {
             InitializeComponent();
-            ObtenerEquipos();
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -36,7 +35,7 @@ namespace TPCampeonatoFutbol
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], partes[4], Convert.ToInt32(partes[5]), Convert.ToInt32(partes[6]));
+                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], partes[4], int.Parse(partes[5]), int.Parse(partes[6]));
                     equipos.Add(equipo);
                 }
             }
@@ -132,7 +131,7 @@ namespace TPCampeonatoFutbol
                     if (editarEquipoForm.ShowDialog() == DialogResult.OK)
                     {
                         var equipoEditado = editarEquipoForm.EquipoEditado;
-                        EditarEquipo("Equipos.txt", equipoEditado);
+                        equipoEditado.editarEquipo(equipoEditado);
                         ObtenerEquipos();
                         dataGridViewEquipos.DataSource = null;
                         dataGridViewEquipos.DataSource = equipos;
@@ -143,30 +142,6 @@ namespace TPCampeonatoFutbol
             {
                 MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
             }
-        }
-
-        public void EditarEquipo(string ruta, CLSEquipo equipoEditado)
-        {
-            ManejoArchivos archivos = new ManejoArchivos();
-
-            archivos.EditarRegistro<CLSEquipo>(
-                ruta,
-                e => e.Nombre == equipoEditado.Nombre,
-                equipoEditado,
-                equipo => $"{equipo.Nombre},{equipo.NombreCorto},{equipo.Ciudad},{equipo.Estadio},{equipo.CapacidadEstadio},{equipo.AnioFundacion}",
-                linea =>
-                {
-                    var partes = linea.Split(',');
-                    return new CLSEquipo(
-                        partes[0],
-                        partes[1],
-                        partes[2],
-                        partes[3],
-                        partes[4],
-                        int.Parse(partes[5]),
-                        int.Parse(partes[6])
-                    );
-                });
         }
 
         private void volverBtn_Click(object sender, EventArgs e)

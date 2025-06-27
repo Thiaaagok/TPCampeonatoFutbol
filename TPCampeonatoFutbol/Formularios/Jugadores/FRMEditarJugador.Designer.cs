@@ -30,7 +30,7 @@
         {
             this.edadNumeric = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.crearJugadorBtn = new System.Windows.Forms.Button();
+            this.editarJugadorBtn = new System.Windows.Forms.Button();
             this.dniNumeric = new System.Windows.Forms.NumericUpDown();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -66,14 +66,15 @@
             this.label5.TabIndex = 56;
             this.label5.Text = "Edad";
             // 
-            // crearJugadorBtn
+            // editarJugadorBtn
             // 
-            this.crearJugadorBtn.Location = new System.Drawing.Point(56, 386);
-            this.crearJugadorBtn.Name = "crearJugadorBtn";
-            this.crearJugadorBtn.Size = new System.Drawing.Size(167, 35);
-            this.crearJugadorBtn.TabIndex = 55;
-            this.crearJugadorBtn.Text = "CREAR JUGADOR";
-            this.crearJugadorBtn.UseVisualStyleBackColor = true;
+            this.editarJugadorBtn.Location = new System.Drawing.Point(56, 386);
+            this.editarJugadorBtn.Name = "editarJugadorBtn";
+            this.editarJugadorBtn.Size = new System.Drawing.Size(167, 35);
+            this.editarJugadorBtn.TabIndex = 55;
+            this.editarJugadorBtn.Text = "EDITAR JUGADOR";
+            this.editarJugadorBtn.UseVisualStyleBackColor = true;
+            this.editarJugadorBtn.Click += new System.EventHandler(this.editarJugadorBtn_Click_1);
             // 
             // dniNumeric
             // 
@@ -163,14 +164,14 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Nombre";
             // 
-            // EditarJugadorForm
+            // FRMEditarJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 450);
             this.Controls.Add(this.edadNumeric);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.crearJugadorBtn);
+            this.Controls.Add(this.editarJugadorBtn);
             this.Controls.Add(this.dniNumeric);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.label6);
@@ -181,7 +182,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "EditarJugadorForm";
+            this.Name = "FRMEditarJugador";
             this.Text = "EditarJugadorForm";
             ((System.ComponentModel.ISupportInitialize)(this.edadNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dniNumeric)).EndInit();
@@ -194,7 +195,7 @@
 
         private System.Windows.Forms.NumericUpDown edadNumeric;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button crearJugadorBtn;
+        private System.Windows.Forms.Button editarJugadorBtn;
         private System.Windows.Forms.NumericUpDown dniNumeric;
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
         private System.Windows.Forms.Label label6;

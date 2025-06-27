@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Modelos.Funciones;
 using TPCampeonatoFutbol.Modelos.Interfaces;
@@ -8,6 +9,8 @@ namespace TPCampeonatoFutbol
 {
     public class CLSEquipo: IEquipo
     {
+
+        private string rutaArchivos = "equipos.txt";
 
         private string _Id;
 
@@ -96,6 +99,30 @@ namespace TPCampeonatoFutbol
             CapacidadEstadio = capacidadEstadio;
             AnioFundacion = anioFundacion;
             Jugadores = new List<CLSJugador>();
+        }
+
+        public void editarEquipo(CLSEquipo equipoEditado)
+        {
+            ManejoArchivos archivos = new ManejoArchivos();
+
+            archivos.EditarRegistro<CLSEquipo>(
+                rutaArchivos,
+                e => e.Id == equipoEditado.Id,
+                equipoEditado,
+                equipo => $"{equipoEditado.Id},{equipo.Nombre},{equipo.NombreCorto},{equipo.Ciudad},{equipo.Estadio},{equipo.CapacidadEstadio},{equipo.AnioFundacion}",
+                linea =>
+                {
+                    var partes = linea.Split(',');
+                    return new CLSEquipo(
+                        partes[0],
+                        partes[1],
+                        partes[2],
+                        partes[3],
+                        partes[4],
+                        int.Parse(partes[5]),
+                        int.Parse(partes[6])
+                    );
+                });
         }
     }
 

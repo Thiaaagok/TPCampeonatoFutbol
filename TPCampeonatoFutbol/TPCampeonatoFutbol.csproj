@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="Modelos\CLSEstadisticasCampeonato.cs" />
     <Compile Include="Modelos\CLSFecha.cs" />
+    <Compile Include="Modelos\CLSUsuario.cs" />
     <Compile Include="Modelos\Funciones\EstadisticasService.cs" />
     <Compile Include="Modelos\Funciones\GeneradorDeFixture.cs" />
     <Compile Include="Modelos\Funciones\ManejoArchivos.cs" />

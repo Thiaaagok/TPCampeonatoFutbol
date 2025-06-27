@@ -6,6 +6,14 @@ namespace TPCampeonatoFutbol
 {
     public class CLSPartido: IPartido
     {
+        private string _Id;
+
+        public string Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
         private DateTime _dia;
         public DateTime Dia
         {
