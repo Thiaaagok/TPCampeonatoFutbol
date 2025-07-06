@@ -12,17 +12,17 @@ namespace TPCampeonatoFutbol
             set { _Hora = value; }
         }
 
-        private CLSJugador _Autor;
+        private string _Autor;
 
-        public CLSJugador Autor
+        public string Autor
         {
             get { return _Autor; }
             set { _Autor = value; }
         }
 
-        private CLSEquipo _Equipo;
+        private string _Equipo;
 
-        public CLSEquipo Equipo
+        public string Equipo
         {
             get { return _Equipo; }
             set { _Equipo = value; }

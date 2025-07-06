@@ -13,7 +13,7 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
         string Estadio { get; set; }
         CLSPersona Arbitro { get; set; }
         CLSGolesEquipo Goles { get; set; }
-        CLSEquipo Local { get; set; }
-        CLSEquipo Visitante { get; set; }
+        Guid Local { get; set; }
+        Guid Visitante { get; set; }
     }
 }

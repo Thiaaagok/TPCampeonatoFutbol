@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol.Formularios.jugadores
 {
     public partial class FRMEditarJugador : Form
     {
         private CLSJugador jugadorEditar;
+        private readonly JugadoresService jugadoresService = new JugadoresService();
 
         public FRMEditarJugador(CLSJugador jugador)
         {
@@ -43,14 +45,8 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
                 return;
             }
 
-            jugadorEditar.Nombre = nombretxt.Text;
-            jugadorEditar.Apellido = apellidotxt.Text;
-            jugadorEditar.Dni = Convert.ToInt32(dniNumeric.Value);
-            jugadorEditar.Edad = Convert.ToInt32(edadNumeric.Value);
-            jugadorEditar.LugarNacimiento = lugarNacimientotxt.Text;
-            jugadorEditar.FechaNacimiento = fechaNacimiento.Value;
-
-            jugadorEditar.editarJugador(jugadorEditar);
+            jugadorEditar = new CLSJugador(jugadorEditar.Id, nombretxt.Text, apellidotxt.Text, Convert.ToInt32(edadNumeric.Value), Convert.ToInt32(dniNumeric.Value), fechaNacimiento.Value, lugarNacimientotxt.Text, jugadorEditar.EquipoId, jugadorEditar.Rol);
+            jugadoresService.editarJugador(jugadorEditar);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

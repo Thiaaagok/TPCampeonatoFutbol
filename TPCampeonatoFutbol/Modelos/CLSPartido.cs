@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using TPCampeonatoFutbol.Modelos.Funciones;
 using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol
 {
     public class CLSPartido: IPartido
     {
-        private string _Id;
+        private Guid _Id;
 
-        public string Id
+        public Guid Id
         {
             get { return _Id; }
             set { _Id = value; }
+
         }
+
+        private Guid _idFecha;
+        public Guid IdFecha
+        {
+            get { return _idFecha; }
+            set { _idFecha = value; }
+        }
+
 
         private DateTime _dia;
         public DateTime Dia
@@ -56,18 +66,23 @@ namespace TPCampeonatoFutbol
             set { _Expulsiones = value; }
         }
 
-        private CLSEquipo _local;
-        public CLSEquipo Local
+        private Guid _local;
+        public Guid Local
         {
             get { return _local; }
             set { _local = value; }
         }
 
-        private CLSEquipo _visitante;
-        public CLSEquipo Visitante
+        private Guid _visitante;
+        public Guid Visitante
         {
             get { return _visitante; }
             set { _visitante = value; }
+        }
+
+        public CLSPartido()
+        {
+            Id = Guid.NewGuid();
         }
     }
 }

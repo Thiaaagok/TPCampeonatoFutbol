@@ -25,9 +25,9 @@ namespace TPCampeonatoFutbol.Modelos
 			set { _Contrasenia = value; }
 		}
 
-        private string _Id;
+        private Guid _Id;
 
-        public string Id
+        public Guid Id
         {
             get { return _Id; }
             set { _Id = value; }
@@ -35,8 +35,7 @@ namespace TPCampeonatoFutbol.Modelos
 
         public CLSUsuario()
         {
-            Util util = new Util();
-            Id = util.GenerarId();
+            Id = Guid.NewGuid();
         }
 
         public CLSUsuario(string usuario, string contrasenia)
@@ -45,12 +44,11 @@ namespace TPCampeonatoFutbol.Modelos
             this.Contrasenia= contrasenia;
         }
 
-        public CLSUsuario(string id, string usuario, string contrasenia)
+        public CLSUsuario(Guid id, string usuario, string contrasenia)
         {
             if (id == null)
             {
-                Util util = new Util();
-                Id = util.GenerarId();
+                Id = Guid.NewGuid();
             }
             else
             {
@@ -58,6 +56,14 @@ namespace TPCampeonatoFutbol.Modelos
             }
             this.Usuario = usuario;
             this.Contrasenia = contrasenia;
+        }
+
+        public void asignarPartesDesdeArray(string str)
+        {
+            string[] partes = str.Split(';');
+            this.Id = Guid.Parse(partes[0]);
+            this.Usuario = partes[1];
+            this.Contrasenia = partes[2];
         }
     }
 }

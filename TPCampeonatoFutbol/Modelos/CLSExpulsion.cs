@@ -4,9 +4,9 @@
     {
         string Causa {  get; set; }
 
-        private CLSJugador _JugadorExpulsado;
+        private string _JugadorExpulsado;
 
-        public CLSJugador JugadorExpulsado
+        public string JugadorExpulsado
         {
             get { return _JugadorExpulsado; }
             set { _JugadorExpulsado = value; }

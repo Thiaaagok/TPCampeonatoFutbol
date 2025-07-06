@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
 {
@@ -104,27 +105,15 @@ namespace TPCampeonatoFutbol
         /// <summary>
         /// Valida las credenciales del usuario leyendo desde el archivo "usuarios.txt".
         /// </summary>
+        private UsuarioService usuarioService = new UsuarioService();
+
         private void Login()
         {
-            bool loginCorrecto = false;
-
             try
             {
-                List<string> lineas = manejoArchivos.ObtenerTodos("usuarios.txt");
+                var usuario = usuarioService.Login(NombreUsuariotxt.Text, Contraseniatxt.Text);
 
-                foreach (var linea in lineas)
-                {
-                    string[] partes = linea.Split(',');
-                    CLSUsuario usuarioVerificar = new CLSUsuario(partes[0], partes[1], partes[2]);
-                    if (usuarioVerificar.Usuario == NombreUsuariotxt.Text &&
-                        usuarioVerificar.Contrasenia == Contraseniatxt.Text)
-                    {
-                        loginCorrecto = true;
-                        break;
-                    }
-                }
-
-                if (!loginCorrecto)
+                if (usuario == null)
                 {
                     MessageBox.Show("Usuario o Contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -140,5 +129,6 @@ namespace TPCampeonatoFutbol
                 MessageBox.Show("Error al intentar iniciar sesión: " + ex.Message);
             }
         }
+
     }
 }

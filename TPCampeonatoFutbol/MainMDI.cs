@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Formularios.Campeonato;
 
 namespace TPCampeonatoFutbol
 {
@@ -101,6 +102,12 @@ namespace TPCampeonatoFutbol
         {
             FRMEquipos equipos = new FRMEquipos();
             equipos.Show();
+        }
+
+        private void campeonatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Campeonato campeonato = new Campeonato();
+            campeonato.Show();
         }
     }
 }

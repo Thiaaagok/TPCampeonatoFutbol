@@ -8,7 +8,7 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
 {
     public interface IEquipo
     {
-        string Id { get; set; }
+        Guid Id { get; set; }
         string Nombre { get; set; }
         string NombreCorto { get; set; }
         string Ciudad { get; set; }

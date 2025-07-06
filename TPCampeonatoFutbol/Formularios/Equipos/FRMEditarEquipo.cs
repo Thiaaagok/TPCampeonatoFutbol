@@ -10,13 +10,16 @@ using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.jugadores;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos.Funciones;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol.Formularios.equipos
 {
     public partial class FRMEditarEquipo : Form
     {
         private CLSEquipo equipoOriginal = new CLSEquipo();
-        public CLSEquipo EquipoEditado { get; private set; }
+        public CLSEquipo equipoEditado { get; private set; }
+        public EquiposService equiposService { get; private set; }
+        public JugadoresService jugadoresService { get; private set; }
 
         public FRMEditarEquipo(CLSEquipo equipo)
         {
@@ -48,7 +51,7 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 return;
             }
 
-            EquipoEditado = new CLSEquipo(
+            equipoEditado = new CLSEquipo(
                 equipoOriginal.Id,
                 nombretxt.Text,
                 nombrecortotxt.Text,
@@ -58,55 +61,50 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 (int)anioFundacionNumber.Value
             );
 
+            equiposService.editarEquipo(equipoEditado);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void obtenerJugadores()
         {
-            ManejoArchivos manejoArchivos = new ManejoArchivos();
             equipoOriginal.Jugadores.Clear();
+
             try
             {
-                List<string> lineas = manejoArchivos.ObtenerTodos("jugadores.txt");
+                List<CLSJugador> jugadores = jugadoresService.ObtenerPorEquipoId(equipoOriginal.Id);
 
-                foreach (var linea in lineas)
+                foreach (var jugador in jugadores)
                 {
-                    string[] partes = linea.Split(',');
-                    if (partes[7] == equipoOriginal.Id)
+                    var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
+                    var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
+
+                    if (box is PictureBox picturebox)
                     {
-                        CLSRol rol = new CLSRol(partes[9], partes[8]);
-                        CLSJugador jugador = new CLSJugador(partes[0],partes[1], partes[2], Convert.ToInt32(partes[3]), Convert.ToInt32(partes[4]), Convert.ToDateTime(partes[5]), partes[6], partes[7], rol);
-                        var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
-                        var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
-
-                        if (box is PictureBox picturebox)
+                        Util util = new Util();
+                        util.RemoverEventosClick(picturebox);
+                        picturebox.Image = Properties.Resources.imagenJugador;
+                        picturebox.Click += (sender, e) =>
                         {
-                            Util util = new Util();
-                            util.RemoverEventosClick(picturebox);
-                            picturebox.Image = Properties.Resources.imagenJugador;
-                            picturebox.Click += (sender, e) =>
-                            {
-                                editarJugador(jugador);
-                            };
-                        }
-
-                        if (label is Label labelControl)
-                        {
-                            labelControl.Text = $"{jugador.Nombre}";
-                            labelControl.TextAlign = ContentAlignment.TopRight;
-                        }
-                        equipoOriginal.Jugadores.Add(jugador);
-
-                       
+                            editarJugador(jugador);
+                        };
                     }
+
+                    if (label is Label labelControl)
+                    {
+                        labelControl.Text = $"{jugador.Nombre}";
+                        labelControl.TextAlign = ContentAlignment.TopRight;
+                    }
+
+                    equipoOriginal.Jugadores.Add(jugador);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al intentar obtener equipos: " + ex.Message);
+                MessageBox.Show("Error al intentar obtener jugadores: " + ex.Message);
             }
         }
+
         private void nuevoJugador(string posicion)
         {
             FRMCrearJugador crearJugadorForm = new FRMCrearJugador(equipoOriginal,posicion);

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Modelos.Funciones;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
 {
@@ -108,48 +109,25 @@ namespace TPCampeonatoFutbol
         /// <summary>
         /// Crea un nuevo usuario si los datos son válidos.
         /// </summary>
+        private readonly UsuarioService usuarioService = new UsuarioService();
+
         private void Register()
         {
-            string ruta = "usuarios.txt";
             string usuarioNuevo = NombreUsuariotxt.Text;
             string contraseniaNueva = Contraseniatxt.Text;
             string repetirContrasenia = repetirContraseniatxt.Text;
 
-            // Validaciones
-            if (string.IsNullOrEmpty(usuarioNuevo) || string.IsNullOrEmpty(contraseniaNueva))
+            if (usuarioService.RegistrarUsuario(usuarioNuevo, contraseniaNueva, repetirContrasenia, out string mensaje))
             {
-                MessageBox.Show("Usuario y contraseña no pueden estar vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Usuario creado exitosamente.");
+                this.Hide();
+                FRMLogin login = new FRMLogin();
+                login.Show();
             }
-
-            var usuarios = manejoArchivos.ObtenerTodos(ruta);
-            bool usuarioExiste = usuarios.Any(linea =>
+            else
             {
-                var partes = linea.Split(',');
-                return partes.Length >= 1 && partes[0] == usuarioNuevo;
-            });
-
-            if (contraseniaNueva != repetirContrasenia)
-            {
-                MessageBox.Show("Las contraseñas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (usuarioExiste)
-            {
-                MessageBox.Show("El nombre de usuario ingresado ya existe. Intenta con uno diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Registro exitoso
-            CLSUsuario nuevoUsuario = new CLSUsuario(null,usuarioNuevo,contraseniaNueva);
-            string nuevoRegistro = $"{nuevoUsuario.Id},{nuevoUsuario.Usuario},{nuevoUsuario.Contrasenia}";
-            manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
-
-            MessageBox.Show("Usuario creado exitosamente.");
-            this.Hide();
-            FRMLogin login = new FRMLogin();
-            login.Show();
         }
     }
 }

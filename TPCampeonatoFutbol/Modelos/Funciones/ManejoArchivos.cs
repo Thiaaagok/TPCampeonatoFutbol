@@ -29,6 +29,9 @@ namespace TPCampeonatoFutbol.Funciones
                             case "usuarios.txt":
                                 sw.WriteLine("ID,Nombre,Contrasenia");
                                 break;
+                            case "partidos.txt":
+                                sw.WriteLine("ID,Nombre,Contrasenia");
+                                break;
                             default:
                                 sw.WriteLine("Encabezado");
                                 break;

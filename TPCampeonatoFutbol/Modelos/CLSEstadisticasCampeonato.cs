@@ -9,9 +9,9 @@ namespace TPCampeonatoFutbol.Modelos
 {
     public class ClSEstadisticasCampeonato : IEstadisticasCampeonato
     {
-        private string _Id;
+        private Guid _Id;
 
-        public string Id
+        public Guid Id
         {
             get { return _Id; }
             set { _Id = value; }

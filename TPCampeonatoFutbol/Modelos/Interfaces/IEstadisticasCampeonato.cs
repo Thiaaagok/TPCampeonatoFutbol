@@ -8,7 +8,7 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
 {
     public interface IEstadisticasCampeonato
     {
-        string Id { get; set; }
+        Guid Id { get; set; }
         CLSEquipo Equipo { get; set; }
         List<CLSPartido> PartidosJugados { get; set; }
         int Puntos { get; set; }

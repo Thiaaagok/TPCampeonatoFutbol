@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
 {
@@ -25,31 +26,31 @@ namespace TPCampeonatoFutbol
 
         public CLSEquipo EquipoCreado { get; private set; }
 
+        private readonly EquiposService equiposService = new EquiposService();
+
         private void crearEquipobtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nombretxt.Text) ||
-                string.IsNullOrWhiteSpace(nombrecortotxt.Text) ||
-                anioFundacionNumber.Value <= 0 ||
-                string.IsNullOrWhiteSpace(estadiotxt.Text) ||
-                capacidadEstadioNumber.Value <= 0)
-            {
-                MessageBox.Show("Por favor, completa todos los campos correctamente.");
-                return;
-            }
+            string mensaje;
+            CLSEquipo equipo;
 
-            Int32 anio = Convert.ToInt32(anioFundacionNumber.Value);
-            Int32 capacidadEstadio = Convert.ToInt32(capacidadEstadioNumber.Value);
-            EquipoCreado = new CLSEquipo(
-                null,
+            bool creado = equiposService.CrearEquipo(
                 nombretxt.Text,
                 nombrecortotxt.Text,
                 ciudadtxt.Text,
                 estadiotxt.Text,
-                capacidadEstadio,
-                anio);
-            string nuevaLinea = $"{EquipoCreado.Id},{EquipoCreado.Nombre},{EquipoCreado.NombreCorto},{EquipoCreado.Ciudad},{EquipoCreado.Estadio},{EquipoCreado.CapacidadEstadio},{EquipoCreado.AnioFundacion}";
-            ManejoArchivos manejoArchivos = new ManejoArchivos();
-            manejoArchivos.GuardarNuevo("equipos.txt", nuevaLinea);
+                Convert.ToInt32(capacidadEstadioNumber.Value),
+                Convert.ToInt32(anioFundacionNumber.Value),
+                out mensaje,
+                out equipo
+            );
+
+            if (!creado)
+            {
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            EquipoCreado = equipo;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

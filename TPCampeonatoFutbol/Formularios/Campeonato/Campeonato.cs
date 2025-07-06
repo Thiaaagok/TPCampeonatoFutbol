@@ -31,7 +31,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             {
                 foreach (CLSPartido partido in fecha.Partidos)
                 {
-                    string partidoString = $"{partido.Id},{partido.Local.Id},{partido.Visitante.Id}";
+                    partido.IdFecha = fecha.Id;
+                    string partidoString = $"{partido.Id},{partido.Local},{partido.Visitante},{partido.IdFecha}";
                     manejoArchivos.GuardarNuevo("partidos.txt", partidoString);
                 }
                 string linea = $"{fecha.Id},{fecha.Partidos}";
@@ -49,7 +50,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                 foreach (var linea in lineas)
                 {
                     string[] partes = linea.Split(',');
-                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], partes[4], int.Parse(partes[5]), int.Parse(partes[6]));
+                    CLSEquipo equipo = new CLSEquipo(Guid.Parse(partes[0]), partes[1], partes[2], partes[3], partes[4], int.Parse(partes[5]), int.Parse(partes[6]));
                     equipos.Add(equipo);
                 }
             }

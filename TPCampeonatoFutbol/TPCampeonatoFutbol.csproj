@@ -139,6 +139,9 @@
     <Compile Include="Modelos\CLSJugador.cs" />
     <Compile Include="Modelos\CLSPartido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\EquiposService.cs" />
+    <Compile Include="Servicios\JugadoresService.cs" />
+    <Compile Include="Servicios\UsuarioService.cs" />
     <None Include="Resources\image.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %286%29.png" />
     <None Include="Resources\kindpng_2162479 %281%29 %285%29.png" />

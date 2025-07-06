@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol.Formularios.jugadores
 {
@@ -15,6 +16,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
     {
         CLSEquipo equipo = new CLSEquipo();
         CLSRol rolSeleccionado = new CLSRol();
+        private readonly JugadoresService jugadoresService = new JugadoresService();
         public FRMCrearJugador(CLSEquipo equipo,string rolDescripcion)
         {
             InitializeComponent();
@@ -28,32 +30,29 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
 
         private void crearJugadorBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nombretxt.Text) ||
-                string.IsNullOrWhiteSpace(apellidotxt.Text) ||
-                dniNumeric.Value <= 0 ||
-                edadNumeric.Value <= 0 ||
-                string.IsNullOrWhiteSpace(lugarNacimientotxt.Text) ||
-                fechaNacimiento.Value == null)
+            string mensaje;
+            CLSJugador jugador;
+
+            bool creado = jugadoresService.CrearJugador(
+                nombretxt.Text,
+                apellidotxt.Text,
+                Convert.ToInt32(edadNumeric.Value),
+                Convert.ToInt32(dniNumeric.Value),
+                fechaNacimiento.Value,
+                lugarNacimientotxt.Text,
+                equipo.Id,
+                rolSeleccionado,
+                out mensaje,
+                out jugador
+            );
+
+            if (!creado)
             {
-                MessageBox.Show("Por favor, completa todos los campos correctamente.");
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Int32 dni = Convert.ToInt32(dniNumeric.Value);
-            Int32 edad = Convert.ToInt32(edadNumeric.Value);
-            NuevoJugador = new CLSJugador(
-               null,
-               nombretxt.Text,
-               apellidotxt.Text,
-               edad,
-               dni,
-               fechaNacimiento.Value,
-               lugarNacimientotxt.Text,
-               equipo.Id,
-               rolSeleccionado);
-            string nuevaLinea = $"{NuevoJugador.Id},{NuevoJugador.Nombre},{NuevoJugador.Apellido},{NuevoJugador.Edad},{NuevoJugador.Dni},{NuevoJugador.FechaNacimiento},{NuevoJugador.LugarNacimiento},{NuevoJugador.EquipoId},{NuevoJugador.Rol.Codigo},{NuevoJugador.Rol.Descripcion}";
-            ManejoArchivos manejoArchivos = new ManejoArchivos();
-            manejoArchivos.GuardarNuevo("jugadores.txt", nuevaLinea);
+            NuevoJugador = jugador;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -9,9 +9,9 @@ namespace TPCampeonatoFutbol.Modelos
 {
     public class CLSFecha
     {
-		private string _Id;
+		private Guid _Id;
 
-		public string Id
+		public Guid Id
 		{
 			get { return _Id; }
 			set { _Id = value; }
@@ -26,13 +26,12 @@ namespace TPCampeonatoFutbol.Modelos
 		}
         public CLSFecha()
         {
-            Util util = new Util();
-            Id = util.GenerarId();
+            Id = Guid.NewGuid();
+            Partidos = new List<CLSPartido>();
         }
         public CLSFecha(List<CLSPartido> partidos)
         {
-            Util util = new Util();
-            Id = util.GenerarId();
+            Id = Guid.NewGuid();
             Partidos = partidos;
         }
 

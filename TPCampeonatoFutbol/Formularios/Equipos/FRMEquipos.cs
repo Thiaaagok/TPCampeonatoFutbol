@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.equipos;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
 {
     public partial class FRMEquipos : Form
     {
         List<CLSEquipo> equipos = new List<CLSEquipo>();
-        ManejoArchivos manejoArchivos = new ManejoArchivos();
+        private readonly EquiposService equiposService = new EquiposService();
         public FRMEquipos()
         {
             InitializeComponent();
@@ -28,22 +29,16 @@ namespace TPCampeonatoFutbol
         private void ObtenerEquipos()
         {
             equipos.Clear();
+
             try
             {
-                List<string> lineas = manejoArchivos.ObtenerTodos("equipos.txt");
-
-                foreach (var linea in lineas)
-                {
-                    string[] partes = linea.Split(',');
-                    CLSEquipo equipo = new CLSEquipo(partes[0], partes[1], partes[2], partes[3], partes[4], int.Parse(partes[5]), int.Parse(partes[6]));
-                    equipos.Add(equipo);
-                }
+                var listaEquipos = equiposService.ObtenerTodos();
+                equipos.AddRange(listaEquipos);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al intentar obtener equipos: " + ex.Message);
+                MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
             }
-
         }
 
         private void Equipos_Load(object sender, EventArgs e)
@@ -130,8 +125,6 @@ namespace TPCampeonatoFutbol
                     FRMEditarEquipo editarEquipoForm = new FRMEditarEquipo(equipoSeleccionado);
                     if (editarEquipoForm.ShowDialog() == DialogResult.OK)
                     {
-                        var equipoEditado = editarEquipoForm.EquipoEditado;
-                        equipoEditado.editarEquipo(equipoEditado);
                         ObtenerEquipos();
                         dataGridViewEquipos.DataSource = null;
                         dataGridViewEquipos.DataSource = equipos;
