@@ -26,6 +26,9 @@ namespace TPCampeonatoFutbol.Formularios.equipos
             InitializeComponent();
             equipoOriginal = equipo;
 
+            jugadoresService = new JugadoresService();
+            equiposService = new EquiposService();
+
             // Cargar datos en los controles
             nombretxt.Text = equipo.Nombre;
             nombrecortotxt.Text = equipo.NombreCorto;

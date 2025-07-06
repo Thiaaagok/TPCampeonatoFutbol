@@ -21,16 +21,16 @@ namespace TPCampeonatoFutbol.Funciones
                         switch (ruta)
                         {
                             case "jugadores.txt":
-                                sw.WriteLine("Nombre,Apellido,Edad,Dni,FechaNacimiento,LugarNacimiento,Equipo,RolCodigo,RolDescripcion");
+                                sw.WriteLine("NombreApellido;Edad;Dni;FechaNacimiento;LugarNacimiento;Equipo;RolCodigo;RolDescripcion");
                                 break;
                             case "equipos.txt":
-                                sw.WriteLine("ID,Nombre,Fundación,Estadio,Capacidad,AnioNacimiento");
+                                sw.WriteLine("ID;Nombre;Fundación;Estadio;Capacidad;AnioNacimiento");
                                 break;
                             case "usuarios.txt":
-                                sw.WriteLine("ID,Nombre,Contrasenia");
+                                sw.WriteLine("ID;Nombre;Contrasenia");
                                 break;
                             case "partidos.txt":
-                                sw.WriteLine("ID,Nombre,Contrasenia");
+                                sw.WriteLine("ID;Nombre;Contrasenia");
                                 break;
                             default:
                                 sw.WriteLine("Encabezado");
@@ -102,15 +102,26 @@ namespace TPCampeonatoFutbol.Funciones
             {
                 if (!File.Exists(ruta))
                 {
-                    CrearArchivo(ruta);
+                    
+                    File.WriteAllText(ruta, Environment.NewLine);
                 }
-
-                var lineas = File.ReadAllLines(ruta).ToList();
-
-                if (lineas.Count == 0)
+                else
                 {
-                    CrearArchivo(ruta);
-                    return;
+                    using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.ReadWrite))
+                    {
+                        if (fs.Length > 0)
+                        {
+                            fs.Seek(-1, SeekOrigin.End);
+                            int lastByte = fs.ReadByte();
+                            if (lastByte != '\n' && lastByte != '\r')
+                            {
+                                // Si no termina con salto, agregar uno
+                                fs.Seek(0, SeekOrigin.End);
+                                byte[] newline = System.Text.Encoding.UTF8.GetBytes(Environment.NewLine);
+                                fs.Write(newline, 0, newline.Length);
+                            }
+                        }
+                    }
                 }
 
                 using (var sw = new StreamWriter(ruta, append: true))
@@ -123,6 +134,7 @@ namespace TPCampeonatoFutbol.Funciones
                 MessageBox.Show("Error al guardar el nuevo registro: " + ex.Message);
             }
         }
+
 
         public void EditarRegistro<T>(string ruta, Predicate<T> coincide, T nuevoObjeto, Func<T, string> convertirALinea, Func<string, T> convertirDesdeLinea)
         {

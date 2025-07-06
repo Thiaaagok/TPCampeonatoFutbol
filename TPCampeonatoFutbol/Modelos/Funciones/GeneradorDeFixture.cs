@@ -9,10 +9,10 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
 {
     public class GeneradorDeFixture
     {
-        public List<CLSFecha> Generar(List<CLSEquipo> equipos)
+        public List<CLSFecha> Generar(List<CLSEquipo> equipos, DateTime fechaInicio)
         {
             if (equipos.Count % 2 != 0)
-                throw new ArgumentException("la cantidad de equipos debe ser par");
+                throw new ArgumentException("La cantidad de equipos debe ser par");
 
             int n = equipos.Count;
             int cantidadFechas = (n - 1) * 2;
@@ -20,12 +20,17 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
 
             List<CLSEquipo> equiposFixture = new List<CLSEquipo>(equipos);
 
-            int numeroFecha = 1;
+            int numeroFecha = 0;
             for (int vuelta = 0; vuelta < 2; vuelta++)
             {
                 for (int ronda = 0; ronda < n - 1; ronda++)
                 {
-                    CLSFecha fecha = new CLSFecha();
+                    CLSFecha fecha = new CLSFecha()
+                    {
+                        Id = Guid.NewGuid(),
+                        Dia = fechaInicio.AddDays(numeroFecha)  // asigno la fecha sumando días
+                    };
+
                     fecha.Partidos = new List<CLSPartido>();
 
                     for (int i = 0; i < n / 2; i++)
@@ -46,13 +51,18 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
                         {
                             Local = local.Id,
                             Visitante = visitante.Id,
-                            IdFecha = fecha.Id
+                            IdFecha = fecha.Id,
+
+                            Dia = fecha.Dia,
+                            Hora = new TimeSpan(16, 0, 0),  // por ejemplo 16:00 hs
+                            Estadio = local.Estadio
                         };
                         fecha.Partidos.Add(partido);
                     }
 
                     fechas.Add(fecha);
 
+                    // Rotar equipos excepto el primero
                     var temp = equiposFixture[n - 1];
                     for (int j = n - 1; j > 1; j--)
                         equiposFixture[j] = equiposFixture[j - 1];

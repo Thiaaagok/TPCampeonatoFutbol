@@ -65,7 +65,7 @@ namespace TPCampeonatoFutbol.Servicios
             }
 
             CLSUsuario nuevoUsuario = new CLSUsuario(Guid.NewGuid(), nombreUsuario, contrasenia);
-            string nuevoRegistro = $"{nuevoUsuario.Id},{nuevoUsuario.Usuario},{nuevoUsuario.Contrasenia}";
+            string nuevoRegistro = $"{nuevoUsuario.Id};{nuevoUsuario.Usuario};{nuevoUsuario.Contrasenia}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
             return true;
@@ -79,7 +79,7 @@ namespace TPCampeonatoFutbol.Servicios
                 ruta, 
                 u => u.Id == usuarioEditado.Id,
                 usuarioEditado,
-                usuario => $"{usuario.Id},{usuario.Usuario},{usuario.Contrasenia}",
+                usuario => $"{usuario.Id};{usuario.Usuario};{usuario.Contrasenia}",
                 linea =>
                 {
                     var partes = linea.Split(',');

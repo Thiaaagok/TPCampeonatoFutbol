@@ -35,6 +35,7 @@
             this.grillaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.campeonatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fechasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pruebaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,9 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.equiposToolStripMenuItem1,
             this.jugadoresToolStripMenuItem1,
-            this.campeonatoToolStripMenuItem});
+            this.campeonatoToolStripMenuItem,
+            this.fechasToolStripMenuItem1,
+            this.pruebaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(925, 24);
@@ -81,13 +85,13 @@
             // grillaToolStripMenuItem2
             // 
             this.grillaToolStripMenuItem2.Name = "grillaToolStripMenuItem2";
-            this.grillaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.grillaToolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
             this.grillaToolStripMenuItem2.Text = "Grilla";
             // 
             // nuevoToolStripMenuItem2
             // 
             this.nuevoToolStripMenuItem2.Name = "nuevoToolStripMenuItem2";
-            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
             this.nuevoToolStripMenuItem2.Text = "Nuevo";
             // 
             // campeonatoToolStripMenuItem
@@ -96,6 +100,13 @@
             this.campeonatoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.campeonatoToolStripMenuItem.Text = "Campeonato";
             this.campeonatoToolStripMenuItem.Click += new System.EventHandler(this.campeonatoToolStripMenuItem_Click);
+            // 
+            // fechasToolStripMenuItem1
+            // 
+            this.fechasToolStripMenuItem1.Name = "fechasToolStripMenuItem1";
+            this.fechasToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
+            this.fechasToolStripMenuItem1.Text = "Fechas";
+            this.fechasToolStripMenuItem1.Click += new System.EventHandler(this.fechasToolStripMenuItem1_Click);
             // 
             // homeToolStripMenuItem
             // 
@@ -171,6 +182,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // pruebaToolStripMenuItem
+            // 
+            this.pruebaToolStripMenuItem.Name = "pruebaToolStripMenuItem";
+            this.pruebaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.pruebaToolStripMenuItem.Text = "Prueba";
+            this.pruebaToolStripMenuItem.Click += new System.EventHandler(this.pruebaToolStripMenuItem_Click);
+            // 
             // MainMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +228,8 @@
         private System.Windows.Forms.ToolStripMenuItem grillaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem campeonatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fechasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pruebaToolStripMenuItem;
     }
 }
 

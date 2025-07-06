@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.Campeonato;
+using TPCampeonatoFutbol.Formularios.Campeonato.Partidos;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
 {
@@ -108,6 +110,18 @@ namespace TPCampeonatoFutbol
         {
             Campeonato campeonato = new Campeonato();
             campeonato.Show();
+        }
+
+        private void fechasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Fechas fechas = new Fechas();
+            fechas.Show();
+        }
+
+        private void pruebaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdministrarPartido partido = new AdministrarPartido();
+            partido.Show();
         }
     }
 }

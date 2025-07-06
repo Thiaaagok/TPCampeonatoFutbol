@@ -4,29 +4,38 @@ namespace TPCampeonatoFutbol
 {
     public class CLSGolesEquipo
     {
-        private TimeSpan _Hora;
+        private TimeSpan _Minutos;
 
-        public TimeSpan Hora
+        public TimeSpan Minutos
         {
-            get { return _Hora; }
-            set { _Hora = value; }
+            get { return _Minutos; }
+            set { _Minutos = value; }
         }
 
-        private string _Autor;
+        private Guid _Autor;
 
-        public string Autor
+        public Guid Autor
         {
             get { return _Autor; }
             set { _Autor = value; }
         }
 
-        private string _Equipo;
+        private Guid _EquipoId;
 
-        public string Equipo
+        public Guid EquipoId
         {
-            get { return _Equipo; }
-            set { _Equipo = value; }
+            get { return _EquipoId; }
+            set { _EquipoId = value; }
         }
+
+        private Guid _PartidoId;
+
+        public Guid PartidoId
+        {
+            get { return _PartidoId; }
+            set { _PartidoId = value; }
+        }
+
 
 
     }

@@ -35,5 +35,14 @@ namespace TPCampeonatoFutbol.Modelos
             Partidos = partidos;
         }
 
-    }
+		private DateTime _Dia;
+
+		public DateTime Dia
+		{
+			get { return _Dia; }
+			set { _Dia = value; }
+		}
+
+
+	}
 }

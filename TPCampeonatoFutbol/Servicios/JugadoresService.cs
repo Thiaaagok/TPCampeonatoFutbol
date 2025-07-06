@@ -90,7 +90,7 @@ namespace TPCampeonatoFutbol.Servicios
                 rol
             );
 
-            string nuevaLinea = $"{nuevoJugador.Id},{nuevoJugador.Nombre},{nuevoJugador.Apellido},{nuevoJugador.Edad},{nuevoJugador.Dni},{nuevoJugador.FechaNacimiento},{nuevoJugador.LugarNacimiento},{nuevoJugador.EquipoId},{nuevoJugador.Rol.Codigo},{nuevoJugador.Rol.Descripcion}";
+            string nuevaLinea = $"{nuevoJugador.Id};{nuevoJugador.Nombre};{nuevoJugador.Apellido};{nuevoJugador.Edad};{nuevoJugador.Dni};{nuevoJugador.FechaNacimiento};{nuevoJugador.LugarNacimiento};{nuevoJugador.EquipoId};{nuevoJugador.Rol.Codigo};{nuevoJugador.Rol.Descripcion}";
 
             manejoArchivos.GuardarNuevo(ruta, nuevaLinea);
 
@@ -105,7 +105,7 @@ namespace TPCampeonatoFutbol.Servicios
                 ruta,
                 j => j.Id == jugadorEditado.Id,
                 jugadorEditado,
-                jugador => $"{jugador.Id},{jugador.Nombre},{jugador.Apellido},{jugador.Edad},{jugador.Dni},{jugador.FechaNacimiento:dd/MM/yyyy HH:mm:ss},{jugador.LugarNacimiento},{jugador.EquipoId},{jugador.Rol.Codigo},{jugador.Rol.Descripcion}",
+                jugador => $"{jugador.Id};{jugador.Nombre};{jugador.Apellido};{jugador.Edad};{jugador.Dni};{jugador.FechaNacimiento:dd/MM/yyyy HH:mm:ss};{jugador.LugarNacimiento};{jugador.EquipoId};{jugador.Rol.Codigo};{jugador.Rol.Descripcion}",
                 linea =>
                 {
                     var partes = linea.Split(',');

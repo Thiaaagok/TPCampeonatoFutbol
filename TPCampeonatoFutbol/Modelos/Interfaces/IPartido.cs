@@ -12,7 +12,6 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
         TimeSpan Hora { get; set; }
         string Estadio { get; set; }
         CLSPersona Arbitro { get; set; }
-        CLSGolesEquipo Goles { get; set; }
         Guid Local { get; set; }
         Guid Visitante { get; set; }
     }

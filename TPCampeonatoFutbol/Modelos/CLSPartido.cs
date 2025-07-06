@@ -52,20 +52,6 @@ namespace TPCampeonatoFutbol
             set { _arbitro = value; }
         }
 
-        private CLSGolesEquipo _goles;
-        public CLSGolesEquipo Goles
-        {
-            get { return _goles; }
-            set { _goles = value; }
-        }
-
-        private CLSExpulsion _Expulsiones;
-        public CLSExpulsion Expulsiones
-        {
-            get { return _Expulsiones; }
-            set { _Expulsiones = value; }
-        }
-
         private Guid _local;
         public Guid Local
         {
@@ -83,6 +69,28 @@ namespace TPCampeonatoFutbol
         public CLSPartido()
         {
             Id = Guid.NewGuid();
+        }
+
+        public CLSPartido(Guid id, Guid idFecha, DateTime dia, TimeSpan hora, string estadio,
+                  CLSPersona arbitro,
+                  Guid local, Guid visitante)
+        {
+            Id = id;
+            IdFecha = idFecha;
+            Dia = dia;
+            Hora = hora;
+            Estadio = estadio;
+            Arbitro = arbitro;
+            Local = local;
+            Visitante = visitante;
+        }
+
+        public CLSPartido(Guid idFecha, Guid local, Guid visitante)
+        {
+            Id = Guid.NewGuid();
+            IdFecha = idFecha;
+            Local = local;
+            Visitante = visitante;
         }
     }
 }

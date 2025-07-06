@@ -6,39 +6,139 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Servicios;
+using Label = System.Windows.Forms.Label;
+using Panel = System.Windows.Forms.Panel;
 
 namespace TPCampeonatoFutbol.Formularios.Campeonato
 {
     public partial class Fechas : Form
     {
-        List<CLSFecha> fechas = new List<CLSFecha>();
-        ManejoArchivos manejoArchivos = new ManejoArchivos();
+        FechasService FechasService = new FechasService();
+        private System.Windows.Forms.TabControl tabControl1 = new System.Windows.Forms.TabControl();
         public Fechas()
         {
             InitializeComponent();
+
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Name = "tabControl1";
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.Controls.Add(tabControl1);
+
+            MostrarFechasEnTabs();
         }
 
-        public void ObtenerFechas()
+        public void MostrarFechasEnTabs()
         {
-            fechas.Clear();
-            try
-            {
-                List<string> lineas = manejoArchivos.ObtenerTodos("equipos.txt");
+            List<CLSFecha> fechas = FechasService.CargarFechasDesdeArchivos();
+            EquiposService equiposService = new EquiposService();
 
-                //foreach (var linea in lineas)
-                //{
-                //    string[] partes = linea.Split(',');
-                //    CLSFecha equipo = new CLSFecha(partes[0], partes[1], partes[2], partes[3], partes[4], Convert.ToInt32(partes[5]), Convert.ToInt32(partes[6]));
-                //    fechas.Add(equipo);
-                //}
-            }
-            catch (Exception ex)
+            tabControl1.TabPages.Clear();
+
+            int numeroFecha = 1;
+
+            foreach (var fecha in fechas)
             {
-                MessageBox.Show("Error al intentar obtener equipos: " + ex.Message);
+                var tab = new TabPage($"Fecha {numeroFecha++}");
+                   
+                tab.BackColor = Color.FromArgb(39, 57, 80);
+
+                var flowPanel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Fill,
+                    FlowDirection = FlowDirection.TopDown,
+                    WrapContents = false,
+                    AutoScroll = true,
+                    Padding = new Padding(0, 10, 0, 10),
+                    AutoSize = false
+              
+                };
+
+                flowPanel.HorizontalScroll.Maximum = 0;
+                flowPanel.HorizontalScroll.Visible = false;
+                flowPanel.AutoScroll = true;
+
+                // Centrar horizontalmente los items
+                flowPanel.ControlAdded += (s, e) =>
+                {
+                    e.Control.Margin = new Padding((flowPanel.Width - e.Control.Width) / 2, 5, 0, 5);
+                    e.Control.Anchor = AnchorStyles.None;
+                };
+
+                flowPanel.Click += (s, e) =>
+                {
+                    // Administrar partido
+                };
+
+
+                foreach (var partido in fecha.Partidos)
+                {
+                    string local = equiposService.ObtenerNombrePorId(partido.Local);
+                    string visitante = equiposService.ObtenerNombrePorId(partido.Visitante);
+
+                    Panel partidoPanel = new Panel
+                    {
+                        Width = 600,
+                        Height = 35,
+                        BackColor = Color.White,
+                        Margin = new Padding(5),
+                        BorderStyle = BorderStyle.None
+                    };
+
+                    // Label local
+                    Label lblLocal = new Label
+                    {
+                        Text = local,
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        AutoSize = false,
+                        Width = 200,
+                        Height = 30,
+                        Location = new Point(10, 5),
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    // Label "c."
+                    Label lblVs = new Label
+                    {
+                        Text = "c.",
+                        Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                        AutoSize = false,
+                        Width = 30,
+                        Height = 30,
+                        Location = new Point((partidoPanel.Width - 30) / 2, 5),
+                        TextAlign = ContentAlignment.MiddleCenter
+                    };
+
+                    // Label visitante
+                    Label lblVisitante = new Label
+                    {
+                        Text = visitante,
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        AutoSize = false,
+                        Width = 200,
+                        Height = 30,
+                        Location = new Point(partidoPanel.Width - 210, 5),
+                        TextAlign = ContentAlignment.MiddleRight
+                    };
+
+                    partidoPanel.Controls.Add(lblLocal);
+                    partidoPanel.Controls.Add(lblVs);
+                    partidoPanel.Controls.Add(lblVisitante);
+
+                    flowPanel.Controls.Add(partidoPanel);
+                }
+
+                tab.Controls.Add(flowPanel);
+                tabControl1.TabPages.Add(tab);
             }
         }
+
     }
 }

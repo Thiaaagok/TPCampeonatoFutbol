@@ -12,7 +12,8 @@ namespace TPCampeonatoFutbol
         public List<CLSFecha> GenerarCampeonato(List<CLSEquipo> equipos)
         {
             GeneradorDeFixture gen = new GeneradorDeFixture();
-            return gen.Generar(equipos);
+            DateTime fechaIni = DateTime.Now;
+            return gen.Generar(equipos, fechaIni);
         }
     }
 

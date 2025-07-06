@@ -45,7 +45,7 @@ namespace TPCampeonatoFutbol.Servicios
                 anioFundacion
             );
 
-            string nuevaLinea = $"{equipoCreado.Id},{equipoCreado.Nombre},{equipoCreado.NombreCorto},{equipoCreado.Ciudad},{equipoCreado.Estadio},{equipoCreado.CapacidadEstadio},{equipoCreado.AnioFundacion}";
+            string nuevaLinea = $"{equipoCreado.Id};{equipoCreado.Nombre};{equipoCreado.NombreCorto};{equipoCreado.Ciudad};{equipoCreado.Estadio};{equipoCreado.CapacidadEstadio};{equipoCreado.AnioFundacion}";
 
             manejoArchivos.GuardarNuevo(ruta, nuevaLinea);
 
@@ -60,10 +60,10 @@ namespace TPCampeonatoFutbol.Servicios
                 ruta,
                 e => e.Id == equipoEditado.Id,
                 equipoEditado,
-                equipo => $"{equipoEditado.Id},{equipo.Nombre},{equipo.NombreCorto},{equipo.Ciudad},{equipo.Estadio},{equipo.CapacidadEstadio},{equipo.AnioFundacion}",
+                equipo => $"{equipoEditado.Id};{equipo.Nombre};{equipo.NombreCorto};{equipo.Ciudad};{equipo.Estadio};{equipo.CapacidadEstadio};{equipo.AnioFundacion}",
                 linea =>
                 {
-                    var partes = linea.Split(',');
+                    var partes = linea.Split(';');
                     return new CLSEquipo(
                         Guid.Parse(partes[0]),
                         partes[1],
@@ -106,6 +106,13 @@ namespace TPCampeonatoFutbol.Servicios
             {
                 throw; 
             }
+        }
+
+        public string ObtenerNombrePorId(Guid id)
+        {
+            var equipos = ObtenerTodos(); 
+            var equipo = equipos.FirstOrDefault(e => e.Id == id);
+            return equipo?.Nombre ?? "Desconocido";
         }
     }
 }
