@@ -188,5 +188,45 @@ namespace TPCampeonatoFutbol.Funciones
                 MessageBox.Show("Error al editar el archivo: " + ex.Message);
             }
         }
+
+        public T ObtenerRegistroPorId<T>(string ruta, Predicate<T> coincide, Func<string, T> convertirDesdeLinea)
+        {
+            try
+            {
+                if (!File.Exists(ruta))
+                {
+                    MessageBox.Show("El archivo no existe.");
+                    return default;
+                }
+
+                using (var sr = new StreamReader(ruta))
+                {
+                    string linea;
+                    bool primeraLinea = true;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        if (primeraLinea)
+                        {
+                            primeraLinea = false;
+                            continue;
+                        }
+
+                        var objeto = convertirDesdeLinea(linea);
+                        if (coincide(objeto))
+                        {
+                            return objeto;
+                        }
+                    }
+                }
+
+                MessageBox.Show("No se encontró el registro.");
+                return default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el registro: " + ex.Message);
+                return default;
+            }
+        }
     }    
 }

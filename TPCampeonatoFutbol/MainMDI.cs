@@ -59,19 +59,6 @@ namespace TPCampeonatoFutbol
         {
             this.Close();
         }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        } 
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -118,10 +105,9 @@ namespace TPCampeonatoFutbol
             fechas.Show();
         }
 
-        private void pruebaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            AdministrarPartido partido = new AdministrarPartido();
-            partido.Show();
+
         }
     }
 }

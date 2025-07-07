@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Formularios.Campeonato.Partidos;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Servicios;
@@ -72,11 +73,6 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                     e.Control.Anchor = AnchorStyles.None;
                 };
 
-                flowPanel.Click += (s, e) =>
-                {
-                    // Administrar partido
-                };
-
 
                 foreach (var partido in fecha.Partidos)
                 {
@@ -128,6 +124,11 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                         TextAlign = ContentAlignment.MiddleRight
                     };
 
+                    partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
+                    lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
+                    lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
+                    lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
+
                     partidoPanel.Controls.Add(lblLocal);
                     partidoPanel.Controls.Add(lblVs);
                     partidoPanel.Controls.Add(lblVisitante);
@@ -140,5 +141,15 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             }
         }
 
+        void AbrirAdministrarPartido(Guid idLocal, Guid idVisitante)
+        {
+            AdministrarPartido administrarPartido = new AdministrarPartido(idLocal, idVisitante);
+            administrarPartido.Show();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

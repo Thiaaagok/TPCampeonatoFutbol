@@ -111,7 +111,7 @@ namespace TPCampeonatoFutbol
 
         private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void dataGridViewEquipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

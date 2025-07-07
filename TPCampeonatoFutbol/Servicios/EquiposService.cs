@@ -108,6 +108,26 @@ namespace TPCampeonatoFutbol.Servicios
             }
         }
 
+        public CLSEquipo ObtenerEquipoPorId(Guid id)
+        {
+            return manejoArchivos.ObtenerRegistroPorId<CLSEquipo>(
+                ruta,
+                e => e.Id == id,
+                linea =>
+                {
+                    var partes = linea.Split(';');
+                    return new CLSEquipo(
+                        Guid.Parse(partes[0]),
+                        partes[1],
+                        partes[2],
+                        partes[3],
+                        partes[4],
+                        int.Parse(partes[5]),
+                        int.Parse(partes[6])
+                    );
+                });
+        }
+
         public string ObtenerNombrePorId(Guid id)
         {
             var equipos = ObtenerTodos(); 

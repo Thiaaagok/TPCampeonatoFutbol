@@ -109,5 +109,23 @@ namespace TPCampeonatoFutbol.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Sonido_de_expusion {
+            get {
+                return ResourceManager.GetStream("Sonido_de_expusion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Sonido_de_gol {
+            get {
+                return ResourceManager.GetStream("Sonido_de_gol", resourceCulture);
+            }
+        }
     }
 }
