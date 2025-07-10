@@ -9,8 +9,7 @@ namespace TPCampeonatoFutbol.Modelos.Interfaces
     public interface IEstadisticasCampeonato
     {
         Guid Id { get; set; }
-        CLSEquipo Equipo { get; set; }
-        List<CLSPartido> PartidosJugados { get; set; }
+        Guid Equipo { get; set; }
         int Puntos { get; set; }
         int Goles { get; set; }
         int CantPartidosJugados { get; set; }

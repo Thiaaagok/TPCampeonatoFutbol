@@ -12,21 +12,30 @@ namespace TPCampeonatoFutbol
             set { _Id = value; }
         }
 
-        private TimeSpan _Minutos;
+        private int _Minutos;
 
-        public TimeSpan Minutos
+        public int Minutos
         {
             get { return _Minutos; }
             set { _Minutos = value; }
         }
 
-        private Guid _Autor;
+        private Guid _AutorId;
 
-        public Guid Autor
+        public Guid AutorId
+        {
+            get { return _AutorId; }
+            set { _AutorId = value; }
+        }
+
+        private string _Autor;
+
+        public string Autor
         {
             get { return _Autor; }
             set { _Autor = value; }
         }
+
 
         private Guid _EquipoId;
 
@@ -52,6 +61,31 @@ namespace TPCampeonatoFutbol
             set { _Causa = value; }
         }
 
+        public CLSExpulsion()
+        {
+            
+        }
 
+        public CLSExpulsion(Guid partidoId, Guid equipoId, Guid autorId, string autor, int minutos, string causa)
+        { 
+            Id = Guid.NewGuid();
+            PartidoId = partidoId;
+            EquipoId = equipoId;
+            AutorId = autorId;
+            Autor = autor;
+            Minutos = minutos;
+            Causa = causa;
+        }
+
+        public CLSExpulsion(Guid id,Guid partidoId, Guid equipoId, Guid autorId,string autor, int minutos, string causa)
+        {
+            Id = id;
+            PartidoId = partidoId;
+            EquipoId = equipoId;
+            AutorId = autorId;
+            Autor = autor;
+            Minutos = minutos;
+            Causa = causa;
+        }
     }
 }

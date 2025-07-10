@@ -14,9 +14,14 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
     public partial class RegistrarExpulsionFRM : Form
     {
         public JugadoresService jugadoresService = new JugadoresService();
-        public RegistrarExpulsionFRM(List<CLSEquipo> equiposSeleccionar)
+        public Guid partidoId = Guid.Empty;
+        int minutos = 0;
+        public CLSExpulsion ExpulsionCreada { get; private set; }
+        public RegistrarExpulsionFRM(List<CLSEquipo> equiposSeleccionar, Guid partidoId,int minutos)
         {
             InitializeComponent();
+            this.partidoId = partidoId;
+            this.minutos = minutos;
             equiposCombo.SelectedIndexChanged -= equiposCombo_SelectedIndexChanged;
             equiposCombo.DataSource = equiposSeleccionar;
             equiposCombo.DisplayMember = "Nombre";
@@ -45,7 +50,20 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
 
         private void registrarExpulsionBtn_Click(object sender, EventArgs e)
         {
+            if (equiposCombo.SelectedItem is CLSEquipo equipoSeleccionado &&
+                jugadoresCombo.SelectedItem is CLSJugador jugadorSeleccionado)
+            {
+                Guid equipoId = equipoSeleccionado.Id;
+                Guid jugadorId = jugadorSeleccionado.Id;
 
+                ExpulsionCreada = new CLSExpulsion(partidoId, equipoId, jugadorId, jugadorSeleccionado.Nombre, minutos,causasCombo.Text);
+                this.DialogResult = DialogResult.OK; 
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un equipo y un jugador.");
+            }
         }
     }
 }

@@ -14,12 +14,19 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
         private Timer timer;
         private TimeSpan tiempo;
         private TimeSpan incremento = TimeSpan.FromSeconds(1);
+        Guid partidoId = Guid.Empty;
         private System.Windows.Forms.Timer ocultarEventoTimer;
         public List<CLSEquipo> equipos = new List<CLSEquipo>();
+        public List<CLSGolesEquipo> Goles = new List<CLSGolesEquipo>();
+        public List<CLSExpulsion> Expulsiones = new List<CLSExpulsion>();
+        public Guid equipoLocalId = Guid.Empty;
+        public Guid equipoVisitanteId = Guid.Empty;
 
-        public AdministrarPartido(Guid localId,Guid visitanteId)
+        public AdministrarPartido(Guid localId,Guid visitanteId,Guid partidoId)
         {
             InitializeComponent();
+            equipoLocalId = localId;
+            equipoVisitanteId = visitanteId;
             lblTiempo = new Label { Text = "00:00:00", AutoSize = true, Font = new System.Drawing.Font("Arial", 24F), Location = new System.Drawing.Point(300, 10) };
             this.Controls.Add(lblTiempo);
             timer = new Timer();
@@ -29,6 +36,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
             tiempo = TimeSpan.Zero;
             this.StartPosition = FormStartPosition.CenterScreen;
             obtenerEquiposPartido(localId, visitanteId);
+
+            this.partidoId = partidoId;
         }
         private void obtenerEquiposPartido(Guid localId, Guid visitanteId)
         {
@@ -37,6 +46,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
             CLSEquipo equipoVisitante = servicio.ObtenerEquipoPorId(visitanteId);
             equipos.Add(equipoLocal);
             equipos.Add(equipoVisitante);
+            nombreCortoLocal.Text = equipoLocal.NombreCorto;
+            nombreCortoVisitante.Text = equipoVisitante.NombreCorto;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -133,7 +144,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
             }
 
             ocultarEventoTimer = new System.Windows.Forms.Timer();
-            ocultarEventoTimer.Interval = 10000; // 10 segundos
+            ocultarEventoTimer.Interval = 10000; 
             ocultarEventoTimer.Tick += OcultarEventoTimer_Tick;
             ocultarEventoTimer.Start();
         }
@@ -153,24 +164,42 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
 
         private void eventoGolBtn_Click(object sender, EventArgs e)
         {
-            using (RegistrarGolFRM registrarGolFRM = new RegistrarGolFRM(equipos))
+            using (RegistrarGolFRM registrarGolFRM = new RegistrarGolFRM(equipos,partidoId, tiempo.Minutes))
             {
                 var result = registrarGolFRM.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    MostrarEvento("GOOOLLL!!!", "Thiago");
+                    CLSGolesEquipo golCreado = registrarGolFRM.GolCreado;
+                    Goles.Add(golCreado);
+                    if(golCreado.EquipoId == equipoLocalId)
+                    {
+                        int goles = int.Parse(golesLocal.Text);
+                        goles += 1;
+                        golesLocal.Text = goles.ToString();
+                    }
+                    else if(golCreado.EquipoId == equipoVisitanteId) 
+                    {
+                        int goles = int.Parse(golesLocal.Text);
+                        goles += 1;
+                        golesVisitante.Text = goles.ToString();
+                    }
+                    registroEventosList.Items.Add($"Gol: {golCreado.Autor}, Minuto: {golCreado.Minutos}");
+                    MostrarEvento("GOOOLLL!!!", golCreado.Autor);
                 }
             }
         }
 
         private void eventoExpulsionBtn_Click(object sender, EventArgs e)
         {
-            using (RegistrarExpulsionFRM registrarExpulsionFRM = new RegistrarExpulsionFRM(equipos))
+            using (RegistrarExpulsionFRM registrarExpulsionFRM = new RegistrarExpulsionFRM(equipos, partidoId, tiempo.Minutes ))
             {
                 var result = registrarExpulsionFRM.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    MostrarEvento("EXPULSIÓN", "Thiago");
+                    CLSExpulsion nuevaExpulsion = registrarExpulsionFRM.ExpulsionCreada;
+                    Expulsiones.Add(nuevaExpulsion);
+                    registroEventosList.Items.Add($"Expulsión: {nuevaExpulsion.Autor}, Minuto: {nuevaExpulsion.Minutos}");
+                    MostrarEvento("EXPULSIÓN", nuevaExpulsion.Autor);
                 }
             }
         }

@@ -124,10 +124,10 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                         TextAlign = ContentAlignment.MiddleRight
                     };
 
-                    partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
-                    lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
-                    lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
-                    lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante);
+                    partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                    lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                    lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                    lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
 
                     partidoPanel.Controls.Add(lblLocal);
                     partidoPanel.Controls.Add(lblVs);
@@ -141,9 +141,9 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             }
         }
 
-        void AbrirAdministrarPartido(Guid idLocal, Guid idVisitante)
+        void AbrirAdministrarPartido(Guid idLocal, Guid idVisitante,Guid partidoId)
         {
-            AdministrarPartido administrarPartido = new AdministrarPartido(idLocal, idVisitante);
+            AdministrarPartido administrarPartido = new AdministrarPartido(idLocal, idVisitante, partidoId);
             administrarPartido.Show();
         }
 

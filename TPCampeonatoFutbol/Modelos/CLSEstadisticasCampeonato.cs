@@ -17,17 +17,9 @@ namespace TPCampeonatoFutbol.Modelos
             set { _Id = value; }
         }
 
-        private List<CLSPartido> _PartidosJugados;
+        private Guid _Equipo;
 
-        public List<CLSPartido> PartidosJugados
-        {
-            get { return _PartidosJugados; }
-            set { _PartidosJugados = value; }
-        }
-
-        private CLSEquipo _Equipo;
-
-        public CLSEquipo Equipo
+        public Guid Equipo
         {
             get { return _Equipo; }
             set { _Equipo = value; }
@@ -49,13 +41,20 @@ namespace TPCampeonatoFutbol.Modelos
             set { _Goles = value; }
         }
 
+        private int _Expulsiones;
+
+        public int Expulsiones
+        {
+            get { return _Expulsiones; }
+            set { _Expulsiones = value; }
+        }
+
         private int _CantPartidosJugador;
 
         public int CantPartidosJugados
         {
             get
             {
-                _CantPartidosJugador = PartidosJugados.Count;
                 return _CantPartidosJugador;
             }
             set { _CantPartidosJugador = value; }
@@ -84,6 +83,53 @@ namespace TPCampeonatoFutbol.Modelos
         {
             get { return _PartidosPerdidos; }
             set { _PartidosPerdidos = value; }
+        }
+
+        public ClSEstadisticasCampeonato()
+        {
+            
+        }
+
+        public ClSEstadisticasCampeonato(
+            Guid equipo,
+            int puntos,
+            int goles,
+            int expulsiones,
+            int cantPartidosJugados,
+            int partidosGanados,
+            int partidosEmpatados,
+            int partidosPerdidos)
+        {
+            Id = Guid.NewGuid(); 
+            Equipo = equipo;
+            Puntos = puntos;
+            Goles = goles;
+            Expulsiones = expulsiones;
+            CantPartidosJugados = cantPartidosJugados;
+            PartidosGanados = partidosGanados;
+            PartidosEmpatados = partidosEmpatados;
+            PartidosPerdidos = partidosPerdidos;
+        }
+
+        public ClSEstadisticasCampeonato(
+            Guid id,
+            Guid equipo,
+            int puntos,
+            int goles,
+            int expulsiones,
+            int cantPartidosJugados,
+            int partidosGanados,
+            int partidosEmpatados,
+            int partidosPerdidos)
+        {
+            Id = id;
+            Equipo = equipo;
+            Puntos = puntos;
+            Goles = goles;
+            CantPartidosJugados = cantPartidosJugados;
+            PartidosGanados = partidosGanados;
+            PartidosEmpatados = partidosEmpatados;
+            PartidosPerdidos = partidosPerdidos;
         }
 
 

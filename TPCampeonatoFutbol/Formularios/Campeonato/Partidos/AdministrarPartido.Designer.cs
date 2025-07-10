@@ -44,7 +44,8 @@
             this.EventoTitulo = new System.Windows.Forms.Label();
             this.tiempoEvento = new System.Windows.Forms.Label();
             this.jugadorEvento = new System.Windows.Forms.Label();
-            this.registroEventos = new System.Windows.Forms.ListBox();
+            this.registroEventosList = new System.Windows.Forms.ListBox();
+            this.registrarPartidoBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // acelerar10segundosBtn
@@ -127,6 +128,7 @@
             this.golesLocal.Location = new System.Drawing.Point(614, 12);
             this.golesLocal.Multiline = true;
             this.golesLocal.Name = "golesLocal";
+            this.golesLocal.ReadOnly = true;
             this.golesLocal.Size = new System.Drawing.Size(31, 29);
             this.golesLocal.TabIndex = 9;
             this.golesLocal.Text = "0";
@@ -138,6 +140,7 @@
             this.golesVisitante.Location = new System.Drawing.Point(709, 11);
             this.golesVisitante.Multiline = true;
             this.golesVisitante.Name = "golesVisitante";
+            this.golesVisitante.ReadOnly = true;
             this.golesVisitante.Size = new System.Drawing.Size(29, 31);
             this.golesVisitante.TabIndex = 10;
             this.golesVisitante.Text = "0";
@@ -227,20 +230,31 @@
             this.jugadorEvento.Text = "jugadorEvento";
             this.jugadorEvento.Visible = false;
             // 
-            // registroEventos
+            // registroEventosList
             // 
-            this.registroEventos.FormattingEnabled = true;
-            this.registroEventos.Location = new System.Drawing.Point(12, 49);
-            this.registroEventos.Name = "registroEventos";
-            this.registroEventos.Size = new System.Drawing.Size(209, 368);
-            this.registroEventos.TabIndex = 20;
+            this.registroEventosList.FormattingEnabled = true;
+            this.registroEventosList.Location = new System.Drawing.Point(12, 49);
+            this.registroEventosList.Name = "registroEventosList";
+            this.registroEventosList.Size = new System.Drawing.Size(209, 368);
+            this.registroEventosList.TabIndex = 20;
+            // 
+            // registrarPartidoBtn
+            // 
+            this.registrarPartidoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrarPartidoBtn.Location = new System.Drawing.Point(525, 398);
+            this.registrarPartidoBtn.Name = "registrarPartidoBtn";
+            this.registrarPartidoBtn.Size = new System.Drawing.Size(263, 40);
+            this.registrarPartidoBtn.TabIndex = 21;
+            this.registrarPartidoBtn.Text = "REGISTRAR Y FINALIZAR PARTIDO";
+            this.registrarPartidoBtn.UseVisualStyleBackColor = true;
             // 
             // AdministrarPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.registroEventos);
+            this.Controls.Add(this.registrarPartidoBtn);
+            this.Controls.Add(this.registroEventosList);
             this.Controls.Add(this.jugadorEvento);
             this.Controls.Add(this.tiempoEvento);
             this.Controls.Add(this.EventoTitulo);
@@ -281,6 +295,7 @@
         private System.Windows.Forms.Label EventoTitulo;
         private System.Windows.Forms.Label tiempoEvento;
         private System.Windows.Forms.Label jugadorEvento;
-        private System.Windows.Forms.ListBox registroEventos;
+        private System.Windows.Forms.ListBox registroEventosList;
+        private System.Windows.Forms.Button registrarPartidoBtn;
     }
 }

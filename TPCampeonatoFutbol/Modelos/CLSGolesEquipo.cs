@@ -4,21 +4,39 @@ namespace TPCampeonatoFutbol
 {
     public class CLSGolesEquipo
     {
-        private TimeSpan _Minutos;
+        private Guid _Id;
 
-        public TimeSpan Minutos
+        public Guid Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
+
+        private int _Minutos;
+
+        public int Minutos
         {
             get { return _Minutos; }
             set { _Minutos = value; }
         }
 
-        private Guid _Autor;
+        private Guid _AutorId;
 
-        public Guid Autor
+        public Guid AutorId
+        {
+            get { return _AutorId; }
+            set { _AutorId = value; }
+        }
+
+        private string _Autor;
+
+        public string Autor
         {
             get { return _Autor; }
             set { _Autor = value; }
         }
+
 
         private Guid _EquipoId;
 
@@ -37,6 +55,29 @@ namespace TPCampeonatoFutbol
         }
 
 
+        public CLSGolesEquipo()
+        {
+               Id = Guid.NewGuid();
+        }
 
+        public CLSGolesEquipo(Guid partidoId, Guid autorId,string autor, Guid equipoId, int minutos)
+        {
+            Id = Guid.NewGuid();
+            PartidoId = partidoId;
+            AutorId = autorId;
+            Autor = autor;
+            EquipoId = equipoId;
+            Minutos = minutos;
+        }
+
+        public CLSGolesEquipo(Guid id, Guid partidoId, Guid autorId, string autor, Guid equipoId, int minutos)
+        {
+            Id = id;
+            PartidoId = partidoId;
+            AutorId = autorId;
+            Autor = autor;
+            EquipoId = equipoId;
+            Minutos = minutos;
+        }
     }
 }
