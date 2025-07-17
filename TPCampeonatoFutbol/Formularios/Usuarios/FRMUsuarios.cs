@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Formularios.jugadores;
 using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Servicios;
 
@@ -39,7 +40,49 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1
 
         private void dataGridViewJugadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex == 0)
+            {
+                CLSUsuario usuarioSeleccionado = usuarios[e.RowIndex];
+                editarUsuario(usuarioSeleccionado);
+            }
+        }
 
+        private void editarUsuario(CLSUsuario usuario)
+        {
+            FRMEditarUsuario EditarUsuario = new FRMEditarUsuario(usuario);
+            if (EditarUsuario.ShowDialog() == DialogResult.OK)
+            {
+                dataGridViewUsuarios.AutoGenerateColumns = false;
+                ObtenerUsuarios();
+                dataGridViewUsuarios.DataSource = null;
+                dataGridViewUsuarios.DataSource = usuarios;
+
+                dataGridViewUsuarios.Columns.Clear();
+
+                dataGridViewUsuarios.Columns.Add(CrearColumna("Id", "Id"));
+                dataGridViewUsuarios.Columns.Add(CrearColumna("Usuario", "Nombre de usuario"));
+                dataGridViewUsuarios.Columns.Add(CrearColumna("Rol", "Rol"));
+
+                dataGridViewUsuarios.ColumnHeadersDefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
+                dataGridViewUsuarios.ColumnHeadersDefaultCellStyle.BackColor = Color.DimGray;
+                dataGridViewUsuarios.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dataGridViewUsuarios.EnableHeadersVisualStyles = false;
+
+                dataGridViewUsuarios.DefaultCellStyle.Font = new Font("Calibri", 10);
+                dataGridViewUsuarios.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                dataGridViewUsuarios.DefaultCellStyle.ForeColor = Color.Black;
+                dataGridViewUsuarios.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+                dataGridViewUsuarios.DefaultCellStyle.SelectionForeColor = Color.White;
+
+                dataGridViewUsuarios.RowTemplate.Height = 28;
+                dataGridViewUsuarios.GridColor = Color.Gainsboro;
+                dataGridViewUsuarios.BorderStyle = BorderStyle.None;
+                dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewUsuarios.ReadOnly = true;
+                dataGridViewUsuarios.AllowUserToAddRows = false;
+                dataGridViewUsuarios.AllowUserToDeleteRows = false;
+                dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
         }
 
         private void ObtenerUsuarios()
@@ -99,6 +142,16 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1
             dataGridViewUsuarios.AllowUserToAddRows = false;
             dataGridViewUsuarios.AllowUserToDeleteRows = false;
             dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void dataGridViewUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                CLSUsuario usuarioSeleccionado = usuarios[e.RowIndex];
+                editarUsuario(usuarioSeleccionado);
+            }
         }
     }
 }

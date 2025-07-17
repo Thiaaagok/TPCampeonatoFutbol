@@ -85,10 +85,10 @@ namespace TPCampeonatoFutbol.Servicios
                 ruta, 
                 u => u.Id == usuarioEditado.Id,
                 usuarioEditado,
-                usuario => $"{usuario.Id};{usuario.Usuario};{usuario.Contrasenia}",
+                usuario => $"{usuario.Id};{usuario.Usuario};{usuario.Contrasenia};{usuario.Rol}",
                 linea =>
                 {
-                    var partes = linea.Split(',');
+                    var partes = linea.Split(';');
                     return new CLSUsuario(
                         Guid.Parse(partes[0]),
                         partes[1],
