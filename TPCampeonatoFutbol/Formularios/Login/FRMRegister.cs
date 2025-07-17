@@ -117,7 +117,7 @@ namespace TPCampeonatoFutbol
             string contraseniaNueva = Contraseniatxt.Text;
             string repetirContrasenia = repetirContraseniatxt.Text;
 
-            if (usuarioService.RegistrarUsuario(usuarioNuevo, contraseniaNueva, repetirContrasenia, out string mensaje))
+            if (usuarioService.RegistrarUsuario(usuarioNuevo, contraseniaNueva, repetirContrasenia, out string mensaje, "JUGADOR"))
             {
                 MessageBox.Show("Usuario creado exitosamente.");
                 this.Hide();

@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Servicios.Interfaces;
 
 namespace TPCampeonatoFutbol.Servicios
 {
-    public class PartidosService
+    public class PartidosService: IPartidosService
     {
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
         private string rutaPartidos = "partidos.txt";

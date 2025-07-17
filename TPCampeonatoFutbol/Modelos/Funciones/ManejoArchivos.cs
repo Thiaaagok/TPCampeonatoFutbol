@@ -41,6 +41,9 @@ namespace TPCampeonatoFutbol.Funciones
                             case "partidosExpulsiones.txt":
                                 sw.WriteLine("Id;PartidoId;EquipoId;AutorId;Autor;Minutos");
                                 break;
+                            case "equiposEstadisticas.txt":
+                                sw.WriteLine("Id;PartidoId;EquipoId;AutorId;Autor;Minutos");
+                                break;
                             default:
                                 sw.WriteLine("Encabezado");
                                 break;

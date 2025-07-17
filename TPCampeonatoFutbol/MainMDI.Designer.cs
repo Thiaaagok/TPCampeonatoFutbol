@@ -32,10 +32,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.equiposToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.grillaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.campeonatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pruebaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +45,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,10 +56,11 @@
             this.equiposToolStripMenuItem1,
             this.jugadoresToolStripMenuItem1,
             this.campeonatoToolStripMenuItem,
-            this.pruebaToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(925, 24);
+            this.menuStrip.Size = new System.Drawing.Size(450, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -73,24 +73,10 @@
             // 
             // jugadoresToolStripMenuItem1
             // 
-            this.jugadoresToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.grillaToolStripMenuItem2,
-            this.nuevoToolStripMenuItem2});
             this.jugadoresToolStripMenuItem1.Name = "jugadoresToolStripMenuItem1";
             this.jugadoresToolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
             this.jugadoresToolStripMenuItem1.Text = "Jugadores";
-            // 
-            // grillaToolStripMenuItem2
-            // 
-            this.grillaToolStripMenuItem2.Name = "grillaToolStripMenuItem2";
-            this.grillaToolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
-            this.grillaToolStripMenuItem2.Text = "Grilla";
-            // 
-            // nuevoToolStripMenuItem2
-            // 
-            this.nuevoToolStripMenuItem2.Name = "nuevoToolStripMenuItem2";
-            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
-            this.nuevoToolStripMenuItem2.Text = "Nuevo";
+            this.jugadoresToolStripMenuItem1.Click += new System.EventHandler(this.jugadoresToolStripMenuItem1_Click);
             // 
             // campeonatoToolStripMenuItem
             // 
@@ -98,11 +84,6 @@
             this.campeonatoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.campeonatoToolStripMenuItem.Text = "Campeonato";
             this.campeonatoToolStripMenuItem.Click += new System.EventHandler(this.campeonatoToolStripMenuItem_Click);
-            // 
-            // pruebaToolStripMenuItem
-            // 
-            this.pruebaToolStripMenuItem.Name = "pruebaToolStripMenuItem";
-            this.pruebaToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
             // homeToolStripMenuItem
             // 
@@ -168,10 +149,9 @@
             // 
             this.statusStrip.Location = new System.Drawing.Point(0, 461);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(925, 22);
+            this.statusStrip.Size = new System.Drawing.Size(450, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
-            this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip_ItemClicked);
             // 
             // toolStripStatusLabel
             // 
@@ -179,12 +159,26 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
             // MainMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(925, 483);
+            this.ClientSize = new System.Drawing.Size(450, 483);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -215,10 +209,9 @@
         private System.Windows.Forms.ToolStripMenuItem grillaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem grillaToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem campeonatoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pruebaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
     }
 }
 

@@ -33,6 +33,15 @@ namespace TPCampeonatoFutbol.Modelos
             set { _Id = value; }
         }
 
+        private string _rol;
+
+        public string Rol
+        {
+            get { return _rol; }
+            set { _rol = value; }
+        }
+
+
         public CLSUsuario()
         {
             Id = Guid.NewGuid();
@@ -44,7 +53,7 @@ namespace TPCampeonatoFutbol.Modelos
             this.Contrasenia= contrasenia;
         }
 
-        public CLSUsuario(Guid id, string usuario, string contrasenia)
+        public CLSUsuario(Guid id, string usuario, string contrasenia, string rol)
         {
             if (id == null)
             {
@@ -56,6 +65,7 @@ namespace TPCampeonatoFutbol.Modelos
             }
             this.Usuario = usuario;
             this.Contrasenia = contrasenia;
+            this.Rol = rol;
         }
 
         public void asignarPartesDesdeArray(string str)
@@ -64,6 +74,34 @@ namespace TPCampeonatoFutbol.Modelos
             this.Id = Guid.Parse(partes[0]);
             this.Usuario = partes[1];
             this.Contrasenia = partes[2];
+            this.Rol = partes[3];
+        }
+    }
+
+    public class UsuarioGlobal
+    {
+        private static CLSUsuario _instancia;
+
+        public static CLSUsuario Instancia
+        {
+            get
+            {
+                if (_instancia == null)
+                {
+                    _instancia = new CLSUsuario();
+                }
+                return _instancia;
+            }
+        }
+
+        public static void EstablecerUsuario(CLSUsuario usuario)
+        {
+            _instancia = usuario;
+        }
+
+        public void CerrarSesion()
+        {
+            _instancia = null;
         }
     }
 }

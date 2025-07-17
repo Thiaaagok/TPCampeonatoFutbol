@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Formularios.Campeonato;
 using TPCampeonatoFutbol.Formularios.Campeonato.Partidos;
+using TPCampeonatoFutbol.Formularios.Jugadores;
+using TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1;
+using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol
@@ -16,43 +19,15 @@ namespace TPCampeonatoFutbol
     public partial class MainMDI : Form
     {
         private int childFormNumber = 0;
-
+        readonly UsuarioGlobal UsuarioGlobal = new UsuarioGlobal();
         public MainMDI()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
-        }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
-        }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
@@ -89,8 +64,11 @@ namespace TPCampeonatoFutbol
 
         private void equiposToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FRMEquipos equipos = new FRMEquipos();
-            equipos.Show();
+            if(UsuarioGlobal.Instancia.Rol == "DT" || UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" || UsuarioGlobal.Instancia.Rol == "ADMIN")
+            {
+                FRMEquipos equipos = new FRMEquipos();
+                equipos.Show();
+            }
         }
 
         private void campeonatoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,15 +77,34 @@ namespace TPCampeonatoFutbol
             campeonato.Show();
         }
 
-        private void fechasToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void jugadoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Fechas fechas = new Fechas();
-            fechas.Show();
+           FRMJugadores jugadores = new FRMJugadores();
+           jugadores.Show();
         }
 
-        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UsuarioGlobal usuarioGlobal = new UsuarioGlobal();
+            usuarioGlobal.CerrarSesion();
+            FRMLogin usuarioLogin = new FRMLogin();
+            usuarioLogin.Show();
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (form != usuarioLogin)
+                {
+                    form.Close();
+                }
+            }
+        }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (UsuarioGlobal.Instancia.Rol == "ADMIN")
+            {
+                FRMUsuarios fRMUsuarios = new FRMUsuarios();
+                fRMUsuarios.Show();
+            }
         }
     }
 }

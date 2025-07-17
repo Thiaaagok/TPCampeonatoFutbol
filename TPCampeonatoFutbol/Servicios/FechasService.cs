@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Servicios.Interfaces;
 
 namespace TPCampeonatoFutbol.Servicios
 {
-    public class FechasService
+    public class FechasService: IFechasService
     {
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
 

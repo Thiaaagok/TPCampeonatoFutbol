@@ -239,6 +239,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
                 equiposService.registrarPartidoEquipo(equipoVisitanteId, "EMPATADO", golesVisitante, expulsionesVisitante);
                 equiposService.registrarPartidoEquipo(equipoLocalId, "EMPATADO", golesLocal, expulsionesLocal);
             }
+
+            this.Close();
         }
     }
 }

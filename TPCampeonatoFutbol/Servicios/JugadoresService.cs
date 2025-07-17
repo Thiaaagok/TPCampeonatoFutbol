@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Servicios.Interfaces;
 
 namespace TPCampeonatoFutbol.Servicios
 {
-    public class JugadoresService
+    public class JugadoresService: IJugadoresService
     {
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
         private readonly string ruta = "jugadores.txt";
@@ -125,7 +126,39 @@ namespace TPCampeonatoFutbol.Servicios
             );
         }
 
+        public List<CLSJugador> ObtenerTodos()
+        {
+            try
+            {
+                List<string> lineas = manejoArchivos.ObtenerTodos(ruta);
+                List<CLSJugador> jugadores = new List<CLSJugador>();
 
+                foreach (var linea in lineas)
+                {
+                    var partes = linea.Split(';');
+
+                    CLSJugador jugador = new CLSJugador(
+                        Guid.Parse(partes[0]),
+                        partes[1],
+                        partes[2],
+                        int.Parse(partes[3]),
+                        int.Parse(partes[4]),
+                        DateTime.Parse(partes[5]),
+                        partes[6],
+                        Guid.Parse(partes[7]),
+                        new CLSRol(partes[8], partes[9])
+                    );
+
+                    jugadores.Add(jugador);
+                }
+
+                return jugadores;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

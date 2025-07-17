@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Servicios.Interfaces;
 
 namespace TPCampeonatoFutbol.Servicios
 {
-    public class UsuarioService
+    public class UsuarioService: IUsuariosService
     {
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
         private readonly string ruta = "usuarios.txt";
@@ -25,11 +26,13 @@ namespace TPCampeonatoFutbol.Servicios
                 if (usuarioVerificar.Usuario == usuario &&
                     usuarioVerificar.Contrasenia == contrasenia)
                 {
+                    UsuarioGlobal.EstablecerUsuario(usuarioVerificar);
+
                     return usuarioVerificar;
                 }
             }
 
-            return null; 
+            return null;
         }
 
         public bool UsuarioExiste(string nombreUsuario)
@@ -42,7 +45,7 @@ namespace TPCampeonatoFutbol.Servicios
             });
         }
 
-        public bool RegistrarUsuario(string nombreUsuario, string contrasenia, string repetirContrasenia, out string mensaje)
+        public bool RegistrarUsuario(string nombreUsuario, string contrasenia, string repetirContrasenia, out string mensaje, string rol)
         {
             mensaje = "";
 
@@ -64,8 +67,8 @@ namespace TPCampeonatoFutbol.Servicios
                 return false;
             }
 
-            CLSUsuario nuevoUsuario = new CLSUsuario(Guid.NewGuid(), nombreUsuario, contrasenia);
-            string nuevoRegistro = $"{nuevoUsuario.Id};{nuevoUsuario.Usuario};{nuevoUsuario.Contrasenia}";
+            CLSUsuario nuevoUsuario = new CLSUsuario(Guid.NewGuid(), nombreUsuario, contrasenia, rol);
+            string nuevoRegistro = $"{nuevoUsuario.Id};{nuevoUsuario.Usuario};{nuevoUsuario.Contrasenia};{nuevoUsuario.Rol}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
             return true;
@@ -86,10 +89,42 @@ namespace TPCampeonatoFutbol.Servicios
                     return new CLSUsuario(
                         Guid.Parse(partes[0]),
                         partes[1],
-                        partes[2]
+                        partes[2],
+                        partes[3]
                     );
                 }
             );
+        }
+
+
+        public List<CLSUsuario> ObtenerTodos()
+        {
+            try
+            {
+                List<string> lineas = manejoArchivos.ObtenerTodos(ruta);
+                List<CLSUsuario> jugadores = new List<CLSUsuario>();
+
+                foreach (var linea in lineas)
+                {
+                    var partes = linea.Split(';');
+
+                    CLSUsuario jugador = new CLSUsuario(
+                        Guid.Parse(
+                        partes[0]),
+                        partes[1],
+                        partes[2],
+                        partes[3]
+                    );
+
+                    jugadores.Add(jugador);
+                }
+
+                return jugadores;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

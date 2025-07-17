@@ -58,7 +58,6 @@ namespace TPCampeonatoFutbol
             dataGridViewEquipos.Columns.Add(CrearColumna("CapacidadEstadio", "Capacidad (personas)"));
             dataGridViewEquipos.Columns.Add(CrearColumna("AnioFundacion", "Año de fundación"));
 
-            // Estilos fachero v2
             dataGridViewEquipos.ColumnHeadersDefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
             dataGridViewEquipos.ColumnHeadersDefaultCellStyle.BackColor = Color.DimGray;
             dataGridViewEquipos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;

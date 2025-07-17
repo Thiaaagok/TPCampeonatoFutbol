@@ -29,7 +29,14 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             List<ClSEstadisticasCampeonato> prueba = equiposService.ObtenerEstadisticasCampeonato();
             if(prueba.Count == 0)
             {
-                generarCampeonatoBtn.Visible = true;
+                if(UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" && UsuarioGlobal.Instancia.Rol == "ADMIN")
+                {
+                    generarCampeonatoBtn.Visible = true;
+                }
+                else
+                {
+                    this.Close();
+                }
             }else if(prueba.Count > 0)
             {
                 tablaBtn.Visible = true;
