@@ -88,7 +88,6 @@ namespace TPCampeonatoFutbol
             UsuarioGlobal usuarioGlobal = new UsuarioGlobal();
             usuarioGlobal.CerrarSesion();
             FRMLogin usuarioLogin = new FRMLogin();
-            usuarioLogin.Show();
             foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
             {
                 if (form != usuarioLogin)
@@ -96,6 +95,7 @@ namespace TPCampeonatoFutbol
                     form.Close();
                 }
             }
+            usuarioLogin.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
