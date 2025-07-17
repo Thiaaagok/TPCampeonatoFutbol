@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
+            this.volverBtn = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
-            // cerrarAplicacionBtn
+            // volverBtn
             // 
-            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
-            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
-            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
-            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.cerrarAplicacionBtn.IconSize = 25;
-            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(923, 23);
-            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
-            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
-            this.cerrarAplicacionBtn.TabIndex = 62;
-            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
-            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            this.volverBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.volverBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.volverBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.volverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.volverBtn.ForeColor = System.Drawing.Color.White;
+            this.volverBtn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.volverBtn.IconColor = System.Drawing.Color.White;
+            this.volverBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.volverBtn.IconSize = 45;
+            this.volverBtn.Location = new System.Drawing.Point(884, 12);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(57, 45);
+            this.volverBtn.TabIndex = 63;
+            this.volverBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.volverBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.volverBtn.UseVisualStyleBackColor = false;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
             // Fechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 413);
-            this.Controls.Add(this.cerrarAplicacionBtn);
+            this.Controls.Add(this.volverBtn);
             this.Name = "Fechas";
             this.Text = "Fechas";
             this.ResumeLayout(false);
@@ -65,6 +65,6 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
+        private FontAwesome.Sharp.IconButton volverBtn;
     }
 }

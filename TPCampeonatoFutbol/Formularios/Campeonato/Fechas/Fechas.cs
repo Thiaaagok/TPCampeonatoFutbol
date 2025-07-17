@@ -164,8 +164,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             AdministrarPartido administrarPartido = new AdministrarPartido(idLocal, idVisitante, partidoId);
             administrarPartido.Show();
         }
-
-        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        private void volverBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

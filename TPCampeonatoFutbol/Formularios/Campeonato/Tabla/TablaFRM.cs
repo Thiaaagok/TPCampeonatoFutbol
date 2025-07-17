@@ -171,5 +171,10 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
             tablaDataGridView.DefaultCellStyle.BackColor = Color.White;
             tablaDataGridView.DefaultCellStyle.ForeColor = Color.Black;
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

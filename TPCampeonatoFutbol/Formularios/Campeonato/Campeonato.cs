@@ -102,5 +102,10 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             TablaFRM tablaFRM = new TablaFRM();
             tablaFRM.Show();
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

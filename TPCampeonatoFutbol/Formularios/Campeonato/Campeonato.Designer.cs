@@ -32,6 +32,7 @@
             this.generarCampeonatoBtn = new System.Windows.Forms.Button();
             this.fechasBtn = new FontAwesome.Sharp.IconButton();
             this.tablaBtn = new FontAwesome.Sharp.IconButton();
+            this.volverBtn = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +92,32 @@
             this.tablaBtn.Visible = false;
             this.tablaBtn.Click += new System.EventHandler(this.tablaBtn_Click);
             // 
+            // volverBtn
+            // 
+            this.volverBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.volverBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.volverBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.volverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.volverBtn.ForeColor = System.Drawing.Color.White;
+            this.volverBtn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.volverBtn.IconColor = System.Drawing.Color.White;
+            this.volverBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.volverBtn.IconSize = 45;
+            this.volverBtn.Location = new System.Drawing.Point(747, 9);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(57, 45);
+            this.volverBtn.TabIndex = 20;
+            this.volverBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.volverBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.volverBtn.UseVisualStyleBackColor = false;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
+            // 
             // Campeonato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 325);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.tablaBtn);
             this.Controls.Add(this.fechasBtn);
             this.Controls.Add(this.generarCampeonatoBtn);
@@ -113,5 +135,6 @@
         private System.Windows.Forms.Button generarCampeonatoBtn;
         private FontAwesome.Sharp.IconButton fechasBtn;
         private FontAwesome.Sharp.IconButton tablaBtn;
+        private FontAwesome.Sharp.IconButton volverBtn;
     }
 }

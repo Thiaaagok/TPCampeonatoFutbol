@@ -23,7 +23,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
         public List<CLSExpulsion> Expulsiones = new List<CLSExpulsion>();
         public Guid equipoLocalId = Guid.Empty;
         public Guid equipoVisitanteId = Guid.Empty;
-
+        public event PartidoRegistradoEvento PartidoRegistrado;
         public AdministrarPartido(Guid localId,Guid visitanteId,Guid partidoId)
         {
             InitializeComponent();
@@ -243,8 +243,11 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
                 equiposService.registrarPartidoEquipo(equipoVisitanteId, "EMPATADO", golesVisitante, expulsionesVisitante);
                 equiposService.registrarPartidoEquipo(equipoLocalId, "EMPATADO", golesLocal, expulsionesLocal);
             }
-
+            PartidoRegistrado?.Invoke("Partido registrado correctamente.");
             this.Close();
         }
     }
+
+    public delegate void PartidoRegistradoEvento(string mensaje);
+
 }
