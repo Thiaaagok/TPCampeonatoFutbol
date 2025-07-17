@@ -37,7 +37,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(35, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(728, 108);
@@ -47,6 +49,7 @@
             // generarCampeonatoBtn
             // 
             this.generarCampeonatoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generarCampeonatoBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.generarCampeonatoBtn.Location = new System.Drawing.Point(229, 167);
             this.generarCampeonatoBtn.Name = "generarCampeonatoBtn";
             this.generarCampeonatoBtn.Size = new System.Drawing.Size(356, 125);
@@ -59,6 +62,7 @@
             // fechasBtn
             // 
             this.fechasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechasBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.fechasBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.fechasBtn.IconColor = System.Drawing.Color.Black;
             this.fechasBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -74,6 +78,7 @@
             // tablaBtn
             // 
             this.tablaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tablaBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tablaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.tablaBtn.IconColor = System.Drawing.Color.Black;
             this.tablaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;

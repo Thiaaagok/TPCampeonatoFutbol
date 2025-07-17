@@ -159,6 +159,7 @@
             // nombreCortoLocal
             // 
             this.nombreCortoLocal.AutoSize = true;
+            this.nombreCortoLocal.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.nombreCortoLocal.Location = new System.Drawing.Point(573, 22);
             this.nombreCortoLocal.Name = "nombreCortoLocal";
             this.nombreCortoLocal.Size = new System.Drawing.Size(35, 13);
@@ -168,6 +169,7 @@
             // nombreCortoVisitante
             // 
             this.nombreCortoVisitante.AutoSize = true;
+            this.nombreCortoVisitante.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.nombreCortoVisitante.Location = new System.Drawing.Point(744, 21);
             this.nombreCortoVisitante.Name = "nombreCortoVisitante";
             this.nombreCortoVisitante.Size = new System.Drawing.Size(35, 13);
@@ -203,6 +205,7 @@
             // 
             this.EventoTitulo.AutoSize = true;
             this.EventoTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 54.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EventoTitulo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.EventoTitulo.Location = new System.Drawing.Point(220, 183);
             this.EventoTitulo.Name = "EventoTitulo";
             this.EventoTitulo.Size = new System.Drawing.Size(337, 83);
@@ -213,6 +216,7 @@
             // tiempoEvento
             // 
             this.tiempoEvento.AutoSize = true;
+            this.tiempoEvento.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.tiempoEvento.Location = new System.Drawing.Point(230, 277);
             this.tiempoEvento.Name = "tiempoEvento";
             this.tiempoEvento.Size = new System.Drawing.Size(72, 13);
@@ -223,6 +227,7 @@
             // jugadorEvento
             // 
             this.jugadorEvento.AutoSize = true;
+            this.jugadorEvento.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.jugadorEvento.Location = new System.Drawing.Point(562, 277);
             this.jugadorEvento.Name = "jugadorEvento";
             this.jugadorEvento.Size = new System.Drawing.Size(76, 13);

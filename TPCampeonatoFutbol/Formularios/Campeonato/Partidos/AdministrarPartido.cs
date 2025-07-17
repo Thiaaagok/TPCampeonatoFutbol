@@ -29,7 +29,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
             InitializeComponent();
             equipoLocalId = localId;
             equipoVisitanteId = visitanteId;
-            lblTiempo = new Label { Text = "00:00:00", AutoSize = true, Font = new System.Drawing.Font("Arial", 24F), Location = new System.Drawing.Point(300, 10) };
+            lblTiempo = new Label { Text = "00:00:00", AutoSize = true, Font = new System.Drawing.Font("Arial", 24F), Location = new System.Drawing.Point(300, 10), ForeColor = Color.White };
             this.Controls.Add(lblTiempo);
             timer = new Timer();
             timer.Interval = 1000; 
