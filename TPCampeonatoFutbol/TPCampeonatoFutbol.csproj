@@ -113,11 +113,11 @@
     <Compile Include="Formularios\Campeonato\Partidos\RegistrarGolFRM.Designer.cs">
       <DependentUpon>RegistrarGolFRM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Campeonato\Tabla\Tabla.cs">
+    <Compile Include="Formularios\Campeonato\Tabla\TablaFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Campeonato\Tabla\Tabla.Designer.cs">
-      <DependentUpon>Tabla.cs</DependentUpon>
+    <Compile Include="Formularios\Campeonato\Tabla\TablaFRM.Designer.cs">
+      <DependentUpon>TablaFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Equipos\FRMCrearEquipo.cs">
       <SubType>Form</SubType>
@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Modelos\CLSEstadisticasCampeonato.cs" />
     <Compile Include="Modelos\CLSFecha.cs" />
+    <Compile Include="Modelos\CLSPartidoResultado.cs" />
     <Compile Include="Modelos\CLSUsuario.cs" />
     <Compile Include="Modelos\Funciones\EstadisticasService.cs" />
     <Compile Include="Modelos\Funciones\GeneradorDeFixture.cs" />
@@ -187,7 +188,6 @@
     <Compile Include="Modelos\CLSJugador.cs" />
     <Compile Include="Modelos\CLSPartido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\AdministrarPartido.cs" />
     <Compile Include="Servicios\EquiposService.cs" />
     <Compile Include="Servicios\FechasService.cs" />
     <Compile Include="Servicios\JugadoresService.cs" />
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="Formularios\Campeonato\Partidos\RegistrarGolFRM.resx">
       <DependentUpon>RegistrarGolFRM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Campeonato\Tabla\Tabla.resx">
-      <DependentUpon>Tabla.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Campeonato\Tabla\TablaFRM.resx">
+      <DependentUpon>TablaFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Equipos\FRMCrearEquipo.resx">
       <DependentUpon>FRMCrearEquipo.cs</DependentUpon>
@@ -305,6 +305,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Servicios\NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

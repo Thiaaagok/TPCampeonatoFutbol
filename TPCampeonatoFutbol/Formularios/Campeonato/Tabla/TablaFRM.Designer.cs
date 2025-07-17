@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
 {
-    partial class Tabla
+    partial class TablaFRM
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tablaDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // Tabla
+            // tablaDataGridView
+            // 
+            this.tablaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDataGridView.Location = new System.Drawing.Point(94, 49);
+            this.tablaDataGridView.Name = "tablaDataGridView";
+            this.tablaDataGridView.Size = new System.Drawing.Size(608, 377);
+            this.tablaDataGridView.TabIndex = 0;
+            // 
+            // TablaFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Tabla";
-            this.Text = "Tabla";
+            this.Controls.Add(this.tablaDataGridView);
+            this.Name = "TablaFRM";
+            this.Text = "TablaFRM";
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView tablaDataGridView;
     }
 }

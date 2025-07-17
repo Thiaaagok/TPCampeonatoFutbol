@@ -134,4 +134,16 @@ namespace TPCampeonatoFutbol.Modelos
 
 
     }
+
+    public class TablaPosicionDTO
+    {
+        public string Equipo { get; set; }
+        public int Puntos { get; set; }
+        public int CantPartidosJugados { get; set; }
+        public int PartidosGanados { get; set; }
+        public int PartidosEmpatados { get; set; }
+        public int PartidosPerdidos { get; set; }
+        public int Goles { get; set; }
+        public int Expulsiones { get; set; }
+    }
 }

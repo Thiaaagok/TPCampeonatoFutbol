@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 using NAudio.Wave;
@@ -210,6 +211,34 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
                 ReproducirGol();
             else if (tipoEvento == "EXPULSIÓN")
                 ReproducirExpulsion();
+        }
+
+        private void registrarPartidoBtn_Click(object sender, EventArgs e)
+        {
+            PartidosService partidoService = new PartidosService();
+            EquiposService equiposService = new EquiposService();
+            partidoService.RegistrarGoles(Goles);
+            partidoService.RegistrarExpulsiones(Expulsiones);
+            int golesLocal = Goles.Count(g => g.EquipoId == equipoLocalId);
+            int golesVisitante = Goles.Count(g => g.EquipoId == equipoVisitanteId);
+            int expulsionesLocal = Expulsiones.Count(exp => exp.EquipoId == equipoLocalId);
+            int expulsionesVisitante = Expulsiones.Count(exp => exp.EquipoId == equipoVisitanteId);
+            partidoService.RegistrarPartido(partidoId, golesLocal, golesVisitante, expulsionesLocal, expulsionesVisitante);
+            if(golesLocal > golesVisitante)
+            {
+                equiposService.registrarPartidoEquipo(equipoLocalId,"GANADO", golesLocal, expulsionesLocal);
+                equiposService.registrarPartidoEquipo(equipoVisitanteId, "PERDIDO", golesVisitante, expulsionesVisitante);
+            }
+            else if(golesVisitante > golesLocal)
+            {
+                equiposService.registrarPartidoEquipo(equipoVisitanteId, "GANADO", golesVisitante, expulsionesVisitante);
+                equiposService.registrarPartidoEquipo(equipoLocalId, "PERDIDO", golesLocal, expulsionesLocal);
+            }
+            else if(golesLocal == golesVisitante)
+            {
+                equiposService.registrarPartidoEquipo(equipoVisitanteId, "EMPATADO", golesVisitante, expulsionesVisitante);
+                equiposService.registrarPartidoEquipo(equipoLocalId, "EMPATADO", golesLocal, expulsionesLocal);
+            }
         }
     }
 }

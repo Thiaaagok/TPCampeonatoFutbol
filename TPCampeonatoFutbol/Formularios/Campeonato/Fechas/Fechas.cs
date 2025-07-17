@@ -79,6 +79,9 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                     string local = equiposService.ObtenerNombrePorId(partido.Local);
                     string visitante = equiposService.ObtenerNombrePorId(partido.Visitante);
 
+                    PartidosService partidosService = new PartidosService();
+                    CLSPartidoResultado partidoResultado = partidosService.ObtenerPartidoJugado(partido.Id);
+
                     Panel partidoPanel = new Panel
                     {
                         Width = 600,
@@ -89,9 +92,15 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                     };
 
                     // Label local
+                    string textLocal;
+                    textLocal = local;
+                    if (partidoResultado != null)
+                    {
+                        textLocal = $"{local} {partidoResultado.GolesLocal}";
+                    }
                     Label lblLocal = new Label
                     {
-                        Text = local,
+                        Text = textLocal,
                         Font = new Font("Segoe UI", 10, FontStyle.Bold),
                         AutoSize = false,
                         Width = 200,
@@ -113,9 +122,14 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                     };
 
                     // Label visitante
+                    string textVisitante = visitante;
+                    if (partidoResultado != null)
+                    {
+                        textVisitante = $"{partidoResultado.GolesVisitante} {visitante}";
+                    }
                     Label lblVisitante = new Label
                     {
-                        Text = visitante,
+                        Text = textVisitante,
                         Font = new Font("Segoe UI", 10, FontStyle.Bold),
                         AutoSize = false,
                         Width = 200,
@@ -124,10 +138,14 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
                         TextAlign = ContentAlignment.MiddleRight
                     };
 
-                    partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                    lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                    lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                    lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                    if(partidoResultado == null)
+                    {
+                        partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                        lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                        lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                        lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+                    }
+
 
                     partidoPanel.Controls.Add(lblLocal);
                     partidoPanel.Controls.Add(lblVs);

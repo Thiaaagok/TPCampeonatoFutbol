@@ -13,7 +13,6 @@ namespace TPCampeonatoFutbol.Servicios
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
         private readonly string ruta = "equipos.txt";
         private readonly string rutaEquipoEstadisticas = "equiposEstadisticas.txt";
-        /* EquipoId;Puntos;PartidosJugados;PartidosGanados;PartidosEmpatados;PartidosPerdidos;Goles;Expulsiones; */
 
         public bool CrearEquipo(
             string nombre,
@@ -153,7 +152,7 @@ namespace TPCampeonatoFutbol.Servicios
         public void registrarPartidoEquipo(Guid equipoId, string resultado, int goles, int expulsiones)
         {
             ClSEstadisticasCampeonato clsEstadisticasCampeonato = manejoArchivos.ObtenerRegistroPorId<ClSEstadisticasCampeonato>(
-            ruta,
+            rutaEquipoEstadisticas,
             e => e.Equipo == equipoId,
             linea =>
             {
@@ -179,7 +178,7 @@ namespace TPCampeonatoFutbol.Servicios
                     clsEstadisticasCampeonato.PartidosGanados++;
                     clsEstadisticasCampeonato.Puntos += 3;
                     break;
-                case "EMPATADO":
+                case "EMPATADO": 
                     clsEstadisticasCampeonato.PartidosEmpatados++;
                     clsEstadisticasCampeonato.Puntos += 1;
                     break;
@@ -192,7 +191,7 @@ namespace TPCampeonatoFutbol.Servicios
             clsEstadisticasCampeonato.Goles += goles;
             clsEstadisticasCampeonato.Expulsiones += expulsiones;
             manejoArchivos.EditarRegistro<ClSEstadisticasCampeonato>(
-               ruta,
+               rutaEquipoEstadisticas,
                e => e.Id == clsEstadisticasCampeonato.Id,
                clsEstadisticasCampeonato,
                e => $"{e.Id};{e.Equipo};{e.Puntos};{e.CantPartidosJugados};{e.PartidosGanados};{e.PartidosEmpatados};{e.PartidosPerdidos};{e.Goles};{e.Expulsiones}",
@@ -211,6 +210,40 @@ namespace TPCampeonatoFutbol.Servicios
                        int.Parse(partes[8])
                    );
                });
+        }
+
+        public List<ClSEstadisticasCampeonato> ObtenerEstadisticasCampeonato()
+        {
+            try
+            {
+                List<string> lineas = manejoArchivos.ObtenerTodos(rutaEquipoEstadisticas);
+                List<ClSEstadisticasCampeonato> estadisticasCampeonato = new List<ClSEstadisticasCampeonato>();
+
+                foreach (var linea in lineas)
+                {
+                    var partes = linea.Split(';');
+
+                    ClSEstadisticasCampeonato estadisticaCampeonato = new ClSEstadisticasCampeonato(
+                        Guid.Parse(partes[0]),
+                        Guid.Parse(partes[1]),
+                        int.Parse(partes[2]),
+                        int.Parse(partes[3]),
+                        int.Parse(partes[4]),
+                        int.Parse(partes[5]),
+                        int.Parse(partes[6]),
+                        int.Parse(partes[7]),
+                        int.Parse(partes[8])
+                    );
+
+                    estadisticasCampeonato.Add(estadisticaCampeonato);
+                }
+
+                return estadisticasCampeonato;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

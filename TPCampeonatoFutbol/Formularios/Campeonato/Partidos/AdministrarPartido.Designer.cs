@@ -247,6 +247,7 @@
             this.registrarPartidoBtn.TabIndex = 21;
             this.registrarPartidoBtn.Text = "REGISTRAR Y FINALIZAR PARTIDO";
             this.registrarPartidoBtn.UseVisualStyleBackColor = true;
+            this.registrarPartidoBtn.Click += new System.EventHandler(this.registrarPartidoBtn_Click);
             // 
             // AdministrarPartido
             // 

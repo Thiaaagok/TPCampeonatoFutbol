@@ -35,7 +35,6 @@
             this.grillaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.campeonatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fechasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pruebaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +57,6 @@
             this.equiposToolStripMenuItem1,
             this.jugadoresToolStripMenuItem1,
             this.campeonatoToolStripMenuItem,
-            this.fechasToolStripMenuItem1,
             this.pruebaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -100,13 +98,6 @@
             this.campeonatoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.campeonatoToolStripMenuItem.Text = "Campeonato";
             this.campeonatoToolStripMenuItem.Click += new System.EventHandler(this.campeonatoToolStripMenuItem_Click);
-            // 
-            // fechasToolStripMenuItem1
-            // 
-            this.fechasToolStripMenuItem1.Name = "fechasToolStripMenuItem1";
-            this.fechasToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
-            this.fechasToolStripMenuItem1.Text = "Fechas";
-            this.fechasToolStripMenuItem1.Click += new System.EventHandler(this.fechasToolStripMenuItem1_Click);
             // 
             // pruebaToolStripMenuItem
             // 
@@ -227,7 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem grillaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem campeonatoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fechasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pruebaToolStripMenuItem;
     }
 }

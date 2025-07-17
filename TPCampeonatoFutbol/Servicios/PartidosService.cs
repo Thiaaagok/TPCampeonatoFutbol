@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos;
 
 namespace TPCampeonatoFutbol.Servicios
 {
@@ -47,6 +48,32 @@ namespace TPCampeonatoFutbol.Servicios
             }
         }
 
+        public CLSPartidoResultado ObtenerPartidoJugado(Guid partidoId)
+        {
+            try
+            {
+                CLSPartidoResultado partidoResultado = manejoArchivos.ObtenerRegistroPorId<CLSPartidoResultado>(
+                    rutaPartidosEstadisticas,
+                    e => e.PartidoId == partidoId,
+                    linea =>
+                    {
+                        var partes = linea.Split(';');
+                        return new CLSPartidoResultado(
+                            Guid.Parse(partes[0]),
+                            int.Parse(partes[1]),
+                            int.Parse(partes[2]),
+                            int.Parse(partes[3]),
+                            int.Parse(partes[4])
+                        );
+                    });
+
+                return partidoResultado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public void GuardarPartido(CLSPartido partido)
         {
             string linea = $"{partido.Id};{partido.Local};{partido.Visitante};{partido.IdFecha};{partido.Estadio};{partido.Dia};{partido.Hora}";
@@ -89,10 +116,11 @@ namespace TPCampeonatoFutbol.Servicios
             }
         }
 
-        public void RegistrarPartido(CLSPartido partido, int GolesLocal, int GolesVisitante, int expulsionesLocal, int expulsionesVisitante)
+        public void RegistrarPartido(Guid partidoId, int GolesLocal, int GolesVisitante, int expulsionesLocal, int expulsionesVisitante)
         {
-            string linea = $"{partido.Id};{GolesLocal};{GolesVisitante};{expulsionesLocal};{expulsionesVisitante}";
+            string linea = $"{partidoId};{GolesLocal};{GolesVisitante};{expulsionesLocal};{expulsionesVisitante}";
             manejoArchivos.GuardarNuevo(rutaPartidosEstadisticas, linea);
         }
+
     }
 }

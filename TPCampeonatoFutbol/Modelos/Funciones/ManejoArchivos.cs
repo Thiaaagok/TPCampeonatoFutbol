@@ -32,6 +32,15 @@ namespace TPCampeonatoFutbol.Funciones
                             case "partidos.txt":
                                 sw.WriteLine("ID;Nombre;Contrasenia");
                                 break;
+                            case "partidosEstadisticas.txt":
+                                sw.WriteLine("PartidoId;GolesLocal;GolesVisitante;ExpLocal;ExpVisitante");
+                                break;
+                            case "partidosGoles.txt":
+                                sw.WriteLine("Id;PartidoId;EquipoId;AutorId;Autor;Minutos");
+                                break;
+                            case "partidosExpulsiones.txt":
+                                sw.WriteLine("Id;PartidoId;EquipoId;AutorId;Autor;Minutos");
+                                break;
                             default:
                                 sw.WriteLine("Encabezado");
                                 break;
@@ -102,8 +111,7 @@ namespace TPCampeonatoFutbol.Funciones
             {
                 if (!File.Exists(ruta))
                 {
-                    
-                    File.WriteAllText(ruta, Environment.NewLine);
+                    CrearArchivo(ruta);
                 }
                 else
                 {
@@ -142,8 +150,7 @@ namespace TPCampeonatoFutbol.Funciones
             {
                 if (!File.Exists(ruta))
                 {
-                    MessageBox.Show("El archivo no existe.");
-                    return;
+                    CrearArchivo(ruta);
                 }
 
                 var lineas = File.ReadAllLines(ruta).ToList();
@@ -195,8 +202,7 @@ namespace TPCampeonatoFutbol.Funciones
             {
                 if (!File.Exists(ruta))
                 {
-                    MessageBox.Show("El archivo no existe.");
-                    return default;
+                    CrearArchivo(ruta);
                 }
 
                 using (var sr = new StreamReader(ruta))
@@ -219,7 +225,6 @@ namespace TPCampeonatoFutbol.Funciones
                     }
                 }
 
-                MessageBox.Show("No se encontró el registro.");
                 return default;
             }
             catch (Exception ex)
