@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.edadNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dniNumeric)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(12, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
@@ -98,6 +100,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(12, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 13);
@@ -131,6 +134,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(12, 311);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
@@ -140,6 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(12, 251);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
@@ -149,6 +154,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(12, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
@@ -158,17 +164,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 45;
             this.label1.Text = "Nombre";
             // 
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
+            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
+            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cerrarAplicacionBtn.IconSize = 25;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(294, 2);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
+            this.cerrarAplicacionBtn.TabIndex = 62;
+            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            // 
             // FRMEditarJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 450);
+            this.Controls.Add(this.cerrarAplicacionBtn);
             this.Controls.Add(this.edadNumeric);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.editarJugadorBtn);
@@ -184,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FRMEditarJugador";
             this.Text = "EditarJugadorForm";
+            this.Load += new System.EventHandler(this.FRMEditarJugador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edadNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dniNumeric)).EndInit();
             this.ResumeLayout(false);
@@ -206,5 +235,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
     }
 }

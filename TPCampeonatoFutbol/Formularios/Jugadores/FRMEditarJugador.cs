@@ -21,6 +21,9 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             InitializeComponent();
             jugadorEditar = jugador;
             SetearPropiedades();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void SetearPropiedades()
@@ -49,6 +52,17 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             jugadoresService.editarJugador(jugadorEditar);
 
             this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void FRMEditarJugador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

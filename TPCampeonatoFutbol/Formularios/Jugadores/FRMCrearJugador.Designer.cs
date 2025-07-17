@@ -41,6 +41,7 @@
             this.crearJugadorBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.edadNumeric = new System.Windows.Forms.NumericUpDown();
+            this.cerrarAplicacionBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dniNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edadNumeric)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(9, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 13);
@@ -73,6 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(9, 314);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
@@ -82,6 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(9, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
@@ -91,6 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(9, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
@@ -100,6 +105,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -146,6 +152,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(9, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
@@ -164,11 +171,32 @@
             this.edadNumeric.Size = new System.Drawing.Size(269, 20);
             this.edadNumeric.TabIndex = 44;
             // 
-            // CrearJugadorForm
+            // cerrarAplicacionBtn
+            // 
+            this.cerrarAplicacionBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cerrarAplicacionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrarAplicacionBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cerrarAplicacionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrarAplicacionBtn.ForeColor = System.Drawing.Color.White;
+            this.cerrarAplicacionBtn.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.cerrarAplicacionBtn.IconColor = System.Drawing.Color.Red;
+            this.cerrarAplicacionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cerrarAplicacionBtn.IconSize = 25;
+            this.cerrarAplicacionBtn.Location = new System.Drawing.Point(291, 5);
+            this.cerrarAplicacionBtn.Name = "cerrarAplicacionBtn";
+            this.cerrarAplicacionBtn.Size = new System.Drawing.Size(29, 32);
+            this.cerrarAplicacionBtn.TabIndex = 62;
+            this.cerrarAplicacionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cerrarAplicacionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrarAplicacionBtn.UseVisualStyleBackColor = false;
+            this.cerrarAplicacionBtn.Click += new System.EventHandler(this.cerrarAplicacionBtn_Click);
+            // 
+            // FRMCrearJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 461);
+            this.Controls.Add(this.cerrarAplicacionBtn);
             this.Controls.Add(this.edadNumeric);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.crearJugadorBtn);
@@ -182,7 +210,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CrearJugadorForm";
+            this.Name = "FRMCrearJugador";
             this.Text = "CrearJugadorForm";
             ((System.ComponentModel.ISupportInitialize)(this.dniNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edadNumeric)).EndInit();
@@ -205,5 +233,6 @@
         private System.Windows.Forms.Button crearJugadorBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown edadNumeric;
+        private FontAwesome.Sharp.IconButton cerrarAplicacionBtn;
     }
 }

@@ -267,6 +267,9 @@
     <EmbeddedResource Include="Formularios\Login\FRMRegister.resx">
       <DependentUpon>FRMRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FRMEditarUsuario.resx">
+      <DependentUpon>FRMEditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuarios\FRMUsuarios.resx">
       <DependentUpon>FRMUsuarios.cs</DependentUpon>
     </EmbeddedResource>

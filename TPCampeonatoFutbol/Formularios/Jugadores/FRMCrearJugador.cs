@@ -23,7 +23,9 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             this.equipo = equipo;
             rolSeleccionado = CLSRol.ObtenerRoles()
             .FirstOrDefault(r => r.Codigo == rolDescripcion);
-
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public CLSJugador NuevoJugador { get; private set; }
@@ -54,6 +56,12 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
 
             NuevoJugador = jugador;
             this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void cerrarAplicacionBtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }
