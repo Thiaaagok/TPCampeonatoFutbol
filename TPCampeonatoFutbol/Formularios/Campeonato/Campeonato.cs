@@ -22,6 +22,9 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
         {
             InitializeComponent();
             VerificarSiHayCampeonato();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void VerificarSiHayCampeonato()

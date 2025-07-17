@@ -20,6 +20,7 @@ namespace TPCampeonatoFutbol
     {
         private int childFormNumber = 0;
         readonly UsuarioGlobal UsuarioGlobal = new UsuarioGlobal();
+        private Panel panelNavbar;
         public MainMDI()
         {
             InitializeComponent();
@@ -27,7 +28,87 @@ namespace TPCampeonatoFutbol
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            CrearNavbar();
+        }
 
+        private void CrearNavbar()
+        {
+            panelNavbar = new Panel();
+            panelNavbar.BackColor = Color.FromArgb(30, 40, 55); // Color moderno
+            panelNavbar.Dock = DockStyle.Top;
+            panelNavbar.Height = 50;
+            this.Controls.Add(panelNavbar);
+
+            // Botones según permisos
+            if (EsRol("DT", "ORGANIZADOR", "ADMIN"))
+                CrearBotonNavbar("Equipos", Equipos_Click);
+
+            CrearBotonNavbar("Jugadores", Jugadores_Click);
+            CrearBotonNavbar("Campeonato", Campeonato_Click);
+
+            if (EsRol("ADMIN"))
+                CrearBotonNavbar("Usuarios", Usuarios_Click);
+
+            CrearBotonNavbar("Cerrar Sesión", CerrarSesion_Click);
+        }
+
+        private bool EsRol(params string[] rolesPermitidos)
+        {
+            return rolesPermitidos.Contains(UsuarioGlobal.Instancia.Rol);
+        }
+
+        private void CrearBotonNavbar(string texto, EventHandler eventoClick)
+        {
+            Button btn = new Button();
+            btn.Text = texto;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = panelNavbar.BackColor;
+            btn.ForeColor = Color.White;
+            btn.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btn.Height = panelNavbar.Height;
+            btn.Width = 140;
+            btn.TextAlign = ContentAlignment.MiddleCenter;
+            btn.Dock = DockStyle.Left;
+            btn.Cursor = Cursors.Hand;
+            btn.Click += eventoClick;
+
+            btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(50, 60, 80);
+            btn.MouseLeave += (s, e) => btn.BackColor = panelNavbar.BackColor;
+
+            panelNavbar.Controls.Add(btn);
+            panelNavbar.Controls.SetChildIndex(btn, 0);
+        }
+        private void Equipos_Click(object sender, EventArgs e)
+        {
+            FRMEquipos equipos = new FRMEquipos();
+            equipos.Show();
+        }
+
+        private void Jugadores_Click(object sender, EventArgs e)
+        {
+            FRMJugadores jugadores = new FRMJugadores();
+            jugadores.Show();
+        }
+
+        private void Campeonato_Click(object sender, EventArgs e)
+        {
+            Campeonato campeonato = new Campeonato();
+            campeonato.Show();
+        }
+
+        private void Usuarios_Click(object sender, EventArgs e)
+        {
+            FRMUsuarios fRMUsuarios = new FRMUsuarios();
+            fRMUsuarios.Show();
+        }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            UsuarioGlobal.CerrarSesion();
+            FRMLogin login = new FRMLogin();
+            login.Show();
+            this.Close();
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)

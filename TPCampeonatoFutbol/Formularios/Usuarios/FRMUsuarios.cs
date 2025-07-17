@@ -20,16 +20,18 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1
         public FRMUsuarios()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void volverBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            this.Close();
             ObtenerUsuarios();
             dataGridViewUsuarios.DataSource = null;
             dataGridViewUsuarios.DataSource = usuarios;

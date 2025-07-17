@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -33,6 +34,9 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
             timer = new Timer();
             timer.Interval = 1000; 
             timer.Tick += Timer_Tick;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             tiempo = TimeSpan.Zero;
             this.StartPosition = FormStartPosition.CenterScreen;

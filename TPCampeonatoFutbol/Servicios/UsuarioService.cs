@@ -14,6 +14,7 @@ namespace TPCampeonatoFutbol.Servicios
         private readonly ManejoArchivos manejoArchivos = new ManejoArchivos();
         private readonly string ruta = "usuarios.txt";
 
+        public event NotificarInicioSesion OnInicioSesionCorrecto;
         public CLSUsuario Login(string usuario, string contrasenia)
         {
             var lineas = manejoArchivos.ObtenerTodos("usuarios.txt");
@@ -27,6 +28,8 @@ namespace TPCampeonatoFutbol.Servicios
                     usuarioVerificar.Contrasenia == contrasenia)
                 {
                     UsuarioGlobal.EstablecerUsuario(usuarioVerificar);
+
+                    OnInicioSesionCorrecto?.Invoke($"Inicio de sesión correcto para: {usuarioVerificar.Usuario}");
 
                     return usuarioVerificar;
                 }
@@ -127,4 +130,7 @@ namespace TPCampeonatoFutbol.Servicios
             }
         }
     }
+
+    public delegate void NotificarInicioSesion(string mensaje);
+
 }

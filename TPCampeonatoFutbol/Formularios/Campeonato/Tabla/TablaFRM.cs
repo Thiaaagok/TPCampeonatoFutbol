@@ -24,6 +24,9 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
             obtenerEquipos();
             obtenerEstadisticas();
             CargarTabla();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(39, 57, 80);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
 
