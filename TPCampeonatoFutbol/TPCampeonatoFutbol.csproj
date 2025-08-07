@@ -197,6 +197,7 @@
     <Compile Include="Modelos\Funciones\Util.cs" />
     <Compile Include="Modelos\Interfaces\IEquipo.cs" />
     <Compile Include="Modelos\Interfaces\IEstadisticasCampeonato.cs" />
+    <Compile Include="Modelos\Interfaces\IManejoArchivos.cs" />
     <Compile Include="Modelos\Interfaces\IPartido.cs" />
     <Compile Include="Modelos\Interfaces\IPersona.cs" />
     <Compile Include="Program.cs" />

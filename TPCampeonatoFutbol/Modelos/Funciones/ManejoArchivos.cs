@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Modelos.Interfaces;
 
 namespace TPCampeonatoFutbol.Funciones
 {
-    public class ManejoArchivos
+    public class ManejoArchivos: IManejoArchivos
     {
         public void CrearArchivo(string ruta)
         {
@@ -145,7 +146,6 @@ namespace TPCampeonatoFutbol.Funciones
                 MessageBox.Show("Error al guardar el nuevo registro: " + ex.Message);
             }
         }
-
 
         public void EditarRegistro<T>(string ruta, Predicate<T> coincide, T nuevoObjeto, Func<T, string> convertirALinea, Func<string, T> convertirDesdeLinea)
         {
