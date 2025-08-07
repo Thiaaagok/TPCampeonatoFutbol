@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Modelos.Interfaces;
+using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol.Modelos.Funciones
 {
     public class GeneradorDeFixture
     {
+        public ArbitroService ArbitrosService = new ArbitroService();
         public List<CLSFecha> Generar(List<CLSEquipo> equipos, DateTime fechaInicio)
         {
+            List<CLSArbitro> arbitros = ArbitrosService.ObtenerTodos();
+
+            if (arbitros == null || !arbitros.Any())
+                throw new InvalidOperationException("No hay árbitros disponibles.");
+
             if (equipos.Count % 2 != 0)
                 throw new ArgumentException("La cantidad de equipos debe ser par");
 
@@ -18,9 +25,20 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
             int cantidadFechas = (n - 1) * 2;
             List<CLSFecha> fechas = new List<CLSFecha>();
 
-            List<CLSEquipo> equiposFixture = new List<CLSEquipo>(equipos);
+            Random rng = new Random();
+            List<CLSEquipo> equiposFixture = equipos.OrderBy(x => rng.Next()).ToList();
+
+            List<TimeSpan> horariosDisponibles = new List<TimeSpan>()
+    {
+        new TimeSpan(14, 0, 0),
+        new TimeSpan(16, 0, 0),
+        new TimeSpan(18, 0, 0),
+        new TimeSpan(20, 0, 0)
+    };
 
             int numeroFecha = 0;
+            int arbitroIndex = 0;
+
             for (int vuelta = 0; vuelta < 2; vuelta++)
             {
                 for (int ronda = 0; ronda < n - 1; ronda++)
@@ -28,7 +46,7 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
                     CLSFecha fecha = new CLSFecha()
                     {
                         Id = Guid.NewGuid(),
-                        Dia = fechaInicio.AddDays(numeroFecha)  // asigno la fecha sumando días
+                        Dia = fechaInicio.AddDays(numeroFecha)
                     };
 
                     fecha.Partidos = new List<CLSPartido>();
@@ -36,6 +54,7 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
                     for (int i = 0; i < n / 2; i++)
                     {
                         CLSEquipo local, visitante;
+
                         if (vuelta == 0)
                         {
                             local = equiposFixture[i];
@@ -47,22 +66,36 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
                             visitante = equiposFixture[i];
                         }
 
+                        if (rng.Next(2) == 0)
+                        {
+                            var aux = local;
+                            local = visitante;
+                            visitante = aux;
+                        }
+
+                        TimeSpan horaPartido = horariosDisponibles[rng.Next(horariosDisponibles.Count)];
+
+                        // Asignar árbitro rotando
+                        CLSArbitro arbitroAsignado = arbitros[arbitroIndex];
+                        arbitroIndex = (arbitroIndex + 1) % arbitros.Count;
+
                         CLSPartido partido = new CLSPartido()
                         {
                             Local = local.Id,
                             Visitante = visitante.Id,
                             IdFecha = fecha.Id,
-
                             Dia = fecha.Dia,
-                            Hora = new TimeSpan(16, 0, 0),  // por ejemplo 16:00 hs
-                            Estadio = local.Estadio
+                            Hora = horaPartido,
+                            Estadio = local.Estadio,
+                            Arbitro = arbitroAsignado.Id
                         };
+
                         fecha.Partidos.Add(partido);
                     }
 
                     fechas.Add(fecha);
 
-                    // Rotar equipos excepto el primero
+                    // Rotar equipos
                     var temp = equiposFixture[n - 1];
                     for (int j = n - 1; j > 1; j--)
                         equiposFixture[j] = equiposFixture[j - 1];
@@ -74,5 +107,6 @@ namespace TPCampeonatoFutbol.Modelos.Funciones
 
             return fechas;
         }
+
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPCampeonatoFutbol.Formularios.Arbitros;
 using TPCampeonatoFutbol.Formularios.Campeonato;
 using TPCampeonatoFutbol.Formularios.Campeonato.Partidos;
 using TPCampeonatoFutbol.Formularios.Jugadores;
@@ -44,6 +45,7 @@ namespace TPCampeonatoFutbol
                 CrearBotonNavbar("Equipos", Equipos_Click);
 
             CrearBotonNavbar("Jugadores", Jugadores_Click);
+            CrearBotonNavbar("Arbitros", Arbitros_Click);
             CrearBotonNavbar("Campeonato", Campeonato_Click);
 
             if (EsRol("ADMIN"))
@@ -101,6 +103,12 @@ namespace TPCampeonatoFutbol
         {
             FRMUsuarios fRMUsuarios = new FRMUsuarios();
             fRMUsuarios.Show();
+        }
+
+        private void Arbitros_Click(object sender, EventArgs e)
+        {
+            FRMArbitros frmArbitros = new FRMArbitros();
+            frmArbitros.Show();
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)

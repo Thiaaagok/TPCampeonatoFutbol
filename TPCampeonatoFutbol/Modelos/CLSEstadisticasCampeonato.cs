@@ -115,12 +115,12 @@ namespace TPCampeonatoFutbol.Modelos
             Guid id,
             Guid equipo,
             int puntos,
-            int goles,
-            int expulsiones,
             int cantPartidosJugados,
             int partidosGanados,
             int partidosEmpatados,
-            int partidosPerdidos)
+            int partidosPerdidos,
+            int goles,
+            int expulsiones)
         {
             Id = id;
             Equipo = equipo;
@@ -130,6 +130,7 @@ namespace TPCampeonatoFutbol.Modelos
             PartidosGanados = partidosGanados;
             PartidosEmpatados = partidosEmpatados;
             PartidosPerdidos = partidosPerdidos;
+            Expulsiones = expulsiones;
         }
 
 

@@ -124,6 +124,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Campeonato";
             this.Text = "Campeonato";
+            this.Load += new System.EventHandler(this.Campeonato_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

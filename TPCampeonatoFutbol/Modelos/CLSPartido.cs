@@ -45,8 +45,8 @@ namespace TPCampeonatoFutbol
             set { _estadio = value; }
         }
 
-        private CLSPersona _arbitro;
-        public CLSPersona Arbitro
+        private Guid _arbitro;
+        public Guid Arbitro
         {
             get { return _arbitro; }
             set { _arbitro = value; }
@@ -72,7 +72,7 @@ namespace TPCampeonatoFutbol
         }
 
         public CLSPartido(Guid id, Guid idFecha, DateTime dia, TimeSpan hora, string estadio,
-                  CLSPersona arbitro,
+                  Guid arbitro,
                   Guid local, Guid visitante)
         {
             Id = id;

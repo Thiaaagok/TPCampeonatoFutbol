@@ -32,7 +32,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
             List<ClSEstadisticasCampeonato> prueba = equiposService.ObtenerEstadisticasCampeonato();
             if(prueba.Count == 0)
             {
-                if(UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" && UsuarioGlobal.Instancia.Rol == "ADMIN")
+                if(UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" || UsuarioGlobal.Instancia.Rol == "ADMIN")
                 {
                     generarCampeonatoBtn.Visible = true;
                 }
@@ -106,6 +106,11 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
         private void volverBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Campeonato_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

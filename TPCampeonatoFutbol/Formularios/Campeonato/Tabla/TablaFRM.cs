@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol.Modelos;
+using TPCampeonatoFutbol.Modelos.Funciones;
 using TPCampeonatoFutbol.Servicios;
 
 namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
@@ -175,6 +176,12 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
         private void volverBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void exportarExcel_Click(object sender, EventArgs e)
+        {
+            Util util = new Util();
+            util.ExportarGrillaAExcel(tablaDataGridView,"TablaPosiciones.xlsx");
         }
     }
 }

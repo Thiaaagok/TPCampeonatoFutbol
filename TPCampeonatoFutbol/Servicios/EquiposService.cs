@@ -246,5 +246,12 @@ namespace TPCampeonatoFutbol.Servicios
                 throw;
             }
         }
+
+        public List<CLSEquipo> BuscarPorNombre(string nombreParcial)
+        {
+            return ObtenerTodos()
+                .Where(a => a.Nombre.ToLower().Contains(nombreParcial.ToLower()))
+            .ToList();
+        }
     }
 }

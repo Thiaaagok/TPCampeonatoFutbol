@@ -77,7 +77,7 @@ namespace TPCampeonatoFutbol.Servicios
         }
         public void GuardarPartido(CLSPartido partido)
         {
-            string linea = $"{partido.Id};{partido.Local};{partido.Visitante};{partido.IdFecha};{partido.Estadio};{partido.Dia};{partido.Hora}";
+            string linea = $"{partido.Id};{partido.Local};{partido.Visitante};{partido.IdFecha};{partido.Estadio};{partido.Dia};{partido.Hora};{partido.Arbitro}";
             manejoArchivos.GuardarNuevo(rutaPartidos, linea);
         }
 

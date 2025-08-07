@@ -19,18 +19,18 @@ namespace TPCampeonatoFutbol.Servicios
         {
             var lineas = manejoArchivos.ObtenerTodos("usuarios.txt");
 
+            string contraseniaHasheada = SeguridadHelper.ObtenerHash(contrasenia);
+
             foreach (var linea in lineas)
             {
                 var usuarioVerificar = new CLSUsuario();
                 usuarioVerificar.asignarPartesDesdeArray(linea);
 
                 if (usuarioVerificar.Usuario == usuario &&
-                    usuarioVerificar.Contrasenia == contrasenia)
+                    usuarioVerificar.Contrasenia == contraseniaHasheada)
                 {
                     UsuarioGlobal.EstablecerUsuario(usuarioVerificar);
-
                     OnInicioSesionCorrecto?.Invoke($"Inicio de sesión correcto para: {usuarioVerificar.Usuario}");
-
                     return usuarioVerificar;
                 }
             }
@@ -70,7 +70,8 @@ namespace TPCampeonatoFutbol.Servicios
                 return false;
             }
 
-            CLSUsuario nuevoUsuario = new CLSUsuario(Guid.NewGuid(), nombreUsuario, contrasenia, rol);
+            string contraseniaHasheada = SeguridadHelper.ObtenerHash(contrasenia);
+            CLSUsuario nuevoUsuario = new CLSUsuario(Guid.NewGuid(), nombreUsuario, contraseniaHasheada, rol);
             string nuevoRegistro = $"{nuevoUsuario.Id};{nuevoUsuario.Usuario};{nuevoUsuario.Contrasenia};{nuevoUsuario.Rol}";
             manejoArchivos.GuardarNuevo(ruta, nuevoRegistro);
 
@@ -80,6 +81,11 @@ namespace TPCampeonatoFutbol.Servicios
         public void editarUsuario(CLSUsuario usuarioEditado)
         {
             ManejoArchivos archivos = new ManejoArchivos();
+
+            if (!string.IsNullOrWhiteSpace(usuarioEditado.Contrasenia))
+            {
+                usuarioEditado.Contrasenia = SeguridadHelper.ObtenerHash(usuarioEditado.Contrasenia);
+            }
 
             archivos.EditarRegistro<CLSUsuario>(
                 ruta, 

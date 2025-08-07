@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPCampeonatoFutbol.Funciones;
+using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Servicios.Interfaces;
 
 namespace TPCampeonatoFutbol.Servicios
@@ -158,6 +159,19 @@ namespace TPCampeonatoFutbol.Servicios
             {
                 throw;
             }
+        }
+
+        public List<CLSJugador> BuscarPorNombre(string nombreParcial)
+        {
+            return ObtenerTodos()
+                .Where(a => a.Nombre.ToLower().Contains(nombreParcial.ToLower()))
+            .ToList();
+        }
+
+        public bool ExisteJugadorPorDNI(int dni)
+        {
+            return ObtenerTodos()
+                .Any(a => a.Dni == dni);
         }
 
     }
