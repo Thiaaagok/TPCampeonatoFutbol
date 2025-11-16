@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Arbitros.cs" />
     <Compile Include="DAL_Equipos.cs" />
+    <Compile Include="DAL_EstadisticasCampeonato.cs" />
+    <Compile Include="DAL_Jugadores.cs" />
+    <Compile Include="DAL_Partidos.cs" />
+    <Compile Include="DAL_Roles.cs" />
     <Compile Include="DAL_Usuarios.cs" />
     <Compile Include="DBConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

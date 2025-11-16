@@ -9,82 +9,57 @@ namespace TpCampeonatoFutbolDAL
     {
         private readonly string _connectionString = "Server=NOTEBOOKTHIAGO\\MSSQLSERVER01;Database=TPCampeonatoFutbol;Trusted_Connection=True;";
 
-        public DBConexion()
+        private SqlConnection iniciarConexion()
         {
-
+            var conexion = new SqlConnection(_connectionString);
+            conexion.Open();
+            return conexion;
         }
 
-        public void Conectar()
+        public DataTable Leer(string query, Dictionary<string, object> parametros = null, bool StoredProcedure = false)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = iniciarConexion())
             {
-                connection.Open();
-            }
-
-        }
-
-        public DataTable Leer(string query, Dictionary<string, object> parametros = null)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand(query, connection))
-            {
-                if (parametros != null)
+                using (SqlCommand cm = new SqlCommand(query, connection))
                 {
-                    foreach (var p in parametros)
-                        command.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
-                }
+                    if (StoredProcedure)
+                        cm.CommandType = CommandType.StoredProcedure;
 
-                using (var adapter = new SqlDataAdapter(command))
-                {
-                    var dt = new DataTable();
-                    adapter.Fill(dt);
-                    return dt;
+                    if (parametros != null)
+                    {
+                        foreach (var p in parametros)
+                            cm.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                    }
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cm))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
                 }
             }
         }
 
-        public int Escribir(string query, Dictionary<string, object> parametros = null)
+
+        public bool Escribir(string query, Dictionary<string, object> parametros = null, bool StoredProcedure = false)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand(query, connection))
+            using (SqlConnection connection = iniciarConexion())
             {
-                if (parametros != null)
+                using (SqlCommand cm = new SqlCommand(query, connection))
                 {
-                    foreach (var p in parametros)
-                        command.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                    if (StoredProcedure)
+                        cm.CommandType = CommandType.StoredProcedure;
+
+                    if (parametros != null)
+                    {
+                        foreach (var p in parametros)
+                            cm.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                    }
+
+                    return cm.ExecuteNonQuery() > 0;
                 }
-
-                connection.Open();
-                return command.ExecuteNonQuery();
             }
-        }
-        public int Eliminar(string tabla, string idColumna, object idValor)
-        {
-            string query = $"DELETE FROM {tabla} WHERE {idColumna} = @{idColumna}";
-            var parametros = new Dictionary<string, object>
-        {
-            { $"@{idColumna}", idValor }
-        };
-
-            return Escribir(query, parametros);
-        }
-
-        public int Editar(string tabla, string idColumna, object idValor, Dictionary<string, object> nuevosValores)
-        {
-            if (nuevosValores == null || nuevosValores.Count == 0)
-                throw new ArgumentException("Debe proporcionar al menos un campo a actualizar.", nameof(nuevosValores));
-
-            var setPartes = new List<string>();
-            foreach (var campo in nuevosValores.Keys)
-            {
-                setPartes.Add($"{campo} = @{campo}");
-            }
-
-            string setQuery = string.Join(", ", setPartes);
-            string query = $"UPDATE {tabla} SET {setQuery} WHERE {idColumna} = @{idColumna}";
-            nuevosValores.Add($"@{idColumna}", idValor);
-
-            return Escribir(query, nuevosValores);
         }
     }
 }

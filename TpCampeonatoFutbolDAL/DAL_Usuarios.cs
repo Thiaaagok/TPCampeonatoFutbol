@@ -12,48 +12,62 @@ namespace TpCampeonatoFutbolDAL
     {
         private readonly DBConexion _db;
 
-        public DataTable ObtenerUsuarios()
+        public DataTable ObtenerUsuarioPorId(string dni)
         {
-            string query = "SELECT * FROM Usuarios";
-            return _db.Leer(query);
+            string query = "SP_ObtenerUsuarioPorId";
+            Dictionary<string, object> parametros = new Dictionary<string, object>()
+            {
+                { "@DNI", dni }
+            };
+            return _db.Leer(query, parametros, true);
         }
 
-        public bool CrearUsuario(Guid id, string usuarioNombre, byte[] contrasenia, string rol, bool activo)
+        public DataTable obtenerUsuarios()
         {
-            string query = "INSERT INTO Usuarios (Id, UsuarioNombre, Contrasenia, Rol, Activo) " +
-                           "VALUES (@Id, @UsuarioNombre, @Contrasenia, @Rol, @Activo)";
+            string query = "SP_ObtenerUsuarios";
+            return _db.Leer(query, null, true);
+        }
 
-            var parametros = new Dictionary<string, object>
+        public bool CrearUsuario(string id, string contrasenia, string usuarioNombre, string idRol)
+        {
+            string query = "SP_CrearUsuario";
+
+            var parametros = new Dictionary<string, object>()
             {
                 { "@Id", id },
-                { "@UsuarioNombre", usuarioNombre },
                 { "@Contrasenia", contrasenia },
-                { "@Rol", rol },
-                { "@Activo", activo }
+                { "@UsuarioNombre", usuarioNombre },
+                { "@IdRol", idRol }
             };
 
-            return _db.Escribir(query, parametros) > 0;
+            return _db.Escribir(query, parametros, true);
         }
 
-        public DataRow ObtenerUsuario(string usuario, byte[] contrasenia)
+        public bool EliminarUsuario(string id)
         {
-            string query = "SELECT Id, Usuario, Contrasenia, Activo " +
-                           "FROM Usuarios " +
-                           "WHERE Usuario = @usuario AND Contrasenia = @contrasenia";
+            string query = "SP_EliminarUsuario";
 
-            var parametros = new Dictionary<string, object>
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@Id", id }
+            };
+
+            return _db.Escribir(query, parametros, true);
+        }
+
+        public bool EditarUsuario(string id, string contrasenia, string usuarioNombre, string idRol)
         {
-            {"@usuario", usuario},
-            {"@contrasenia", contrasenia}
-        };
+            string query = "SP_EditarUsuario";
 
-            var dt = _db.Leer(query, parametros);
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@Id", id },
+                { "@Contrasenia", contrasenia },
+                { "@UsuarioNombre", usuarioNombre },
+                { "@IdRol", idRol }
+            };
 
-            if (dt.Rows.Count == 0)
-                return null;
-
-            DataRow row = dt.Rows[0];
-            return row; 
+            return _db.Escribir(query, parametros, true);
         }
     }
 }
