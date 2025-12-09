@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MPP_Arbitros.cs" />
+    <Compile Include="MPP_Equipos.cs" />
+    <Compile Include="MPP_EstadisticasCampeonato.cs" />
+    <Compile Include="MPP_Jugadores.cs" />
+    <Compile Include="MPP_Partidos.cs" />
+    <Compile Include="MPP_Roles.cs" />
+    <Compile Include="MPP_RolesJugador.cs" />
     <Compile Include="MPP_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

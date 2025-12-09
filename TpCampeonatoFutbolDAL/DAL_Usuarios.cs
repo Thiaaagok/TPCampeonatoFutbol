@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TpCampeonatoFutbolDAL
 {
@@ -12,12 +7,12 @@ namespace TpCampeonatoFutbolDAL
     {
         private readonly DBConexion _db;
 
-        public DataTable ObtenerUsuarioPorId(string dni)
+        public DataTable ObtenerUsuarioPorId(string id)
         {
             string query = "SP_ObtenerUsuarioPorId";
             Dictionary<string, object> parametros = new Dictionary<string, object>()
             {
-                { "@DNI", dni }
+                { "@Id", id }
             };
             return _db.Leer(query, parametros, true);
         }

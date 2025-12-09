@@ -41,20 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArbitrosBLL.cs" />
+    <Compile Include="BLL_Arbitros.cs" />
+    <Compile Include="BLL_Equipos.cs" />
+    <Compile Include="BLL_EstadisticasCampeonato.cs" />
     <Compile Include="BLL_Jugadores.cs" />
+    <Compile Include="BLL_Partidos.cs" />
+    <Compile Include="BLL_Roles.cs" />
+    <Compile Include="BLL_RolesJugador.cs" />
     <Compile Include="BLL_Usuarios.cs" />
-    <Compile Include="EquiposBLL.cs" />
-    <Compile Include="FechasBLL.cs" />
     <Compile Include="Interfaces\IEquipoService.cs" />
     <Compile Include="Interfaces\IFechasService.cs" />
     <Compile Include="Interfaces\IJugadoresService.cs" />
     <Compile Include="Interfaces\IPartidosService.cs" />
     <Compile Include="Interfaces\IUsuarioService.cs" />
-    <Compile Include="JugadoresBLL.cs" />
-    <Compile Include="PartidosBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuariosBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TpCampeonatoFutbolBE\TpCampeonatoFutbolBE.csproj">

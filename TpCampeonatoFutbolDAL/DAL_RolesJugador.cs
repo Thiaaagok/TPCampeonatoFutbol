@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TpCampeonatoFutbolDAL
 {
-    public class DAL_EstadisticasCampeonato
+    public class DAL_RolesJugador
     {
         private readonly DBConexion _db;
 

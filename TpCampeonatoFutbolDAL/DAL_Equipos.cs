@@ -10,21 +10,63 @@ namespace TpCampeonatoFutbolDAL
 {
     public class DAL_Equipos
     {
-        SqlConnection connectionDb = new SqlConnection();
-        DBConexion conexion = new DBConexion();
-        public DAL_Equipos()
+        private readonly DBConexion _db;
+
+        public DataTable ObtenerEquipoPorId(Guid id)
         {
+            string query = "SP_ObtenerEquipoPorId";
+            Dictionary<string, object> parametros = new Dictionary<string, object>()
+            {
+                { "@Id", id }
+            };
+            return _db.Leer(query, parametros, true);
         }
 
-        public DataTable ObtenerEquipos()
+        public DataTable obtenerEquipos()
         {
-            using (var command = new SqlCommand("SELECT * FROM Usuarios", connectionDb))
-            using (var adapter = new SqlDataAdapter(command))
+            string query = "SP_ObtenerEquipos";
+            return _db.Leer(query, null, true);
+        }
+
+        public bool CrearEquipo(Guid id, int anioFundacion, int capacidadEstadio, string ciudad, string estadio, )
+        {
+            string query = "SP_CrearEquipo";
+
+            var parametros = new Dictionary<string, object>()
             {
-                var tabla = new DataTable();
-                adapter.Fill(tabla);
-                return tabla;
-            }
+            };
+
+            return _db.Escribir(query, parametros, true);
+        }
+
+        public bool EliminarArbitro(string id)
+        {
+            string query = "SP_EliminarArbitro";
+
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@Id", id }
+            };
+
+            return _db.Escribir(query, parametros, true);
+        }
+
+        public bool EditarArbitro(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
+        {
+            string query = "SP_EditarArbitro";
+
+            var parametros = new Dictionary<string, object>()
+            {
+                { "@Id", id },
+                { "@Nombre", nombre },
+                { "@Apellido", apellido },
+                { "@DNI", dni },
+                { "Edad", edad },
+                { "FechaNacimiento", fechaNacimiento },
+                { "LugarNacimiento", lugarNacimiento }
+            };
+
+            return _db.Escribir(query, parametros, true);
         }
     }
 }
