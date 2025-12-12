@@ -99,33 +99,35 @@ namespace TPCampeonatoFutbol
 
         private void Login()
         {
+            MainMDI home = new MainMDI();
+            home.Show();
             try
             {
-                UsuariosBLL usuariosBLL = new UsuariosBLL();
+                //UsuariosBLL usuariosBLL = new UsuariosBLL();
 
-                usuariosBLL.OnInicioSesionCorrecto += (usuarioEncontrado) =>
-                {
-                    MessageBox.Show($"Bienvenido {usuarioEncontrado.UsuarioNombre}",
-                                    "Inicio de Sesión",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                };
+                //usuariosBLL.OnInicioSesionCorrecto += (usuarioEncontrado) =>
+                //{
+                //    MessageBox.Show($"Bienvenido {usuarioEncontrado.UsuarioNombre}",
+                //                    "Inicio de Sesión",
+                //                    MessageBoxButtons.OK,
+                //                    MessageBoxIcon.Information);
+                //};
 
-                var usuario = usuariosBLL.Login(NombreUsuariotxt.Text, Contraseniatxt.Text);
+                //var usuario = usuariosBLL.Login(NombreUsuariotxt.Text, Contraseniatxt.Text);
 
-                if (usuario == null)
-                {
-                    MessageBox.Show("Usuario o Contraseña incorrectos",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-                else
-                {
-                    this.Hide();
-                    MainMDI home = new MainMDI();
-                    home.Show();
-                }
+                //if (usuario == null)
+                //{
+                //    MessageBox.Show("Usuario o Contraseña incorrectos",
+                //                    "Error",
+                //                    MessageBoxButtons.OK,
+                //                    MessageBoxIcon.Error);
+                //}
+                //else
+                //{
+                //    this.Hide();
+                //    MainMDI home = new MainMDI();
+                //    home.Show();
+                //}
             }
             catch (Exception ex)
             {

@@ -9,9 +9,9 @@ namespace TpCampeonatoFutbolDAL
 {
     public class DAL_Jugadores
     {
-        private readonly DBConexion _db;
+        private readonly DBConexion _db = new DBConexion();
 
-        public DataTable ObtenerArbitroPorId(string id)
+        public DataTable ObtenerJugadorPorId(Guid id)
         {
             string query = "SP_ObtenerArbitroPorId";
             Dictionary<string, object> parametros = new Dictionary<string, object>()
@@ -21,15 +21,15 @@ namespace TpCampeonatoFutbolDAL
             return _db.Leer(query, parametros, true);
         }
 
-        public DataTable obtenerArbitros()
+        public DataTable ObtenerJugadores()
         {
-            string query = "SP_ObtenerArbitros";
+            string query = "SP_ObtenerJugadores";
             return _db.Leer(query, null, true);
         }
 
-        public bool CrearArbitro(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
+        public bool CrearJugador(Guid id,Guid equipoId,Guid rolJugadorId, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento, string foto, string equipoNombre)
         {
-            string query = "SP_CrearArbitro";
+            string query = "SP_CrearJugador";
 
             var parametros = new Dictionary<string, object>()
             {
@@ -37,15 +37,17 @@ namespace TpCampeonatoFutbolDAL
                 { "@Nombre", nombre },
                 { "@Apellido", apellido },
                 { "@DNI", dni },
-                { "Edad", edad },
-                { "FechaNacimiento", fechaNacimiento },
-                { "LugarNacimiento", lugarNacimiento }
+                { "@Edad", edad },
+                { "@FechaNacimiento", fechaNacimiento },
+                { "@LugarNacimiento", lugarNacimiento },
+                { "@Foto", foto },
+                { "@EquipoNombre", equipoNombre }
             };
 
             return _db.Escribir(query, parametros, true);
         }
 
-        public bool EliminarArbitro(string id)
+        public bool EliminarJugador(string id)
         {
             string query = "SP_EliminarArbitro";
 
@@ -57,7 +59,7 @@ namespace TpCampeonatoFutbolDAL
             return _db.Escribir(query, parametros, true);
         }
 
-        public bool EditarArbitro(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
+        public bool EditarJugador(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
         {
             string query = "SP_EditarArbitro";
 
@@ -74,5 +76,6 @@ namespace TpCampeonatoFutbolDAL
 
             return _db.Escribir(query, parametros, true);
         }   
+
     }
 }

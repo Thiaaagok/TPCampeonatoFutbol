@@ -17,7 +17,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
     public partial class Campeonato : Form
     {
         List<EquipoBE> equipos = new List<EquipoBE>();
-        EquiposBLL equiposBLL = new EquiposBLL();
+        BLL_Equipos BLL_Equipos = new BLL_Equipos();
         public Campeonato()
         {
             InitializeComponent();
@@ -29,66 +29,58 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
 
         private void VerificarSiHayCampeonato()
         {
-            List<EstadisticasCampeonatoBE> prueba = equiposBLL.ObtenerEstadisticasCampeonato();
-            if(prueba.Count == 0)
-            {
-                //if(UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" || UsuarioGlobal.Instancia.Rol == "ADMIN")
-                //{
-                //    generarCampeonatoBtn.Visible = true;
-                //}
-                //else
-                //{
-                //    this.Close();
-                //}
-            }else if(prueba.Count > 0)
-            {
-                tablaBtn.Visible = true;
-                fechasBtn.Visible = true;   
-            }
+            //List<EstadisticasCampeonatoBE> prueba = equiposBLL.ObtenerEstadisticasCampeonato();
+            //if(prueba.Count == 0)
+            //{
+            //}else if(prueba.Count > 0)
+            //{
+            //    tablaBtn.Visible = true;
+            //    fechasBtn.Visible = true;   
+            //}
         }
 
         private void generarCampeonatoBtn_Click(object sender, EventArgs e)
         {
             ObtenerEquipos();
-            CampeonatoBE campeonatoBE = new CampeonatoBE();
-            List<FechaBE> fechasGuardar = campeonatoBE.GenerarCampeonato(equipos);
+            //CampeonatoBE campeonatoBE = new CampeonatoBE();
+            //List<FechaBE> fechasGuardar = campeonatoBE.GenerarCampeonato(equipos);
 
-            PartidosBLL partidosBLL = new PartidosBLL();
-            FechasBLL fechasBLL = new FechasBLL();
+            //PartidosBLL partidosBLL = new PartidosBLL();
+            //FechasBLL fechasBLL = new FechasBLL();
 
-            equiposBLL.registrarEquiposEstadisticasVacio(equipos);
-            int numeroFecha = 1;
+            //equiposBLL.registrarEquiposEstadisticasVacio(equipos);
+            //int numeroFecha = 1;
 
-            foreach (FechaBE fecha in fechasGuardar)
-            {
-                // Asignar fechaId a todos los partidos
-                foreach (PartidoBE partido in fecha.Partidos)
-                {
-                    partido.IdFecha = fecha.Id;
-                }
+            //foreach (FechaBE fecha in fechasGuardar)
+            //{
+            //    // Asignar fechaId a todos los partidos
+            //    foreach (PartidoBE partido in fecha.Partidos)
+            //    {
+            //        partido.IdFecha = fecha.Id;
+            //    }
 
-                fechasBLL.GuardarFecha(fecha, numeroFecha);
+            //    fechasBLL.GuardarFecha(fecha, numeroFecha);
 
-                partidosBLL.GuardarPartidos(fecha.Partidos);
+            //    partidosBLL.GuardarPartidos(fecha.Partidos);
 
-                numeroFecha++;
-            }
+            //    numeroFecha++;
+            //}
 
             MessageBox.Show("Fixture generado y guardado correctamente", "Éxito");
         }
         private void ObtenerEquipos()
         {
-            equipos.Clear();
+            //equipos.Clear();
 
-            try
-            {
-                var listaEquipos = equiposBLL.ObtenerTodos();
-                equipos.AddRange(listaEquipos);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
-            }
+            //try
+            //{
+            //    var listaEquipos = equiposBLL.ObtenerTodos();
+            //    equipos.AddRange(listaEquipos);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
+            //}
         }
 
         private void fechasBtn_Click(object sender, EventArgs e)

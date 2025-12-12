@@ -415,164 +415,131 @@
             // 
             // Suplente1Box
             // 
-            this.Suplente1Box.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.Suplente1Box.Location = new System.Drawing.Point(1171, 71);
+            this.Suplente1Box.Location = new System.Drawing.Point(0, 0);
             this.Suplente1Box.Name = "Suplente1Box";
-            this.Suplente1Box.Size = new System.Drawing.Size(76, 119);
-            this.Suplente1Box.TabIndex = 41;
+            this.Suplente1Box.Size = new System.Drawing.Size(100, 50);
+            this.Suplente1Box.TabIndex = 62;
             this.Suplente1Box.TabStop = false;
-            this.Suplente1Box.Click += new System.EventHandler(this.Suplente1Box_Click);
             // 
             // Suplente5Box
             // 
-            this.Suplente5Box.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.Suplente5Box.Location = new System.Drawing.Point(1171, 575);
+            this.Suplente5Box.Location = new System.Drawing.Point(0, 0);
             this.Suplente5Box.Name = "Suplente5Box";
-            this.Suplente5Box.Size = new System.Drawing.Size(76, 119);
-            this.Suplente5Box.TabIndex = 40;
+            this.Suplente5Box.Size = new System.Drawing.Size(100, 50);
+            this.Suplente5Box.TabIndex = 63;
             this.Suplente5Box.TabStop = false;
-            this.Suplente5Box.Click += new System.EventHandler(this.Suplente5Box_Click);
             // 
             // Suplente4Box
             // 
-            this.Suplente4Box.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.Suplente4Box.Location = new System.Drawing.Point(1171, 450);
+            this.Suplente4Box.Location = new System.Drawing.Point(0, 0);
             this.Suplente4Box.Name = "Suplente4Box";
-            this.Suplente4Box.Size = new System.Drawing.Size(76, 119);
-            this.Suplente4Box.TabIndex = 39;
+            this.Suplente4Box.Size = new System.Drawing.Size(100, 50);
+            this.Suplente4Box.TabIndex = 64;
             this.Suplente4Box.TabStop = false;
-            this.Suplente4Box.Click += new System.EventHandler(this.Suplente4Box_Click);
             // 
             // Suplente3Box
             // 
-            this.Suplente3Box.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.Suplente3Box.Location = new System.Drawing.Point(1171, 321);
+            this.Suplente3Box.Location = new System.Drawing.Point(0, 0);
             this.Suplente3Box.Name = "Suplente3Box";
-            this.Suplente3Box.Size = new System.Drawing.Size(76, 119);
-            this.Suplente3Box.TabIndex = 38;
+            this.Suplente3Box.Size = new System.Drawing.Size(100, 50);
+            this.Suplente3Box.TabIndex = 65;
             this.Suplente3Box.TabStop = false;
-            this.Suplente3Box.Click += new System.EventHandler(this.Suplente3Box_Click);
             // 
             // Suplente2Box
             // 
-            this.Suplente2Box.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.Suplente2Box.Location = new System.Drawing.Point(1171, 196);
+            this.Suplente2Box.Location = new System.Drawing.Point(0, 0);
             this.Suplente2Box.Name = "Suplente2Box";
-            this.Suplente2Box.Size = new System.Drawing.Size(76, 119);
-            this.Suplente2Box.TabIndex = 37;
+            this.Suplente2Box.Size = new System.Drawing.Size(100, 50);
+            this.Suplente2Box.TabIndex = 66;
             this.Suplente2Box.TabStop = false;
-            this.Suplente2Box.Click += new System.EventHandler(this.Suplente2Box_Click);
             // 
             // ArqueroBox
             // 
-            this.ArqueroBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.ArqueroBox.Location = new System.Drawing.Point(675, 584);
+            this.ArqueroBox.Location = new System.Drawing.Point(0, 0);
             this.ArqueroBox.Name = "ArqueroBox";
-            this.ArqueroBox.Size = new System.Drawing.Size(76, 119);
-            this.ArqueroBox.TabIndex = 36;
+            this.ArqueroBox.Size = new System.Drawing.Size(100, 50);
+            this.ArqueroBox.TabIndex = 67;
             this.ArqueroBox.TabStop = false;
-            this.ArqueroBox.Click += new System.EventHandler(this.ArqueroBox_Click);
             // 
             // LateralDerechoBox
             // 
-            this.LateralDerechoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.LateralDerechoBox.Location = new System.Drawing.Point(962, 346);
+            this.LateralDerechoBox.Location = new System.Drawing.Point(0, 0);
             this.LateralDerechoBox.Name = "LateralDerechoBox";
-            this.LateralDerechoBox.Size = new System.Drawing.Size(76, 119);
-            this.LateralDerechoBox.TabIndex = 35;
+            this.LateralDerechoBox.Size = new System.Drawing.Size(100, 50);
+            this.LateralDerechoBox.TabIndex = 68;
             this.LateralDerechoBox.TabStop = false;
-            this.LateralDerechoBox.Click += new System.EventHandler(this.LateralDerechoBox_Click);
             // 
             // DefensacentralDerechoBox
             // 
-            this.DefensacentralDerechoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.DefensacentralDerechoBox.Location = new System.Drawing.Point(793, 456);
+            this.DefensacentralDerechoBox.Location = new System.Drawing.Point(0, 0);
             this.DefensacentralDerechoBox.Name = "DefensacentralDerechoBox";
-            this.DefensacentralDerechoBox.Size = new System.Drawing.Size(76, 119);
-            this.DefensacentralDerechoBox.TabIndex = 34;
+            this.DefensacentralDerechoBox.Size = new System.Drawing.Size(100, 50);
+            this.DefensacentralDerechoBox.TabIndex = 69;
             this.DefensacentralDerechoBox.TabStop = false;
-            this.DefensacentralDerechoBox.Click += new System.EventHandler(this.DefensacentralDerechoBox_Click);
             // 
             // DefensacentralIzquierdoBox
             // 
-            this.DefensacentralIzquierdoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.DefensacentralIzquierdoBox.Location = new System.Drawing.Point(545, 456);
+            this.DefensacentralIzquierdoBox.Location = new System.Drawing.Point(0, 0);
             this.DefensacentralIzquierdoBox.Name = "DefensacentralIzquierdoBox";
-            this.DefensacentralIzquierdoBox.Size = new System.Drawing.Size(76, 119);
-            this.DefensacentralIzquierdoBox.TabIndex = 33;
+            this.DefensacentralIzquierdoBox.Size = new System.Drawing.Size(100, 50);
+            this.DefensacentralIzquierdoBox.TabIndex = 70;
             this.DefensacentralIzquierdoBox.TabStop = false;
-            this.DefensacentralIzquierdoBox.Click += new System.EventHandler(this.DefensacentralIzquierdaBox_Click);
             // 
             // LateralIzquierdoBox
             // 
-            this.LateralIzquierdoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.LateralIzquierdoBox.Location = new System.Drawing.Point(363, 346);
+            this.LateralIzquierdoBox.Location = new System.Drawing.Point(0, 0);
             this.LateralIzquierdoBox.Name = "LateralIzquierdoBox";
-            this.LateralIzquierdoBox.Size = new System.Drawing.Size(76, 119);
-            this.LateralIzquierdoBox.TabIndex = 32;
+            this.LateralIzquierdoBox.Size = new System.Drawing.Size(100, 50);
+            this.LateralIzquierdoBox.TabIndex = 71;
             this.LateralIzquierdoBox.TabStop = false;
-            this.LateralIzquierdoBox.Click += new System.EventHandler(this.LateralIzquierdoBox_Click);
             // 
             // MediocentroDerechoBox
             // 
-            this.MediocentroDerechoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.MediocentroDerechoBox.Location = new System.Drawing.Point(783, 213);
+            this.MediocentroDerechoBox.Location = new System.Drawing.Point(0, 0);
             this.MediocentroDerechoBox.Name = "MediocentroDerechoBox";
-            this.MediocentroDerechoBox.Size = new System.Drawing.Size(76, 119);
-            this.MediocentroDerechoBox.TabIndex = 31;
+            this.MediocentroDerechoBox.Size = new System.Drawing.Size(100, 50);
+            this.MediocentroDerechoBox.TabIndex = 72;
             this.MediocentroDerechoBox.TabStop = false;
-            this.MediocentroDerechoBox.Click += new System.EventHandler(this.MediocentroDerechoBox_Click_1);
             // 
             // MediocentroBox
             // 
-            this.MediocentroBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.MediocentroBox.Location = new System.Drawing.Point(675, 299);
+            this.MediocentroBox.Location = new System.Drawing.Point(0, 0);
             this.MediocentroBox.Name = "MediocentroBox";
-            this.MediocentroBox.Size = new System.Drawing.Size(76, 119);
-            this.MediocentroBox.TabIndex = 30;
+            this.MediocentroBox.Size = new System.Drawing.Size(100, 50);
+            this.MediocentroBox.TabIndex = 73;
             this.MediocentroBox.TabStop = false;
-            this.MediocentroBox.Click += new System.EventHandler(this.MediocentroBox_Click);
             // 
             // MediocentroIzquierdoBox
             // 
-            this.MediocentroIzquierdoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.MediocentroIzquierdoBox.Location = new System.Drawing.Point(545, 213);
+            this.MediocentroIzquierdoBox.Location = new System.Drawing.Point(0, 0);
             this.MediocentroIzquierdoBox.Name = "MediocentroIzquierdoBox";
-            this.MediocentroIzquierdoBox.Size = new System.Drawing.Size(76, 119);
-            this.MediocentroIzquierdoBox.TabIndex = 29;
+            this.MediocentroIzquierdoBox.Size = new System.Drawing.Size(100, 50);
+            this.MediocentroIzquierdoBox.TabIndex = 74;
             this.MediocentroIzquierdoBox.TabStop = false;
-            this.MediocentroIzquierdoBox.Click += new System.EventHandler(this.MediocentroIzquierdoBox_Click);
             // 
             // ExtremoIzquierdoBox
             // 
-            this.ExtremoIzquierdoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.ExtremoIzquierdoBox.Location = new System.Drawing.Point(498, 55);
+            this.ExtremoIzquierdoBox.Location = new System.Drawing.Point(0, 0);
             this.ExtremoIzquierdoBox.Name = "ExtremoIzquierdoBox";
-            this.ExtremoIzquierdoBox.Size = new System.Drawing.Size(76, 119);
-            this.ExtremoIzquierdoBox.TabIndex = 28;
+            this.ExtremoIzquierdoBox.Size = new System.Drawing.Size(100, 50);
+            this.ExtremoIzquierdoBox.TabIndex = 75;
             this.ExtremoIzquierdoBox.TabStop = false;
-            this.ExtremoIzquierdoBox.Click += new System.EventHandler(this.ExtremoIzquierdoBox_Click);
             // 
             // DelanteroBox
             // 
-            this.DelanteroBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DelanteroBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.DelanteroBox.Location = new System.Drawing.Point(675, 12);
+            this.DelanteroBox.Location = new System.Drawing.Point(0, 0);
             this.DelanteroBox.Name = "DelanteroBox";
-            this.DelanteroBox.Size = new System.Drawing.Size(76, 119);
-            this.DelanteroBox.TabIndex = 28;
+            this.DelanteroBox.Size = new System.Drawing.Size(100, 50);
+            this.DelanteroBox.TabIndex = 76;
             this.DelanteroBox.TabStop = false;
-            this.DelanteroBox.Click += new System.EventHandler(this.delanteroBox_Click);
             // 
             // ExtremoDerechoBox
             // 
-            this.ExtremoDerechoBox.Image = global::TPCampeonatoFutbol.Properties.Resources.kindpng_2162479__1___6_;
-            this.ExtremoDerechoBox.Location = new System.Drawing.Point(837, 55);
+            this.ExtremoDerechoBox.Location = new System.Drawing.Point(0, 0);
             this.ExtremoDerechoBox.Name = "ExtremoDerechoBox";
-            this.ExtremoDerechoBox.Size = new System.Drawing.Size(76, 119);
-            this.ExtremoDerechoBox.TabIndex = 28;
+            this.ExtremoDerechoBox.Size = new System.Drawing.Size(100, 50);
+            this.ExtremoDerechoBox.TabIndex = 77;
             this.ExtremoDerechoBox.TabStop = false;
-            this.ExtremoDerechoBox.Click += new System.EventHandler(this.ExtremoDerechoBox_Click);
             // 
             // cerrarAplicacionBtn
             // 

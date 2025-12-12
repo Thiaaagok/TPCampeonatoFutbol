@@ -10,66 +10,266 @@ namespace TPCampeonatoFutbol
 {
     public partial class MainMDI : Form
     {
-        //readonly UsuarioGlobal UsuarioGlobal = new UsuarioGlobal();
-        private Panel panelNavbar;
+        // ===============================
+        //  VARIABLES
+        // ===============================
+        private Panel panelContainer;
+        private FlowLayoutPanel menuPanel;
+
+        private Button btnDashboard;
+        private Button btnUsuarios;
+        private Button btnConfiguracion;
+        private Button btnSalir;
+        private Button btnToggle;
+
+        private bool colapsado = false;
+
+        // Animación
+        private Timer animacion;
+        private int anchoExpandido = 200;
+        private int anchoColapsado = 35;
+        private int velocidad = 10;
+        private bool expandiendo = false;
+
+        public event EventHandler<string> OnMenuClick;
+
+
+        // ===============================
+        //  CONSTRUCTOR
+        // ===============================
         public MainMDI()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
-            this.StartPosition = FormStartPosition.CenterScreen;    
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(1280, 720);
+
+            animacion = new Timer();
+            animacion.Interval = 10;
+            animacion.Tick += AnimarSidebar;
+
             CrearNavbar();
+            CrearPanelContenido();
         }
 
+
+        private Panel panelContenido;
+
+        private void CrearPanelContenido()
+        {
+            panelContenido = new Panel()
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Color.FromArgb(50, 50, 50)
+            };
+
+            Controls.Add(panelContenido);
+            Controls.SetChildIndex(panelContenido, 0); // Para que quede a la derecha de la navbar
+        }
+
+        private Form formularioActual = null;
+
+        private void AbrirFormulario(Form frm)
+        {
+            if (formularioActual != null)
+                formularioActual.Close();
+
+            formularioActual = frm;
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            panelContenido.Controls.Clear();
+            panelContenido.Controls.Add(frm);
+
+            frm.Show();
+        }
+
+
+        // ===============================
+        //  ANIMACIÓN DEL SIDEBAR
+        // ===============================
+        private void AnimarSidebar(object sender, EventArgs e)
+        {
+            if (expandiendo)
+            {
+                // EXPANDIENDO
+                panelContainer.Width += velocidad;
+
+                if (panelContainer.Width >= anchoExpandido)
+                {
+                    animacion.Stop();
+                    panelContainer.Width = anchoExpandido;
+
+                    MostrarBotones(true);
+                    MostrarTextoMenu(true);
+
+                    colapsado = false;
+                }
+            }
+            else
+            {
+                // COLAPSANDO
+                MostrarTextoMenu(false);
+
+                panelContainer.Width -= velocidad;
+
+                if (panelContainer.Width <= anchoColapsado)
+                {
+                    animacion.Stop();
+                    panelContainer.Width = anchoColapsado;
+
+                    MostrarBotones(false);
+
+                    colapsado = true;
+                }
+            }
+        }
+
+
+        // ===============================
+        //  CREAR NAVBAR
+        // ===============================
         private void CrearNavbar()
         {
-            panelNavbar = new Panel();
-            panelNavbar.BackColor = Color.FromArgb(30, 40, 55); // Color moderno
-            panelNavbar.Dock = DockStyle.Top;
-            panelNavbar.Height = 50;
-            this.Controls.Add(panelNavbar);
+            // Contenedor principal
+            panelContainer = new Panel()
+            {
+                Dock = DockStyle.Left,
+                Width = anchoExpandido,
+                BackColor = Color.FromArgb(30, 30, 30)
+            };
 
-            // Botones según permisos
-            //if (EsRol("DT", "ORGANIZADOR", "ADMIN"))
-            //    CrearBotonNavbar("Equipos", Equipos_Click);
+            // Botón hamburguesa
+            btnToggle = new Button()
+            {
+                Width = 200,
+                Height = 40,
+                FlatStyle = FlatStyle.Flat,
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 11),
+                BackColor = Color.FromArgb(45, 45, 45),
+                FlatAppearance = { BorderSize = 0 },
+                Text = "☰"
+            };
+            btnToggle.Click += ToggleMenu;
 
-            //CrearBotonNavbar("Jugadores", Jugadores_Click);
-            //CrearBotonNavbar("Arbitros", Arbitros_Click);
-            //CrearBotonNavbar("Campeonato", Campeonato_Click);
+            // Panel del menú
+            menuPanel = new FlowLayoutPanel()
+            {
+                Dock = DockStyle.Fill,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                Padding = new Padding(0),
+                BackColor = Color.FromArgb(30, 30, 30)
+            };
 
-            //if (EsRol("ADMIN"))
-            //    CrearBotonNavbar("Usuarios", Usuarios_Click);
+            // Botones del menú
+            btnDashboard = CrearBoton("🏠 Jugadores");
+            btnUsuarios = CrearBoton("👥 Usuarios");
+            btnConfiguracion = CrearBoton("⚙️ Configuración");
+            btnSalir = CrearBoton("🚪 Salir");
 
-            //CrearBotonNavbar("Cerrar Sesión", CerrarSesion_Click);
+            btnDashboard.Click += (s, e) => Seleccionar(btnDashboard);
+            btnUsuarios.Click += (s, e) => Seleccionar(btnUsuarios);
+            btnConfiguracion.Click += (s, e) => Seleccionar(btnConfiguracion);
+            btnSalir.Click += (s, e) => Seleccionar(btnSalir);
+
+            // Construcción
+            panelContainer.Controls.Add(menuPanel);
+            panelContainer.Controls.Add(btnToggle);
+            btnToggle.Dock = DockStyle.Top;
+
+            menuPanel.Controls.Add(btnDashboard);
+            menuPanel.Controls.Add(btnUsuarios);
+            menuPanel.Controls.Add(btnConfiguracion);
+            menuPanel.Controls.Add(btnSalir);
+
+            Controls.Add(panelContainer);
         }
 
-        //private bool EsRol(params string[] rolesPermitidos)
-        //{
-        //    return rolesPermitidos.Contains(UsuarioGlobal.Instancia.Rol);
-        //}
 
-        private void CrearBotonNavbar(string texto, EventHandler eventoClick)
+        // ===============================
+        //  BOTONES Y TEXTOS
+        // ===============================
+        private Button CrearBoton(string texto)
         {
-            Button btn = new Button();
-            btn.Text = texto;
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.BackColor = panelNavbar.BackColor;
-            btn.ForeColor = Color.White;
-            btn.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            btn.Height = panelNavbar.Height;
-            btn.Width = 140;
-            btn.TextAlign = ContentAlignment.MiddleCenter;
-            btn.Dock = DockStyle.Left;
-            btn.Cursor = Cursors.Hand;
-            btn.Click += eventoClick;
-
-            btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(50, 60, 80);
-            btn.MouseLeave += (s, e) => btn.BackColor = panelNavbar.BackColor;
-
-            panelNavbar.Controls.Add(btn);
-            panelNavbar.Controls.SetChildIndex(btn, 0);
+            return new Button()
+            {
+                Text = texto,
+                Width = 200,
+                Height = 40,
+                FlatStyle = FlatStyle.Flat,
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 11),
+                BackColor = Color.FromArgb(30, 30, 30),
+                FlatAppearance = { BorderSize = 0 }
+            };
         }
+
+        private void Seleccionar(Button boton)
+        {
+
+            string destino = boton.Text.Replace("🏠 ", "")
+                                       .Replace("👥 ", "")
+                                       .Replace("⚙️ ", "")
+                                       .Replace("🚪 ", "");
+
+            Navegar(destino);
+        }
+
+        private void Navegar(string destino)
+        {
+            switch (destino)
+            {
+                case "Jugadores":
+                    AbrirFormulario(new FRMJugadores());
+                    break;
+
+                case "Usuarios":
+                    //AbrirFormulario(new FrmUsuarios());
+                    break;
+
+                case "Configuración":
+                    //AbrirFormulario(new FrmConfiguracion());
+                    break;
+
+                case "Salir":
+                    Application.Exit();
+                    break;
+            }
+        }
+
+        private void MostrarBotones(bool mostrar)
+        {
+            btnDashboard.Visible = mostrar;
+            btnUsuarios.Visible = mostrar;
+            btnConfiguracion.Visible = mostrar;
+            btnSalir.Visible = mostrar;
+        }
+
+        private void MostrarTextoMenu(bool mostrar)
+        {
+            btnToggle.Text = mostrar ? "☰ Menu" : "☰";
+            btnDashboard.Text = mostrar ? "🏠 Jugadores" : "🏠";
+            btnUsuarios.Text = mostrar ? "👥 Usuarios" : "👥";
+            btnConfiguracion.Text = mostrar ? "⚙️ Configuración" : "⚙️";
+            btnSalir.Text = mostrar ? "🚪 Salir" : "🚪";
+        }
+
+
+        // ===============================
+        //  TOGGLE SIDEBAR (con animación)
+        // ===============================
+        private void ToggleMenu(object sender, EventArgs e)
+        {
+            expandiendo = colapsado;
+            animacion.Start();
+        }
+
         private void Equipos_Click(object sender, EventArgs e)
         {
             FRMEquipos equipos = new FRMEquipos();
@@ -106,30 +306,6 @@ namespace TPCampeonatoFutbol
             //FRMLogin login = new FRMLogin();
             //login.Show();
             //this.Close();
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
         }
 
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)

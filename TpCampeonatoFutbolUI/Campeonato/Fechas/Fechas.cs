@@ -19,7 +19,7 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
 {
     public partial class Fechas : Form
     {
-        FechasBLL fechasBLL = new FechasBLL();
+        
         private System.Windows.Forms.TabControl tabControl1 = new System.Windows.Forms.TabControl();
         public Fechas()
         {
@@ -38,125 +38,125 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato
 
         public void MostrarFechasEnTabs()
         {
-            List<FechaBE> fechas = fechasBLL.CargarFechasDesdeArchivos();
-            EquiposBLL equiposService = new EquiposBLL();
+            //List<FechaBE> fechas = fechasBLL.CargarFechasDesdeArchivos();
+            //EquiposBLL equiposService = new EquiposBLL();
 
-            tabControl1.TabPages.Clear();
+            //tabControl1.TabPages.Clear();
 
-            int numeroFecha = 1;
+            //int numeroFecha = 1;
 
-            foreach (var fecha in fechas)
-            {
-                var tab = new TabPage($"Fecha {numeroFecha++}");
+            //foreach (var fecha in fechas)
+            //{
+            //    var tab = new TabPage($"Fecha {numeroFecha++}");
                    
-                tab.BackColor = Color.FromArgb(39, 57, 80);
+            //    tab.BackColor = Color.FromArgb(39, 57, 80);
 
-                var flowPanel = new FlowLayoutPanel
-                {
-                    Dock = DockStyle.Fill,
-                    FlowDirection = FlowDirection.TopDown,
-                    WrapContents = false,
-                    AutoScroll = true,
-                    Padding = new Padding(0, 10, 0, 10),
-                    AutoSize = false
+            //    var flowPanel = new FlowLayoutPanel
+            //    {
+            //        Dock = DockStyle.Fill,
+            //        FlowDirection = FlowDirection.TopDown,
+            //        WrapContents = false,
+            //        AutoScroll = true,
+            //        Padding = new Padding(0, 10, 0, 10),
+            //        AutoSize = false
               
-                };
+            //    };
 
-                flowPanel.HorizontalScroll.Maximum = 0;
-                flowPanel.HorizontalScroll.Visible = false;
-                flowPanel.AutoScroll = true;
+            //    flowPanel.HorizontalScroll.Maximum = 0;
+            //    flowPanel.HorizontalScroll.Visible = false;
+            //    flowPanel.AutoScroll = true;
 
-                // Centrar horizontalmente los items
-                flowPanel.ControlAdded += (s, e) =>
-                {
-                    e.Control.Margin = new Padding((flowPanel.Width - e.Control.Width) / 2, 5, 0, 5);
-                    e.Control.Anchor = AnchorStyles.None;
-                };
-
-
-                foreach (var partido in fecha.Partidos)
-                {
-                    string local = equiposService.ObtenerNombrePorId(partido.Local);
-                    string visitante = equiposService.ObtenerNombrePorId(partido.Visitante);
-
-                    PartidosBLL partidosBLL = new PartidosBLL();
-                    PartidoBE partidoResultado = partidosBLL.ObtenerPartidoJugado(partido.Id);
-
-                    Panel partidoPanel = new Panel
-                    {
-                        Width = 600,
-                        Height = 35,
-                        BackColor = Color.White,
-                        Margin = new Padding(5),
-                        BorderStyle = BorderStyle.None
-                    };
-
-                    // Label local
-                    string textLocal;
-                    textLocal = local;
-                    if (partidoResultado != null)
-                    {
-                        textLocal = $"{local} {partidoResultado.GolesLocal}";
-                    }
-                    Label lblLocal = new Label
-                    {
-                        Text = textLocal,
-                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                        AutoSize = false,
-                        Width = 200,
-                        Height = 30,
-                        Location = new Point(10, 5),
-                        TextAlign = ContentAlignment.MiddleLeft
-                    };
-
-                    // Label "c."
-                    Label lblVs = new Label
-                    {
-                        Text = "c.",
-                        Font = new Font("Segoe UI", 10, FontStyle.Regular),
-                        AutoSize = false,
-                        Width = 30,
-                        Height = 30,
-                        Location = new Point((partidoPanel.Width - 30) / 2, 5),
-                        TextAlign = ContentAlignment.MiddleCenter
-                    };
-
-                    // Label visitante
-                    string textVisitante = visitante;
-                    if (partidoResultado != null)
-                    {
-                        textVisitante = $"{partidoResultado.GolesVisitante} {visitante}";
-                    }
-                    Label lblVisitante = new Label
-                    {
-                        Text = textVisitante,
-                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                        AutoSize = false,
-                        Width = 200,
-                        Height = 30,
-                        Location = new Point(partidoPanel.Width - 210, 5),
-                        TextAlign = ContentAlignment.MiddleRight
-                    };
-
-                    if(partidoResultado == null)
-                    {
-                        partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                        lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                        lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                        lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
-                    }
+            //    // Centrar horizontalmente los items
+            //    flowPanel.ControlAdded += (s, e) =>
+            //    {
+            //        e.Control.Margin = new Padding((flowPanel.Width - e.Control.Width) / 2, 5, 0, 5);
+            //        e.Control.Anchor = AnchorStyles.None;
+            //    };
 
 
-                    partidoPanel.Controls.Add(lblLocal);
-                    partidoPanel.Controls.Add(lblVs);
-                    partidoPanel.Controls.Add(lblVisitante);
+            //    foreach (var partido in fecha.Partidos)
+            //    {
+            //        string local = equiposService.ObtenerNombrePorId(partido.Local);
+            //        string visitante = equiposService.ObtenerNombrePorId(partido.Visitante);
 
-                    flowPanel.Controls.Add(partidoPanel);
-                }
+            //        PartidosBLL partidosBLL = new PartidosBLL();
+            //        PartidoBE partidoResultado = partidosBLL.ObtenerPartidoJugado(partido.Id);
 
-                tab.Controls.Add(flowPanel);
-                tabControl1.TabPages.Add(tab);
-            }
+            //        Panel partidoPanel = new Panel
+            //        {
+            //            Width = 600,
+            //            Height = 35,
+            //            BackColor = Color.White,
+            //            Margin = new Padding(5),
+            //            BorderStyle = BorderStyle.None
+            //        };
+
+            //        // Label local
+            //        string textLocal;
+            //        textLocal = local;
+            //        if (partidoResultado != null)
+            //        {
+            //            textLocal = $"{local} {partidoResultado.GolesLocal}";
+            //        }
+            //        Label lblLocal = new Label
+            //        {
+            //            Text = textLocal,
+            //            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            //            AutoSize = false,
+            //            Width = 200,
+            //            Height = 30,
+            //            Location = new Point(10, 5),
+            //            TextAlign = ContentAlignment.MiddleLeft
+            //        };
+
+            //        // Label "c."
+            //        Label lblVs = new Label
+            //        {
+            //            Text = "c.",
+            //            Font = new Font("Segoe UI", 10, FontStyle.Regular),
+            //            AutoSize = false,
+            //            Width = 30,
+            //            Height = 30,
+            //            Location = new Point((partidoPanel.Width - 30) / 2, 5),
+            //            TextAlign = ContentAlignment.MiddleCenter
+            //        };
+
+            //        // Label visitante
+            //        string textVisitante = visitante;
+            //        if (partidoResultado != null)
+            //        {
+            //            textVisitante = $"{partidoResultado.GolesVisitante} {visitante}";
+            //        }
+            //        Label lblVisitante = new Label
+            //        {
+            //            Text = textVisitante,
+            //            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            //            AutoSize = false,
+            //            Width = 200,
+            //            Height = 30,
+            //            Location = new Point(partidoPanel.Width - 210, 5),
+            //            TextAlign = ContentAlignment.MiddleRight
+            //        };
+
+            //        if(partidoResultado == null)
+            //        {
+            //            partidoPanel.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+            //            lblLocal.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+            //            lblVs.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+            //            lblVisitante.Click += (s, e) => AbrirAdministrarPartido(partido.Local, partido.Visitante, partido.Id);
+            //        }
+
+
+            //        partidoPanel.Controls.Add(lblLocal);
+            //        partidoPanel.Controls.Add(lblVs);
+            //        partidoPanel.Controls.Add(lblVisitante);
+
+            //        flowPanel.Controls.Add(partidoPanel);
+            //    }
+
+            //    tab.Controls.Add(flowPanel);
+            //    tabControl1.TabPages.Add(tab);
+            //}
         }
 
         void AbrirAdministrarPartido(Guid idLocal, Guid idVisitante,Guid partidoId)

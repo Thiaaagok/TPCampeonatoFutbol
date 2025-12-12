@@ -128,7 +128,6 @@
             this.crearEquipobtn.TabIndex = 10;
             this.crearEquipobtn.Text = "CREAR EQUIPO";
             this.crearEquipobtn.UseVisualStyleBackColor = true;
-            this.crearEquipobtn.Click += new System.EventHandler(this.crearEquipobtn_Click);
             // 
             // capacidadEstadioNumber
             // 

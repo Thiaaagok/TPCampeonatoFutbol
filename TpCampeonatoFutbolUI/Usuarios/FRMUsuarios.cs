@@ -9,7 +9,7 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1
 {
     public partial class FRMUsuarios : Form
     {
-        UsuariosBLL usuariosBLL = new UsuariosBLL();
+        //UsuariosBLL usuariosBLL = new UsuariosBLL();
         List<UsuarioBE> usuarios = new List<UsuarioBE>();
         public FRMUsuarios()
         {
@@ -84,8 +84,8 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1
 
             try
             {
-                var listaUsuarios = usuariosBLL.ObtenerTodos();
-                usuarios.AddRange(listaUsuarios);
+                //var listaUsuarios = usuariosBLL.ObtenerTodos();
+                //usuarios.AddRange(listaUsuarios);
             }
             catch (Exception ex)
             {

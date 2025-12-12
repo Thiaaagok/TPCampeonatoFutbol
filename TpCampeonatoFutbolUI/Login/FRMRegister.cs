@@ -98,7 +98,7 @@ namespace TPCampeonatoFutbol
         /// <summary>
         /// Crea un nuevo usuario si los datos son válidos.
         /// </summary>
-        private readonly UsuariosBLL usuarioBLL = new UsuariosBLL();
+        //private readonly UsuariosBLL usuarioBLL = new UsuariosBLL();
 
         private void Register()
         {
@@ -106,17 +106,17 @@ namespace TPCampeonatoFutbol
             string contraseniaNueva = Contraseniatxt.Text;
             string repetirContrasenia = repetirContraseniatxt.Text;
 
-            if (usuarioBLL.RegistrarUsuario(usuarioNuevo, contraseniaNueva, repetirContrasenia, out string mensaje, "JUGADOR"))
-            {
-                MessageBox.Show("Usuario creado exitosamente.");
-                this.Hide();
-                FRMLogin login = new FRMLogin();
-                login.Show();
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //if (usuarioBLL.RegistrarUsuario(usuarioNuevo, contraseniaNueva, repetirContrasenia, out string mensaje, "JUGADOR"))
+            //{
+            //    MessageBox.Show("Usuario creado exitosamente.");
+            //    this.Hide();
+            //    FRMLogin login = new FRMLogin();
+            //    login.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }

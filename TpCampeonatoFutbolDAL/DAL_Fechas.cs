@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpCampeonatoFutbolMPP
+namespace TpCampeonatoFutbolDAL
 {
-    public class MPP_Roles
+    public class DAL_Fechas
     {
     }
 }

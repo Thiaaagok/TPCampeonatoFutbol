@@ -28,10 +28,17 @@ namespace TpCampeonatoFutbolBE.Abstracciones
             set { _Apellido = value; }
         }
 
+        private string _Foto;
 
-        private int _Dni;
+        public string Foto
+        {
+            get { return _Foto; }
+            set { _Foto = value; }
+        }
 
-        public int Dni
+        private string _Dni;
+
+        public string Dni
         {
             get { return _Dni; }
             set { _Dni = value; }

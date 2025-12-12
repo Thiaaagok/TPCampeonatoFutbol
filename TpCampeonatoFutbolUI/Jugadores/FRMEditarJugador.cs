@@ -16,7 +16,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
     public partial class FRMEditarJugador : Form
     {
         private JugadorBE jugadorEditar;
-        private readonly JugadoresBLL jugadoresBLL = new JugadoresBLL();
+        //private readonly JugadoresBLL jugadoresBLL = new JugadoresBLL();
 
         public FRMEditarJugador(JugadorBE jugador)
         {
@@ -32,7 +32,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
         {
             nombretxt.Text = jugadorEditar.Nombre;
             apellidotxt.Text = jugadorEditar.Apellido;
-            dniNumeric.Value = jugadorEditar.Dni;
+            //dniNumeric.Value = jugadorEditar.Dni;
             edadNumeric.Value = jugadorEditar.Edad;
             lugarNacimientotxt.Text = jugadorEditar.LugarNacimiento;
             fechaNacimiento.Value = jugadorEditar.FechaNacimiento;
@@ -51,7 +51,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             }
 
             jugadorEditar = new JugadorBE(jugadorEditar.Id, nombretxt.Text, apellidotxt.Text, Convert.ToInt32(edadNumeric.Value), Convert.ToInt32(dniNumeric.Value), fechaNacimiento.Value, lugarNacimientotxt.Text, jugadorEditar.EquipoId, jugadorEditar.Rol);
-            jugadoresBLL.editarJugador(jugadorEditar);
+            //jugadoresBLL.editarJugador(jugadorEditar);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

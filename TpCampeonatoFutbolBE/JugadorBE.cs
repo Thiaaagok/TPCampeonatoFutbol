@@ -33,6 +33,55 @@ namespace TpCampeonatoFutbolBE
             set { _EquipoId = value; }
         }
 
+        private string _EquipoNombre;
+
+        public string EquipoNombre
+        {
+            get { return _EquipoNombre; }
+            set { _EquipoNombre = value; }
+        }
+
+        private Guid _RolId;
+
+        public Guid RolId
+        {
+            get { return _RolId; }
+            set { _RolId = value; }
+        }
+
+        private int _Goles;
+
+        public int Goles
+        {
+            get { return _Goles; }
+            set { _Goles = value; }
+        }
+
+        private int _TarjetasAmarillas;
+
+        public int TarjetasAmarillas
+        {
+            get { return _TarjetasAmarillas; }
+            set { _TarjetasAmarillas = value; }
+        }
+
+        private int _TarjetasRojas;
+
+        public int TarjetasRojas
+        {
+            get { return _TarjetasRojas; }
+            set { _TarjetasRojas = value; }
+        }
+
+        private Decimal _Precio;
+
+        public Decimal Precio
+        {
+            get { return _Precio; }
+            set { _Precio = value; }
+        }
+
+
         public JugadorBE()
         {
             Id = Guid.NewGuid();
@@ -57,6 +106,8 @@ namespace TpCampeonatoFutbolBE
         public string Descripcion { get; set; }
 
         public string Codigo { get; set; }
+
+        public Guid Id { get; set; }
 
         public RolBE()
         {

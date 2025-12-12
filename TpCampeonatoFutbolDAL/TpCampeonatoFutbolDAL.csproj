@@ -44,6 +44,7 @@
     <Compile Include="DAL_Arbitros.cs" />
     <Compile Include="DAL_Equipos.cs" />
     <Compile Include="DAL_EstadisticasCampeonato.cs" />
+    <Compile Include="DAL_Fechas.cs" />
     <Compile Include="DAL_Jugadores.cs" />
     <Compile Include="DAL_Partidos.cs" />
     <Compile Include="DAL_Roles.cs" />

@@ -10,7 +10,7 @@ namespace TPCampeonatoFutbol.Formularios.Arbitros
     public partial class FRMArbitros : Form
     {
         List<ArbitroBE> arbitroBE = new List<ArbitroBE>();
-        ArbitrosBLL arbitrosBLL = new ArbitrosBLL();
+        BLL_Arbitros arbitrosBLL = new BLL_Arbitros();
 
         public FRMArbitros()
         {
@@ -26,8 +26,8 @@ namespace TPCampeonatoFutbol.Formularios.Arbitros
 
             try
             {
-                var listaArbitros = arbitrosBLL.ObtenerTodos();
-                arbitroBE.AddRange(listaArbitros);
+                //var listaArbitros = arbitrosBLL.ObtenerTodos();
+                //arbitroBE.AddRange(listaArbitros);
             }
             catch (Exception ex)
             {

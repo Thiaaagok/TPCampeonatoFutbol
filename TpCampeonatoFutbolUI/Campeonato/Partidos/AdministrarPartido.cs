@@ -47,13 +47,13 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
         }
         private void obtenerEquiposPartido(Guid localId, Guid visitanteId)
         {
-            var servicio = new EquiposBLL();
-            EquipoBE equipoLocal = servicio.ObtenerEquipoPorId(localId);
-            EquipoBE equipoVisitante = servicio.ObtenerEquipoPorId(visitanteId);
-            equipos.Add(equipoLocal);
-            equipos.Add(equipoVisitante);
-            nombreCortoLocal.Text = equipoLocal.NombreCorto;
-            nombreCortoVisitante.Text = equipoVisitante.NombreCorto;
+            //var servicio = new EquiposBLL();
+            //EquipoBE equipoLocal = servicio.ObtenerEquipoPorId(localId);
+            //EquipoBE equipoVisitante = servicio.ObtenerEquipoPorId(visitanteId);
+            //equipos.Add(equipoLocal);
+            //equipos.Add(equipoVisitante);
+            //nombreCortoLocal.Text = equipoLocal.NombreCorto;
+            //nombreCortoVisitante.Text = equipoVisitante.NombreCorto;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -220,10 +220,10 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
 
         private void registrarPartidoBtn_Click(object sender, EventArgs e)
         {
-            PartidosBLL partidoService = new PartidosBLL();
-            EquiposBLL equiposService = new EquiposBLL();
-            partidoService.RegistrarGoles(Goles);
-            partidoService.RegistrarExpulsiones(Expulsiones);
+            //PartidosBLL partidoService = new PartidosBLL();
+            //EquiposBLL equiposService = new EquiposBLL();
+            //partidoService.RegistrarGoles(Goles);
+            //partidoService.RegistrarExpulsiones(Expulsiones);
             int golesLocal = Goles.Count(g => g.EquipoId == equipoLocalId);
             int golesVisitante = Goles.Count(g => g.EquipoId == equipoVisitanteId);
             //int expulsionesLocal = Expulsiones.Count(exp => exp.EquipoId == equipoLocalId);

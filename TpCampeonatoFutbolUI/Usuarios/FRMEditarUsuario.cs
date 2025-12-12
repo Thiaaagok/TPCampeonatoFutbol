@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TpCampeonatoFubolBLL;
-using TPCampeonatoFutbol.Modelos;
 using TPCampeonatoFutbol.Servicios;
 using TPCampeonatoFutbol.Servicios.Interfaces;
 using TpCampeonatoFutbolBE;
@@ -19,7 +18,7 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios
     {
         UsuarioBE usuarioBE = new UsuarioBE();
         private UsuarioBE usuarioEditar;
-        private readonly UsuariosBLL usuariosBLL = new UsuariosBLL();
+        //private readonly UsuariosBLL usuariosBLL = new UsuariosBLL();
         public FRMEditarUsuario(UsuarioBE usuario)
         {
             InitializeComponent();
@@ -52,7 +51,7 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios
             }
 
             usuarioEditar = new UsuarioBE(usuarioEditar.Id, usuarioEditar.UsuarioNombre, usuarioEditar.Contrasenia, comboRol.Text, true);
-            usuariosBLL.editarUsuario(usuarioEditar);
+            //usuariosBLL.editarUsuario(usuarioEditar);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

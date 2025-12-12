@@ -28,7 +28,7 @@ namespace TpCampeonatoFutbolDAL
             return _db.Leer(query, null, true);
         }
 
-        public bool CrearEquipo(Guid id, int anioFundacion, int capacidadEstadio, string ciudad, string estadio, )
+        public bool CrearEquipo(Guid id, int anioFundacion, int capacidadEstadio, string ciudad, string estadio)
         {
             string query = "SP_CrearEquipo";
 

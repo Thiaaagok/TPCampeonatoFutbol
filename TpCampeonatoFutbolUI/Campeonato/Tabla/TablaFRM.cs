@@ -17,7 +17,6 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
     {
         //List<TablaPosicionDTO> tablaPosicionDTOs = new List<TablaPosicionDTO>();
         List<EquipoBE> equipos = new List<EquipoBE>();
-        EquiposBLL equiposBLL = new EquiposBLL();
         List<EstadisticasCampeonatoBE> estadisticasCampeonatoBE = new List<EstadisticasCampeonatoBE>();
         public TablaFRM()
         {
@@ -37,8 +36,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
 
             try
             {
-                var listaEquipos = equiposBLL.ObtenerTodos();
-                equipos.AddRange(listaEquipos);
+                //var listaEquipos = equiposBLL.ObtenerTodos();
+                //equipos.AddRange(listaEquipos);
             }
             catch (Exception ex)
             {
@@ -52,8 +51,8 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Tabla
 
             try
             {
-                var listaEstaditica = equiposBLL.ObtenerEstadisticasCampeonato();
-                estadisticasCampeonatoBE.AddRange(listaEstaditica);
+                //var listaEstaditica = equiposBLL.ObtenerEstadisticasCampeonato();
+                //estadisticasCampeonatoBE.AddRange(listaEstaditica);
             }
             catch (Exception ex)
             {

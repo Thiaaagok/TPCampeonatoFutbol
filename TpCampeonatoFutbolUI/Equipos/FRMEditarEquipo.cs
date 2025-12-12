@@ -18,16 +18,16 @@ namespace TPCampeonatoFutbol.Formularios.equipos
     {
         private EquipoBE equipoOriginal = new EquipoBE();
         public EquipoBE equipoEditado { get; private set; }
-        public EquiposBLL equiposBLL { get; private set; }
-        public JugadoresBLL jugadoresBLL { get; private set; }
+        //public EquiposBLL equiposBLL { get; private set; }
+        //public JugadoresBLL jugadoresBLL { get; private set; }
 
         public FRMEditarEquipo(EquipoBE equipo)
         {
             InitializeComponent();
             equipoOriginal = equipo;
 
-            jugadoresBLL = new JugadoresBLL();
-            equiposBLL = new EquiposBLL();
+            //jugadoresBLL = new JugadoresBLL();
+            //equiposBLL = new EquiposBLL();
 
             // Cargar datos en los controles
             nombretxt.Text = equipo.Nombre;
@@ -64,7 +64,7 @@ namespace TPCampeonatoFutbol.Formularios.equipos
                 (int)anioFundacionNumber.Value
             );
 
-            equiposBLL.editarEquipo(equipoEditado);
+            //equiposBLL.editarEquipo(equipoEditado);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -75,32 +75,32 @@ namespace TPCampeonatoFutbol.Formularios.equipos
 
             try
             {
-                List<JugadorBE> jugadores = jugadoresBLL.ObtenerPorEquipoId(equipoOriginal.Id);
+                //List<JugadorBE> jugadores = jugadoresBLL.ObtenerPorEquipoId(equipoOriginal.Id);
 
-                foreach (var jugador in jugadores)
-                {
-                    var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
-                    var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
+                //foreach (var jugador in jugadores)
+                //{
+                //    var box = this.Controls.Find(jugador.Rol.Codigo + "Box", true).FirstOrDefault();
+                //    var label = this.Controls.Find(jugador.Rol.Codigo + "Label", true).FirstOrDefault();
 
-                    if (box is PictureBox picturebox)
-                    {
-                        Util util = new Util();
-                        util.RemoverEventosClick(picturebox);
-                        picturebox.Image = Properties.Resources.imagenJugador;
-                        picturebox.Click += (sender, e) =>
-                        {
-                            editarJugador(jugador);
-                        };
-                    }
+                //    if (box is PictureBox picturebox)
+                //    {
+                //        Util util = new Util();
+                //        util.RemoverEventosClick(picturebox);
+                //        picturebox.Image = Properties.Resources.imagenJugador;
+                //        picturebox.Click += (sender, e) =>
+                //        {
+                //            editarJugador(jugador);
+                //        };
+                //    }
 
-                    if (label is Label labelControl)
-                    {
-                        labelControl.Text = $"{jugador.Nombre}";
-                        labelControl.TextAlign = ContentAlignment.TopRight;
-                    }
+                //    if (label is Label labelControl)
+                //    {
+                //        labelControl.Text = $"{jugador.Nombre}";
+                //        labelControl.TextAlign = ContentAlignment.TopRight;
+                //    }
 
-                    equipoOriginal.Jugadores.Add(jugador);
-                }
+                //    equipoOriginal.Jugadores.Add(jugador);
+                //}
             }
             catch (Exception ex)
             {

@@ -44,6 +44,7 @@
     <Compile Include="BLL_Arbitros.cs" />
     <Compile Include="BLL_Equipos.cs" />
     <Compile Include="BLL_EstadisticasCampeonato.cs" />
+    <Compile Include="BLL_Fechas.cs" />
     <Compile Include="BLL_Jugadores.cs" />
     <Compile Include="BLL_Partidos.cs" />
     <Compile Include="BLL_Roles.cs" />

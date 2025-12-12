@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TpCampeonatoFutbolMPP
 {
-    internal class MPP_EstadisticasCampeonato
+    public class MPP_EstadisticasCampeonato
     {
     }
 }

@@ -15,7 +15,7 @@ namespace TPCampeonatoFutbol.Formularios.Arbitros
 {
     public partial class FRMCrearArbitro : Form
     {
-        ArbitrosBLL arbitrosBLL = new ArbitrosBLL();
+        BLL_Arbitros BLL_Arbitros = new BLL_Arbitros();
         public FRMCrearArbitro()
         {
             InitializeComponent();
@@ -34,29 +34,29 @@ namespace TPCampeonatoFutbol.Formularios.Arbitros
 
         private void crearArbitroBtn_Click(object sender, EventArgs e)
         {
-            string mensaje;
-            ArbitroBE arbitro;
+            //string mensaje;
+            //ArbitroBE arbitro;
 
-            bool creado = arbitrosBLL.CrearArbitro(
-                nombretxt.Text,
-                apellidotxt.Text,
-                Convert.ToInt32(edadNumeric.Value),
-                Convert.ToInt32(dniNumeric.Value),
-                fechaNacimiento.Value,
-                lugarNacimientotxt.Text,
-                out mensaje,
-                out arbitro
-            );
+            //bool creado = arbitrosBLL.CrearArbitro(
+            //    nombretxt.Text,
+            //    apellidotxt.Text,
+            //    Convert.ToInt32(edadNumeric.Value),
+            //    Convert.ToInt32(dniNumeric.Value),
+            //    fechaNacimiento.Value,
+            //    lugarNacimientotxt.Text,
+            //    out mensaje,
+            //    out arbitro
+            //);
 
-            if (!creado)
-            {
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (!creado)
+            //{
+            //    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            NuevoArbitro = arbitro;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            //NuevoArbitro = arbitro;
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
         }
     }
 }

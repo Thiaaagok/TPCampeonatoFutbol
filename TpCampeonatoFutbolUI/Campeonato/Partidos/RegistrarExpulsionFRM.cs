@@ -15,7 +15,6 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
 {
     public partial class RegistrarExpulsionFRM : Form
     {
-        public JugadoresBLL jugadoresBLL = new JugadoresBLL();
         public Guid partidoId = Guid.Empty;
         int minutos = 0;
         public ExpulsionBE ExpulsionCreada { get; private set; }
@@ -34,11 +33,11 @@ namespace TPCampeonatoFutbol.Formularios.Campeonato.Partidos
 
         public void obtenerJugadoresCombo(Guid equipoId)
         {
-            jugadoresCombo.DataSource = jugadoresBLL.ObtenerPorEquipoId(equipoId);
-            jugadoresCombo.DisplayMember = "Nombre";
-            jugadoresCombo.ValueMember = "Id";
-            jugadoresCombo.SelectedIndex = -1;
-            jugadoresCombo.Text = "";
+            //jugadoresCombo.DataSource = jugadoresBLL.ObtenerPorEquipoId(equipoId);
+            //jugadoresCombo.DisplayMember = "Nombre";
+            //jugadoresCombo.ValueMember = "Id";
+            //jugadoresCombo.SelectedIndex = -1;
+            //jugadoresCombo.Text = "";
         }
 
         private void equiposCombo_SelectedIndexChanged(object sender, EventArgs e)

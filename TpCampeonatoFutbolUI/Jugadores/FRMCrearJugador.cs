@@ -17,7 +17,7 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
     {
         EquipoBE equipoBE = new EquipoBE();
         RolBE rolSeleccionado = new RolBE();
-        private readonly JugadoresBLL jugadoresBLL = new JugadoresBLL();
+        //private readonly JugadoresBLL jugadoresBLL = new JugadoresBLL();
         public FRMCrearJugador(EquipoBE equipoBE,string rolDescripcion)
         {
             InitializeComponent();
@@ -36,26 +36,26 @@ namespace TPCampeonatoFutbol.Formularios.jugadores
             string mensaje;
             JugadorBE jugador;
 
-            bool creado = jugadoresBLL.CrearJugador(
-                nombretxt.Text,
-                apellidotxt.Text,
-                Convert.ToInt32(edadNumeric.Value),
-                Convert.ToInt32(dniNumeric.Value),
-                fechaNacimiento.Value,
-                lugarNacimientotxt.Text,
-                equipoBE.Id,
-                rolSeleccionado,
-                out mensaje,
-                out jugador
-            );
+            //bool creado = jugadoresBLL.CrearJugador(
+            //    nombretxt.Text,
+            //    apellidotxt.Text,
+            //    Convert.ToInt32(edadNumeric.Value),
+            //    Convert.ToInt32(dniNumeric.Value),
+            //    fechaNacimiento.Value,
+            //    lugarNacimientotxt.Text,
+            //    equipoBE.Id,
+            //    rolSeleccionado,
+            //    out mensaje,
+            //    out jugador
+            //);
 
-            if (!creado)
-            {
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (!creado)
+            //{
+            //    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            NuevoJugador = jugador;
+            //NuevoJugador = jugador;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

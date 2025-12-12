@@ -22,7 +22,7 @@ namespace TpCampeonatoFutbolBE
         {
             Id = Guid.NewGuid();
         }
-        public ArbitroBE(Guid id, string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento)
+        public ArbitroBE(Guid id, string nombre, string apellido, int edad, string dni, DateTime fechaNacimiento, string lugarNacimiento)
         {
             if (id == null)
             {

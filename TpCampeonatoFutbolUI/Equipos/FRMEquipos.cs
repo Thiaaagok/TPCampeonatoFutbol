@@ -11,7 +11,7 @@ namespace TPCampeonatoFutbol
     public partial class FRMEquipos : Form
     {
         List<EquipoBE> equipos = new List<EquipoBE>();
-        private readonly EquiposBLL equiposBLL = new EquiposBLL();
+        //private readonly EquiposBLL equiposBLL = new EquiposBLL();
         public FRMEquipos()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace TPCampeonatoFutbol
 
             try
             {
-                var listaEquipos = equiposBLL.ObtenerTodos();
-                equipos.AddRange(listaEquipos);
+                //var listaEquipos = equiposBLL.ObtenerTodos();
+                //equipos.AddRange(listaEquipos);
             }
             catch (Exception ex)
             {
