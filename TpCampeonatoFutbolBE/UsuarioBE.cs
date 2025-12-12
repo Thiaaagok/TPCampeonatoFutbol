@@ -32,12 +32,12 @@ namespace TpCampeonatoFutbolBE
             set { _Contrasenia = value; }
         }
 
-        private string _rol;
+        private RolUsuarioBE _Rol;
 
-        public string Rol
+        public RolUsuarioBE Rol
         {
-            get { return _rol; }
-            set { _rol = value; }
+            get { return _Rol; }
+            set { _Rol = value; }
         }
 
         private bool _Activo;
@@ -53,12 +53,12 @@ namespace TpCampeonatoFutbolBE
             
         }
 
-        public UsuarioBE(Guid id, string usuarioNombre, byte[] contrasenia, string rol, bool activo)
+        public UsuarioBE(Guid id, string usuarioNombre, byte[] contrasenia, bool activo)
         {
             Id = id;
             UsuarioNombre = usuarioNombre;
             Contrasenia= contrasenia;
-            Rol = rol;
+ 
             Activo = activo;
 
         }

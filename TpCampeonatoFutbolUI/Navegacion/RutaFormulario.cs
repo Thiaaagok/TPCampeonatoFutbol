@@ -11,6 +11,14 @@ namespace TpCampeonatoFutbolUI.Navegacion
         Jugadores,
         PresentacionJugador,
         Usuarios,
+        CrearUsuario,
+        EditarUsuario,
+        RolesUsuario,
+        CrearRolUsuario,
+        EditarRolUsuario,
+        Permisos,
+        CrearPermiso,
+        EditarPermiso,
         Configuracion,
         Salir
     }

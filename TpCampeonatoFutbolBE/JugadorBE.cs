@@ -17,9 +17,9 @@ namespace TpCampeonatoFutbolBE
             set { _Id = value; }
         }
 
-        private RolBE _Rol;
+        private RolJugadorBE _Rol;
 
-        public RolBE Rol
+        public RolJugadorBE Rol
         {
             get { return _Rol; }
             set { _Rol = value; }
@@ -86,7 +86,7 @@ namespace TpCampeonatoFutbolBE
         {
             Id = Guid.NewGuid();
         }
-        public JugadorBE(Guid id, string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, Guid equipoId, RolBE rol)
+        public JugadorBE(Guid id, string nombre, string apellido, int edad, int dni, DateTime fechaNacimiento, string lugarNacimiento, Guid equipoId, RolJugadorBE rol)
         {
             if (id == null)
             {
@@ -101,7 +101,7 @@ namespace TpCampeonatoFutbolBE
         }
     }
 
-    public class RolBE
+    public class RolJugadorBE
     {
         public string Descripcion { get; set; }
 
@@ -109,37 +109,37 @@ namespace TpCampeonatoFutbolBE
 
         public Guid Id { get; set; }
 
-        public RolBE()
+        public RolJugadorBE()
         {
 
         }
 
-        public RolBE(string descripcion, string codigo)
+        public RolJugadorBE(string descripcion, string codigo)
         {
             Descripcion = descripcion;
             Codigo = codigo;
         }
 
-        public static List<RolBE> ObtenerRoles()
+        public static List<RolJugadorBE> ObtenerRoles()
         {
-            return new List<RolBE>
+            return new List<RolJugadorBE>
             {
-                new RolBE("Delantero", "Delantero"),
-                new RolBE("Extremo Izquierdo", "ExtremoIzquierdo"),
-                new RolBE("Extremo Derecho", "ExtremoDerecho"),
-                new RolBE("Medio Centro Izquierdo", "MediocentroIzquierdo"),
-                new RolBE("Mediocentro", "Mediocentro"),
-                new RolBE("Medio Centro Derecho", "MediocentroDerecho"),
-                new RolBE("Lateral Izquierdo", "LateralIzquierdo"),
-                new RolBE("Defensa Central Izquierdo", "DefensacentralIzquierdo"),
-                new RolBE("Defensa Central Derecho", "DefensacentralDerecho"),
-                new RolBE("Lateral Derecho", "LateralDerecho"),
-                new RolBE("Arquero", "Arquero"),
-                new RolBE("Suplente 1", "Suplente1"),
-                new RolBE("Suplente 2", "Suplente2"),
-                new RolBE("Suplente 3", "Suplente3"),
-                new RolBE("Suplente 4", "Suplente4"),
-                new RolBE("Suplente 5", "Suplente5"),
+                new RolJugadorBE("Delantero", "Delantero"),
+                new RolJugadorBE("Extremo Izquierdo", "ExtremoIzquierdo"),
+                new RolJugadorBE("Extremo Derecho", "ExtremoDerecho"),
+                new RolJugadorBE("Medio Centro Izquierdo", "MediocentroIzquierdo"),
+                new RolJugadorBE("Mediocentro", "Mediocentro"),
+                new RolJugadorBE("Medio Centro Derecho", "MediocentroDerecho"),
+                new RolJugadorBE("Lateral Izquierdo", "LateralIzquierdo"),
+                new RolJugadorBE("Defensa Central Izquierdo", "DefensacentralIzquierdo"),
+                new RolJugadorBE("Defensa Central Derecho", "DefensacentralDerecho"),
+                new RolJugadorBE("Lateral Derecho", "LateralDerecho"),
+                new RolJugadorBE("Arquero", "Arquero"),
+                new RolJugadorBE("Suplente 1", "Suplente1"),
+                new RolJugadorBE("Suplente 2", "Suplente2"),
+                new RolJugadorBE("Suplente 3", "Suplente3"),
+                new RolJugadorBE("Suplente 4", "Suplente4"),
+                new RolJugadorBE("Suplente 5", "Suplente5"),
             };
         }
 

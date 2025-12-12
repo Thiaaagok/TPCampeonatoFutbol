@@ -65,6 +65,7 @@
             this.comboRol.Name = "comboRol";
             this.comboRol.Size = new System.Drawing.Size(138, 21);
             this.comboRol.TabIndex = 2;
+            this.comboRol.SelectedIndexChanged += new System.EventHandler(this.comboRol_SelectedIndexChanged);
             // 
             // nombreUsuarioTxt
             // 

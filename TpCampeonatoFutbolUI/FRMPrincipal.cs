@@ -283,10 +283,5 @@ namespace TPCampeonatoFutbol
             //login.Show();
             //this.Close();
         }
-
-        private void FRMPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

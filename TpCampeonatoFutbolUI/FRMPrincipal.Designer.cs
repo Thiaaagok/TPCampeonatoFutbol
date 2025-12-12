@@ -126,7 +126,6 @@
             this.Controls.Add(this.statusStrip);
             this.Name = "FRMPrincipal";
             this.Text = "MainMDI";
-            this.Load += new System.EventHandler(this.FRMPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

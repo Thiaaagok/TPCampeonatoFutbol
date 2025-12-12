@@ -56,5 +56,10 @@ namespace TPCampeonatoFutbol.Formularios.Usuarios
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void comboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol;
-using TpCampeonatoFutbolUI.Alertas;
+using TpCampeonatoFutbolMEN.Alertas;
 
 namespace TpCampeonatoFutbolUI
 {
