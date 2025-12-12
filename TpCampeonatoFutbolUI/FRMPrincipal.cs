@@ -5,14 +5,15 @@ using TPCampeonatoFutbol.Formularios.Arbitros;
 using TPCampeonatoFutbol.Formularios.Campeonato;
 using TPCampeonatoFutbol.Formularios.Jugadores;
 using TPCampeonatoFutbol.Formularios.Usuarios.NewFolder1;
+using TpCampeonatoFutbolUI;
+using TpCampeonatoFutbolUI.Navegacion;
 
 namespace TPCampeonatoFutbol
 {
-    public partial class MainMDI : Form
+    public partial class FRMPrincipal : Form
     {
-        // ===============================
-        //  VARIABLES
-        // ===============================
+        private ManejoFormularios manejador;
+
         private Panel panelContainer;
         private FlowLayoutPanel menuPanel;
 
@@ -37,9 +38,14 @@ namespace TPCampeonatoFutbol
         // ===============================
         //  CONSTRUCTOR
         // ===============================
-        public MainMDI()
+        public FRMPrincipal()
         {
             InitializeComponent();
+            manejador = new ManejoFormularios();
+
+            // Suscribir el método que se ejecutará cuando cualquier form pida navegar
+            NavegacionService.Instance.Navegar = CambiarFormulario;
+
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(39, 57, 80);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -66,24 +72,6 @@ namespace TPCampeonatoFutbol
 
             Controls.Add(panelContenido);
             Controls.SetChildIndex(panelContenido, 0); // Para que quede a la derecha de la navbar
-        }
-
-        private Form formularioActual = null;
-
-        private void AbrirFormulario(Form frm)
-        {
-            if (formularioActual != null)
-                formularioActual.Close();
-
-            formularioActual = frm;
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            panelContenido.Controls.Clear();
-            panelContenido.Controls.Add(frm);
-
-            frm.Show();
         }
 
 
@@ -166,16 +154,17 @@ namespace TPCampeonatoFutbol
                 BackColor = Color.FromArgb(30, 30, 30)
             };
 
-            // Botones del menú
-            btnDashboard = CrearBoton("🏠 Jugadores");
-            btnUsuarios = CrearBoton("👥 Usuarios");
-            btnConfiguracion = CrearBoton("⚙️ Configuración");
-            btnSalir = CrearBoton("🚪 Salir");
+            // Crear botones con RUTA ASIGNADA
+            btnDashboard = CrearBoton("🏠 Jugadores", RutaFormulario.Jugadores);
+            btnUsuarios = CrearBoton("👥 Usuarios", RutaFormulario.Usuarios);
+            btnConfiguracion = CrearBoton("⚙️ Configuración", RutaFormulario.Configuracion);
+            btnSalir = CrearBoton("🚪 Salir", RutaFormulario.Salir);
 
-            btnDashboard.Click += (s, e) => Seleccionar(btnDashboard);
-            btnUsuarios.Click += (s, e) => Seleccionar(btnUsuarios);
-            btnConfiguracion.Click += (s, e) => Seleccionar(btnConfiguracion);
-            btnSalir.Click += (s, e) => Seleccionar(btnSalir);
+            // Evento único para todos
+            btnDashboard.Click += BotonNavegacion_Click;
+            btnUsuarios.Click += BotonNavegacion_Click;
+            btnConfiguracion.Click += BotonNavegacion_Click;
+            btnSalir.Click += BotonNavegacion_Click;
 
             // Construcción
             panelContainer.Controls.Add(menuPanel);
@@ -194,11 +183,12 @@ namespace TPCampeonatoFutbol
         // ===============================
         //  BOTONES Y TEXTOS
         // ===============================
-        private Button CrearBoton(string texto)
+        private Button CrearBoton(string texto, RutaFormulario ruta)
         {
-            return new Button()
+            Button boton = new Button()
             {
                 Text = texto,
+                Tag = ruta, 
                 Width = 200,
                 Height = 40,
                 FlatStyle = FlatStyle.Flat,
@@ -208,39 +198,25 @@ namespace TPCampeonatoFutbol
                 BackColor = Color.FromArgb(30, 30, 30),
                 FlatAppearance = { BorderSize = 0 }
             };
+
+            return boton;
+        }
+
+        private void BotonNavegacion_Click(object sender, EventArgs e)
+        {
+            Seleccionar((Button)sender);
         }
 
         private void Seleccionar(Button boton)
         {
-
-            string destino = boton.Text.Replace("🏠 ", "")
-                                       .Replace("👥 ", "")
-                                       .Replace("⚙️ ", "")
-                                       .Replace("🚪 ", "");
-
-            Navegar(destino);
+            var ruta = (RutaFormulario)boton.Tag;
+            NavegacionService.Instance.Navegar(ruta, null);
         }
 
-        private void Navegar(string destino)
+        private void CambiarFormulario(RutaFormulario ruta, object parametro)
         {
-            switch (destino)
-            {
-                case "Jugadores":
-                    AbrirFormulario(new FRMJugadores());
-                    break;
-
-                case "Usuarios":
-                    //AbrirFormulario(new FrmUsuarios());
-                    break;
-
-                case "Configuración":
-                    //AbrirFormulario(new FrmConfiguracion());
-                    break;
-
-                case "Salir":
-                    Application.Exit();
-                    break;
-            }
+            Form frm = FormRouter.ObtenerFormulario(ruta, parametro);
+            manejador.AbrirFormulario(panelContenido, frm);
         }
 
         private void MostrarBotones(bool mostrar)
@@ -308,60 +284,7 @@ namespace TPCampeonatoFutbol
             //this.Close();
         }
 
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
-        }
-
-        private void equiposToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            //if(UsuarioGlobal.Instancia.Rol == "DT" || UsuarioGlobal.Instancia.Rol == "ORGANIZADOR" || UsuarioGlobal.Instancia.Rol == "ADMIN")
-            //{
-            //    FRMEquipos equipos = new FRMEquipos();
-            //    equipos.Show();
-            //}
-        }
-
-        private void campeonatoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Campeonato campeonato = new Campeonato();
-            campeonato.Show();
-        }
-
-        private void jugadoresToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-           FRMJugadores jugadores = new FRMJugadores();
-           jugadores.Show();
-        }
-
-        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //UsuarioGlobal usuarioGlobal = new UsuarioGlobal();
-            //usuarioGlobal.CerrarSesion();
-            //FRMLogin usuarioLogin = new FRMLogin();
-            //foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
-            //{
-            //    if (form != usuarioLogin)
-            //    {
-            //        form.Close();
-            //    }
-            //}
-            //usuarioLogin.Show();
-        }
-
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //if (UsuarioGlobal.Instancia.Rol == "ADMIN")
-            //{
-            //    FRMUsuarios fRMUsuarios = new FRMUsuarios();
-            //    fRMUsuarios.Show();
-            //}
-        }
-
-        private void MainMDI_Load(object sender, EventArgs e)
+        private void FRMPrincipal_Load(object sender, EventArgs e)
         {
 
         }

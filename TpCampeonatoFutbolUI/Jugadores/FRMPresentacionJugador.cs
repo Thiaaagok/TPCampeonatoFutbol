@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TpCampeonatoFubolBLL;
 using TpCampeonatoFutbolBE;
+using TpCampeonatoFutbolUI.Navegacion;
 
 namespace TpCampeonatoFutbolUI.Jugadores
 {
@@ -33,9 +34,10 @@ namespace TpCampeonatoFutbolUI.Jugadores
             AmarillasLabel.Text = $"{jugadorPresentar.Goles}";
             RojasLabel.Text = $"{jugadorPresentar.Goles}";
         }
-        private void FRMPresentacionJugador_Load(object sender, EventArgs e)
-        {
 
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            NavegacionService.Instance.Navegar(RutaFormulario.Jugadores, null);
         }
     }
 }

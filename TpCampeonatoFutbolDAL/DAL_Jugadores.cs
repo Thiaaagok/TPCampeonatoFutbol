@@ -13,7 +13,7 @@ namespace TpCampeonatoFutbolDAL
 
         public DataTable ObtenerJugadorPorId(Guid id)
         {
-            string query = "SP_ObtenerArbitroPorId";
+            string query = "SP_ObtenerJugadorPorId";
             Dictionary<string, object> parametros = new Dictionary<string, object>()
             {
                 { "@Id", id }
@@ -49,7 +49,7 @@ namespace TpCampeonatoFutbolDAL
 
         public bool EliminarJugador(string id)
         {
-            string query = "SP_EliminarArbitro";
+            string query = "SP_EliminarJugador";
 
             var parametros = new Dictionary<string, object>()
             {
@@ -59,9 +59,9 @@ namespace TpCampeonatoFutbolDAL
             return _db.Escribir(query, parametros, true);
         }
 
-        public bool EditarJugador(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
+        public bool EditarDatosPersonalesJugador(string id, string nombre, string apellido, string dni, int edad, DateTime fechaNacimiento, string lugarNacimiento)
         {
-            string query = "SP_EditarArbitro";
+            string query = "SP_EditarDatosPersonalesJugador";
 
             var parametros = new Dictionary<string, object>()
             {
@@ -69,9 +69,9 @@ namespace TpCampeonatoFutbolDAL
                 { "@Nombre", nombre },
                 { "@Apellido", apellido },
                 { "@DNI", dni },
-                { "Edad", edad },
-                { "FechaNacimiento", fechaNacimiento },
-                { "LugarNacimiento", lugarNacimiento }
+                { "@Edad", edad },
+                { "@FechaNacimiento", fechaNacimiento },
+                { "@LugarNacimiento", lugarNacimiento }
             };
 
             return _db.Escribir(query, parametros, true);

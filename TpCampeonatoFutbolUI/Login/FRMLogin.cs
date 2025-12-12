@@ -99,7 +99,7 @@ namespace TPCampeonatoFutbol
 
         private void Login()
         {
-            MainMDI home = new MainMDI();
+            FRMPrincipal home = new FRMPrincipal();
             home.Show();
             try
             {

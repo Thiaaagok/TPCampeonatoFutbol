@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security;
-using System.Security.Cryptography;
 
 namespace TpCampeonatoFutbolSEG
 {
-    public class contraseñaSeguridad
+    public class Contraseñas
     {
         public static byte[] Encriptar(string texto)
         {
@@ -18,7 +17,7 @@ namespace TpCampeonatoFutbolSEG
 
         public static string Desencriptar(byte[] cifrado)
         {
-            byte[] datos = ProtectedData.Unprotect(cifrado,null, DataProtectionScope.CurrentUser);
+            byte[] datos = ProtectedData.Unprotect(cifrado, null, DataProtectionScope.CurrentUser);
             return Encoding.UTF8.GetString(datos);
 
         }

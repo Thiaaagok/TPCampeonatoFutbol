@@ -1,6 +1,6 @@
 ﻿namespace TPCampeonatoFutbol
 {
-    partial class MainMDI
+    partial class FRMPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -117,16 +117,16 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // MainMDI
+            // FRMPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(983, 483);
             this.Controls.Add(this.statusStrip);
-            this.Name = "MainMDI";
+            this.Name = "FRMPrincipal";
             this.Text = "MainMDI";
-            this.Load += new System.EventHandler(this.MainMDI_Load);
+            this.Load += new System.EventHandler(this.FRMPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

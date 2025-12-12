@@ -15,6 +15,8 @@ using TPCampeonatoFutbol.Formularios.equipos;
 using TPCampeonatoFutbol.Formularios.jugadores;
 using TPCampeonatoFutbol.Servicios;
 using TpCampeonatoFutbolBE;
+using TpCampeonatoFutbolUI;
+using TpCampeonatoFutbolUI.Navegacion;
 
 namespace TPCampeonatoFutbol.Formularios.Jugadores
 {
@@ -129,24 +131,17 @@ namespace TPCampeonatoFutbol.Formularios.Jugadores
                 if (e.RowIndex < 0)
                     return;
 
-                // Obtener el jugador correcto según la fila
                 var jugadorSeleccionado = jugadoresOriginal[e.RowIndex];
-
-                FRMEditarJugador editarJugadorForm = new FRMEditarJugador(jugadorSeleccionado);
-
-                if (editarJugadorForm.ShowDialog() == DialogResult.OK)
-                {
-                    ObtenerJugadores(); // Recarga base de datos
-                    dataGridViewJugadores.DataSource = null;
-                    dataGridViewJugadores.DataSource = jugadoresOriginal;
-                }
+                NavegacionService.Instance.Navegar(
+                    RutaFormulario.PresentacionJugador,
+                    jugadorSeleccionado.Id
+                );
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}", "ERROR", MessageBoxButtons.OK);
             }
         }
-
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {

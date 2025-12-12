@@ -40,6 +40,7 @@
             this.RojasLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.precioJugadorLabel = new System.Windows.Forms.Label();
+            this.volverBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -50,7 +51,7 @@
             // 
             this.nombreJugadorLabel.AutoSize = true;
             this.nombreJugadorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreJugadorLabel.Location = new System.Drawing.Point(365, 12);
+            this.nombreJugadorLabel.Location = new System.Drawing.Point(365, 14);
             this.nombreJugadorLabel.Name = "nombreJugadorLabel";
             this.nombreJugadorLabel.Size = new System.Drawing.Size(110, 31);
             this.nombreJugadorLabel.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             this.equipoLabel.AutoSize = true;
             this.equipoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipoLabel.Location = new System.Drawing.Point(367, 53);
+            this.equipoLabel.Location = new System.Drawing.Point(367, 55);
             this.equipoLabel.Name = "equipoLabel";
             this.equipoLabel.Size = new System.Drawing.Size(59, 20);
             this.equipoLabel.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.EdadLabel.AutoSize = true;
             this.EdadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EdadLabel.Location = new System.Drawing.Point(753, 22);
+            this.EdadLabel.Location = new System.Drawing.Point(753, 24);
             this.EdadLabel.Name = "EdadLabel";
             this.EdadLabel.Size = new System.Drawing.Size(47, 20);
             this.EdadLabel.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 71;
-            this.iconPictureBox1.Location = new System.Drawing.Point(371, 227);
+            this.iconPictureBox1.Location = new System.Drawing.Point(371, 229);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(81, 71);
             this.iconPictureBox1.TabIndex = 5;
@@ -106,7 +107,7 @@
             this.iconPictureBox2.IconColor = System.Drawing.Color.Gold;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 71;
-            this.iconPictureBox2.Location = new System.Drawing.Point(491, 227);
+            this.iconPictureBox2.Location = new System.Drawing.Point(491, 229);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(81, 71);
             this.iconPictureBox2.TabIndex = 6;
@@ -120,7 +121,7 @@
             this.iconPictureBox3.IconColor = System.Drawing.Color.Red;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 71;
-            this.iconPictureBox3.Location = new System.Drawing.Point(607, 227);
+            this.iconPictureBox3.Location = new System.Drawing.Point(607, 229);
             this.iconPictureBox3.Name = "iconPictureBox3";
             this.iconPictureBox3.Size = new System.Drawing.Size(81, 71);
             this.iconPictureBox3.TabIndex = 7;
@@ -130,7 +131,7 @@
             // 
             this.GolesLabel.AutoSize = true;
             this.GolesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GolesLabel.Location = new System.Drawing.Point(393, 314);
+            this.GolesLabel.Location = new System.Drawing.Point(393, 316);
             this.GolesLabel.Name = "GolesLabel";
             this.GolesLabel.Size = new System.Drawing.Size(51, 20);
             this.GolesLabel.TabIndex = 8;
@@ -140,7 +141,7 @@
             // 
             this.AmarillasLabel.AutoSize = true;
             this.AmarillasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AmarillasLabel.Location = new System.Drawing.Point(513, 314);
+            this.AmarillasLabel.Location = new System.Drawing.Point(513, 316);
             this.AmarillasLabel.Name = "AmarillasLabel";
             this.AmarillasLabel.Size = new System.Drawing.Size(73, 20);
             this.AmarillasLabel.TabIndex = 9;
@@ -150,7 +151,7 @@
             // 
             this.RojasLabel.AutoSize = true;
             this.RojasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RojasLabel.Location = new System.Drawing.Point(629, 314);
+            this.RojasLabel.Location = new System.Drawing.Point(629, 316);
             this.RojasLabel.Name = "RojasLabel";
             this.RojasLabel.Size = new System.Drawing.Size(50, 20);
             this.RojasLabel.TabIndex = 10;
@@ -160,7 +161,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(365, 193);
+            this.label1.Location = new System.Drawing.Point(365, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 31);
             this.label1.TabIndex = 11;
@@ -170,17 +171,38 @@
             // 
             this.precioJugadorLabel.AutoSize = true;
             this.precioJugadorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioJugadorLabel.Location = new System.Drawing.Point(365, 111);
+            this.precioJugadorLabel.Location = new System.Drawing.Point(365, 113);
             this.precioJugadorLabel.Name = "precioJugadorLabel";
             this.precioJugadorLabel.Size = new System.Drawing.Size(29, 31);
             this.precioJugadorLabel.TabIndex = 12;
             this.precioJugadorLabel.Text = "$";
+            // 
+            // volverBtn
+            // 
+            this.volverBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.volverBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.volverBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.volverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.volverBtn.ForeColor = System.Drawing.Color.White;
+            this.volverBtn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.volverBtn.IconColor = System.Drawing.Color.White;
+            this.volverBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.volverBtn.IconSize = 45;
+            this.volverBtn.Location = new System.Drawing.Point(757, 317);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(57, 45);
+            this.volverBtn.TabIndex = 16;
+            this.volverBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.volverBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.volverBtn.UseVisualStyleBackColor = false;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
             // FRMPresentacionJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 374);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.precioJugadorLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RojasLabel);
@@ -195,7 +217,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "FRMPresentacionJugador";
             this.Text = "FRMPresentacionJugador";
-            this.Load += new System.EventHandler(this.FRMPresentacionJugador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
@@ -219,5 +240,6 @@
         private System.Windows.Forms.Label RojasLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label precioJugadorLabel;
+        private FontAwesome.Sharp.IconButton volverBtn;
     }
 }

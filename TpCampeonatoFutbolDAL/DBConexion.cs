@@ -7,7 +7,7 @@ namespace TpCampeonatoFutbolDAL
 {
     public class DBConexion
     {
-        private readonly string _connectionString = "Server=localhost;Database=TPCampeonatoFutbol;Trusted_Connection=True;";
+        private readonly string _connectionString = "Server=NOTEBOOKTHIAGO\\MSSQLSERVER01;Database=TPCampeonatoFutbol;Trusted_Connection=True;";
 
         private SqlConnection iniciarConexion()
         {

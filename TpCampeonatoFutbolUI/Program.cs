@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPCampeonatoFutbol;
+using TpCampeonatoFutbolUI.Alertas;
 
 namespace TpCampeonatoFutbolUI
 {
@@ -17,6 +18,10 @@ namespace TpCampeonatoFutbolUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += (s, e) =>
+            {
+                AlertasServiceSingleton.Instance.Error(e.Exception);
+            };
             Application.Run(new FRMLogin());
         }
     }
